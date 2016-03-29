@@ -6,9 +6,13 @@
 ## New Session
 ![new-session]
 
-## RecordingsIndex / RecordingIndexItem / RecordingForm
+## RecordingsIndex
 ![recordings]
+
+## RecordingForm
 ![new-recording]
+
+## RecordingIndexItem
 ![recording]
 
 <!-- ## CommentsIndex / CommentIndexItem / CommentForm
