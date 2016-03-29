@@ -13,3 +13,143 @@
  *= require_tree .
  *= require_self
  */
+html, body, li, ul, ol, div, span, a, img, section, article, form, input {
+  border: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: 0;
+  font: inherit;
+  list-style: inherit;
+  background: transparent;
+  box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.signin-header {
+  background: #222222;
+}
+
+.signin-header-logo {
+  color: white;
+  font-size: 16px;
+  float: left;
+  padding: 20px 0px 20px 20px;
+}
+
+.signin-nav {
+  float: right;
+}
+
+.signin-nav li {
+  float: left;
+}
+
+.signin-nav a {
+  display: block;
+  padding: 20px 20px 20px 20px;
+  color: #ccc;
+  font-weight: lighter;
+}
+
+.signin-selected a {
+  background-color: white;
+  color: black;
+  border-radius: 5px 5px 0px 0;
+  padding: 10px 20px 20px 20px;
+  margin-top: 10px;
+  margin-right: 2px;
+}
+
+.signin-form {
+  max-width: 315px;
+  margin: 0 auto;
+}
+
+.signin-remote li {
+  display: block;
+  float: right;
+}
+.facebook {
+  padding: 5px 10px;
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  max-width: 140px;
+  font-size: 14px;
+
+}
+
+.google {
+  padding: 5px 10px;
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  max-width: 125px;
+  font-size: 14px;
+
+}
+
+.signin-form input, label {
+  display: block;
+  border-radius: 3px;
+}
+
+.signin-form label {
+  font-size: 14px;
+  display: block;
+  padding: 5px;
+}
+
+.signin_badge {
+  z-index: 1;
+  display: block;
+  float: left;
+  height: 15px;
+  width: 15px;
+  background-color: orange;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+.signin-form input[type=text]{
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.signin-form input[type=password]{
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.signin-form input[type=submit] {
+  margin-top: 10px;
+  background-color: #FF6000;
+  border: 0 none;
+  padding: 5px 10px;
+  color: white;
+  font-size: 14px;
+  float: right;
+
+}

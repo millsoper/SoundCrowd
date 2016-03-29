@@ -1,16 +1,22 @@
-<h2>Sign Up</h2>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= users_url %>" method="post" class="signin-form">
   <%= auth_token_input %>
+  <section class="signin-remote">
+
+  </section>
   <label>
-    Username
+    What's your email address?
     <input type="text" name="user[username]" value="">
   </label>
 
   <label>
-    Password
+    Choose a password
     <input type="password" name="user[password]" value="">
   </label>
+  <label>
+    Re-type password
+    <input type="password" name="user[checkpassword]" value="">
+  </label>
 
-  <input type="submit" value="Sign Up">
+  <input type="submit" value= "Create account">
 </form>

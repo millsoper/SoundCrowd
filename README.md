@@ -13,7 +13,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Record and delete audio clips
+- [ ] Upload and delete audio clips
 - [ ] Listen to audio clips
 - [ ] Tag one's own recordings
 - [ ] Create playlists
@@ -39,11 +39,11 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
+- [X] create new project
+- [X] create `User` model
 - [ ] authentication
 - [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [X] blank landing page after signin
 
 ### Phase 2: Recordings Model, API, and basic APIUtil (1.5 days)
 
@@ -119,15 +119,7 @@ which has its own `Index` view.
   - [ ] viewing Comments by Recording
 - Use CSS to style new views
 
-### Phase 8: Allow Complex Styling in Comments (0.5 days)
-
-**objective:** Enable complex styling of notes.
-
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-
-### Phase 9: Styling Cleanup and Seeding (1 day)
+### Phase 8: Styling Cleanup and Seeding (1 day)
 
 **objective:** Make the site feel more cohesive and awesome.
 
@@ -141,6 +133,7 @@ which has its own `Index` view.
 - [ ] Make Comments at specific junctures in Recordings
 - [ ] Make Comments searchable by blocks of text
 - [ ] Exchange messages with other users
+- [ ] Record messages on site
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
