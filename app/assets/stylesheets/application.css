@@ -130,8 +130,8 @@ body {
   height: 49px;
   width: 49px;
   background-color: orange;
-  margin-right: 0;
-  margin-left: 20px;
+  margin-right: -10px;
+  margin-left: 0px;
 }
 
 .signin_badge {
@@ -236,12 +236,7 @@ body {
   color: white;
 }
 
-.upload {
-  margin-top: 2px;
-}
-.upload a {
-  color: #ddd;
-}
+
 
 .upload a:hover {
   color: white;
@@ -259,4 +254,14 @@ body {
 .username {
   margin-top: 2px;
 
+}
+
+.upload {
+  margin-top: 2px;
+  padding: 0;
+}
+.upload a {
+  color: #ddd;
+  padding: 0;
+  margin-left: -10px;
 }
