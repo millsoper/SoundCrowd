@@ -9,12 +9,16 @@
 <body>
 
 <% if signed_in? %>
-  <header class="signin-header group">
-    <div class="signin-header-logo">
-      SoundCrowd
-    </div>
-    <ul>
-      <li><%= current_user.username %></li>
+  <header class="signedin-header group">
+    <strong class="signedin_badge"></strong>
+    <ul class="home-nav">
+      <li><a href="#">Collections</a></li>
+      <li><a class="nav-selected" href="#">Home</a></li>
+    </ul>
+    <ul class="signedin-nav">
+      <li class="searchdiv"><input type="text" placeholder="Search" class="searchbar"></input></li>
+      <strong class="signedin_badge circle"></strong>
+      <li class="username"><%= current_user.username %></li>
       <li><%= button_to "Sign Out", session_url, :method => :delete %></li>
     <ul>
   </header>

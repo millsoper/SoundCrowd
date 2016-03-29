@@ -47,6 +47,10 @@ body {
   background: #222222;
 }
 
+.signedin-header {
+  background: #333333;
+}
+
 .signin-header-logo {
   color: white;
   font-size: 16px;
@@ -97,6 +101,7 @@ body {
 
 }
 
+
 .google {
   padding: 5px 10px;
   background-color: red;
@@ -116,6 +121,17 @@ body {
   font-size: 14px;
   display: block;
   padding: 5px;
+}
+
+.signedin_badge {
+  z-index: 1;
+  display: block;
+  float: left;
+  height: 49px;
+  width: 49px;
+  background-color: orange;
+  margin-right: 0;
+  margin-left: 20px;
 }
 
 .signin_badge {
@@ -152,4 +168,71 @@ body {
   font-size: 14px;
   float: right;
 
+}
+
+.signedin-nav {
+  float: right;
+  width: 68%;
+}
+
+.signedin-nav li {
+  display: block;
+  padding: 12px 20px;
+  float: left;
+  color: #fff;
+}
+
+.signedin-nav li input{
+  display: block;
+  float: left;
+  color: #fff;
+}
+.username {
+  margin-top: 2px;
+}
+
+.playlistindex {
+  text-align: center;
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: orangered;
+  height: 25px;
+  width: 25px;
+  margin-top: 10px;
+}
+
+.home-nav {
+  float: left;
+  padding-left: 0;
+  margin-right: -25px;
+}
+
+.home-nav li {
+  float: right;
+  border-right: 1px solid #222;
+}
+
+.home-nav a {
+  color: #ccc;
+  display: block;
+  padding: 15px 30px;
+}
+.nav-selected {
+  background-color: #222;
+}
+
+.home-nav a:hover {
+  color: white;
+}
+
+.searchdiv input[type=text] {
+  width: 320px;
+  height: 15px;
+  background: #eee;
+  border-radius: 3px;
+  padding: 5px;
+  float: left;
+  color: #222;
 }
