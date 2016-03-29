@@ -179,16 +179,25 @@ body {
   display: block;
   padding: 12px 20px;
   float: left;
-  color: #fff;
+  color: #ddd;
+}
+
+.username:hover {
+  color: white;
 }
 
 .signedin-nav li input{
   display: block;
   float: left;
-  color: #fff;
+  color: #ddd;
+}
+
+.signedin-nav li input:hover {
+  color: white;
 }
 .username {
   margin-top: 2px;
+  padding-left: 5px;
 }
 
 .playlistindex {
@@ -227,12 +236,27 @@ body {
   color: white;
 }
 
+.upload {
+  margin-top: 2px;
+}
+.upload a {
+  color: #ddd;
+}
+
+.upload a:hover {
+  color: white;
+}
+
 .searchdiv input[type=text] {
-  width: 320px;
+  width: 300px;
   height: 15px;
   background: #eee;
   border-radius: 3px;
   padding: 5px;
   float: left;
   color: #222;
+}
+.username {
+  margin-top: 2px;
+
 }

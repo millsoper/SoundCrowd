@@ -17,6 +17,7 @@
     </ul>
     <ul class="signedin-nav">
       <li class="searchdiv"><input type="text" placeholder="Search" class="searchbar"></input></li>
+      <li class="upload"><a href="#">Upload</a></li>
       <strong class="signedin_badge circle"></strong>
       <li class="username"><%= current_user.username %></li>
       <li><%= button_to "Sign Out", session_url, :method => :delete %></li>

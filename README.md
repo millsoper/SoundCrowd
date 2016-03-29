@@ -41,8 +41,8 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [X] create new project
 - [X] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
+- [X] authentication
+- [X] user signup/signin pages
 - [X] blank landing page after signin
 
 ### Phase 2: Recordings Model, API, and basic APIUtil (1.5 days)
