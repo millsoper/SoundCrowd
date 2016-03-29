@@ -30,15 +30,15 @@
 - `PATCH /api/recordings/:id`
 - `DELETE /api/recordings/:id`
 
-### Genres
+### Playlists
 
-- `GET /api/genres`
-- `POST /api/genres`
-- `GET /api/genres/:id`
-- `PATCH /api/genres/:id`
-- `DELETE /api/genres/:id`
-- `GET /api/genres/:id/notes`
-  - index of all recordings for a genre
+- `GET /api/playlists`
+- `POST /api/playlists`
+- `GET /api/playlists/:id`
+- `PATCH /api/playlists/:id`
+- `DELETE /api/playlists/:id`
+- `GET /api/playlists/:id/recordings`
+  - index of all recordings for a playlist
 
 ### Comments
 

@@ -10,7 +10,7 @@ author_id   | integer   | not null, foreign key (references users), indexed
 genre_id    | integer   | not null, foreign key (references genres), indexed
 archived    | boolean   | not null, default: false
 
-## genres
+## playlists
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

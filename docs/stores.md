@@ -23,27 +23,27 @@ Holds un-persisted recording data to send to the API.
 ##### Listeners:
 - `RecordingForm`
 
-### GenreStore
+### PlaylistStore
 
-Holds all persisted genre data.
-
-##### Actions:
-- `receiveAllGenres`
-- `receiveSingleGenre`
-- `removeGenre`
-
-##### Listeners:
-- `GenreIndex`
-
-### GenreFormStore
-
-Holds un-persisted genre data to send to the API.
+Holds all persisted playlist data.
 
 ##### Actions:
-- `receiveGenreFormParams`
+- `receiveAllPlaylists`
+- `receiveSinglePlaylist`
+- `removePlaylist`
 
 ##### Listeners:
-- `GenreForm`
+- `PlaylistIndex`
+
+### PlaylistFormStore
+
+Holds un-persisted playlist data to send to the API.
+
+##### Actions:
+- `receivePlaylistFormParams`
+
+##### Listeners:
+- `PlaylistForm`
 
 ### SearchStore
 

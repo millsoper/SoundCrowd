@@ -12,14 +12,14 @@
 <!-- ## CommentsIndex / CommentIndexItem / CommentForm
 ![comments] -->
 
-## GenresIndex / GenreIndexItem
-![genres]
+## PlayListIndex / PlayListIndexItem
+![playlists]
 
-## GenreForm
-![genre-form]
+## PlaylistsForm
+![playlist-form]
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
 [notes]: ./wireframes/root_recordings.png
-[genres]: ./wireframes/root_genres.png
-[genre-form]: ./wireframes/genre_form.png
+[playlists]: ./wireframes/root_playlists.png
+[playlist-form]: ./wireframes/playlist_form.png

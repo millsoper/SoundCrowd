@@ -2,9 +2,9 @@
 
 * `App`
   * `SearchIndex`
-  * `GenresIndex`
-    * `GenresIndexItem`
-  * `GenreForm`
+  * `PlaylistsIndex`
+    * `PlaylistIndexItem`
+  * `PlaylistForm`
   * `RecordingsIndex`
     * `RecordingForm`
     * `RecordingIndexItem`

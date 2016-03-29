@@ -1,4 +1,4 @@
-# Phase 3: Genres and Tags (2 days)
+# Phase 3: Playlists and Tags (2 days)
 
 ## Rails
 ### Models
@@ -7,38 +7,38 @@
 * Tagging
 
 ### Controllers
-* Api::GenresController (create, destroy, index, show, update)
+* Api::PlaylistsController (create, destroy, index, show, update)
 
 ### Views
-* genres/index.json.jbuilder
-* genres/show.json.jbuilder
+* playlists/index.json.jbuilder
+* playlists/show.json.jbuilder
 * tags/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* GenresIndex
-  - GenresIndexItem
-* GenreForm
+* PlaylistsIndex
+  - PlaylistsIndexItem
+* PlaylistForm
 * SearchIndex
 
 ### Stores
-* Genre
+* Playlist
 
 ### Actions
-* ApiActions.receiveAllGenres -> triggered by ApiUtil
-* ApiActions.receiveSingleGenre
-* ApiActions.deleteGenre
-* GenreActions.fetchAllGenres -> triggers ApiUtil
-* GenreActions.fetchSingleGenre
-* GenreActions.createGenre
-* GenreActions.editGenre
-* GenreActions.destroyGenre
+* ApiActions.receiveAllPlaylists -> triggered by ApiUtil
+* ApiActions.receiveSinglePlaylist
+* ApiActions.deletePlaylist
+* PlaylistActions.fetchAllPlaylists -> triggers ApiUtil
+* PlaylistActions.fetchSinglePlaylist
+* PlaylistActions.createPlaylist
+* PlaylistActions.editPlaylist
+* PlaylistActions.destroyPlaylist
 
 ### ApiUtil
-* ApiUtil.fetchAllGenres
-* ApiUtil.fetchSingleGenre
-* ApiUtil.createGenre
-* ApiUtil.editGenre
-* ApiUtil.destroyGenre
+* ApiUtil.fetchAllPlaylists
+* ApiUtil.fetchSinglePlaylist
+* ApiUtil.createPlaylist
+* ApiUtil.editPlaylist
+* ApiUtil.destroyPlaylist
 
 ## Gems/Libraries
