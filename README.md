@@ -1,24 +1,24 @@
-# FresherNote
+# SoundCrowd
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://soundcrowd-.herokuapp.com/
 
 ## Minimum Viable Product
 
-SoundCrowd is a web application for recording and listening to oral history, inspired by Soundcloud and built using Ruby on Rails
-and React.js. SoundCrowd allows users to:
+SoundCrowd is a web application for recording, searching and listening to oral history, inspired by Soundcloud and built using Ruby on Rails and React.js. SoundCrowd allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Record, listen to, comment and delete audio clips
-- [ ] Organize and search recordings by Genre tags
-- [ ] Annotate recordings with comments
-- [ ] Follow streams of favorite users or Genres
-- [ ] Exchange messages with other users
+- [ ] Record and delete audio clips
+- [ ] Listen to audio clips
+- [ ] Tag one's own recordings
+- [ ] Create playlists
+- [ ] Search recordings by tags
+- [ ] Annotate any recording with comments
 
 ## Design Docs
 * [View Wireframes][views]
@@ -79,19 +79,19 @@ the API.
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Recording Genres (1 day)
+### Phase 5: Recording Playlists (1 day)
 
-**Objective:** Recordings belong to Genres, and can be viewed by Genre.
+**Objective:** Recordings belong to Playlists and can be viewed by Playlist.
 
-- [ ] create `Genre` model
+- [ ] create `Playlist` model
 - build out API, Flux loop, and components for:
-  - [ ] Genre CRUD
+  - [ ] Playlist CRUD
   - [ ] adding Recording requires either a notebook or a User
-  - [ ] moving recordings to a different Genre
-  - [ ] viewing recordings by Genre
+  - [ ] moving recordings to a different Playlist
+  - [ ] viewing recordings by Playlist
 - Use CSS to style new views
 
-Phase 3 adds organization to the Recordings. Recordings belong to a Genre,
+Phase 3 adds organization to the Recordings. Recordings belong to a Playlist,
 which has its own `Index` view.
 
 ### Phase 6: Tags (1.5 days)
@@ -136,9 +136,11 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Pagination / infinite scroll for Recordings Index
+- [ ] Follow streams of favorite users or tags
+- [ ] Pagination / infinite scroll for Recordings Index/Stream
 - [ ] Make Comments at specific junctures in Recordings
 - [ ] Make Comments searchable by blocks of text
+- [ ] Exchange messages with other users
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
