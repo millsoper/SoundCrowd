@@ -35,6 +35,7 @@ a {
 
 body {
   font-family: sans-serif;
+
 }
 
 .group:after {
@@ -45,17 +46,33 @@ body {
 
 .signin-header {
   background: #222222;
+  font-weight: lighter;
 }
 
 .signedin-header {
   background: #333333;
+  font-weight: lighter;
 }
 
 .signin-header-logo {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   float: left;
-  padding: 20px 0px 20px 20px;
+  padding: 0 0px 0px 20px;
+}
+
+.signin-header-logo p {
+  display: block;
+  float: right;
+  margin-top: 23px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.signin-header-logo img {
+  height: 30px;
+  width: auto;
+  margin-top: 15px;
 }
 
 .signin-nav {
@@ -127,11 +144,25 @@ body {
   z-index: 1;
   display: block;
   float: left;
-  height: 49px;
-  width: 49px;
-  background-color: orange;
-  margin-right: -10px;
-  margin-left: 0px;
+  height: 38px;
+  width: 60px;
+  padding: 9px 3px 3px 10px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#f08080, darkorange); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#f08080, darkorange); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#f08080, darkorange); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#f08080, darkorange); /* Standard syntax */
+  margin-left: 20px;
+}
+
+
+#grad {
+
+}
+
+.signedin_badge img {
+  width: 52px;
+  height: 28px;
 }
 
 .signin_badge {
@@ -145,7 +176,10 @@ body {
   margin: 10px;
   margin-right: 0;
   margin-left: 20px;
+  position: relative;
 }
+
+
 
 .signin-form input[type=text]{
   width: 300px;
@@ -209,7 +243,7 @@ body {
   background-color: orangered;
   height: 25px;
   width: 25px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .home-nav {
@@ -250,6 +284,14 @@ body {
   padding: 5px;
   float: left;
   color: #222;
+  position: relative;
+}
+
+.searchdiv img {
+  position: absolute;
+  max-height: 18px;
+  margin-left: -23px;
+  margin-top: 3px;
 }
 .username {
   margin-top: 2px;

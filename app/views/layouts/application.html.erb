@@ -10,13 +10,19 @@
 
 <% if signed_in? %>
   <header class="signedin-header group">
-    <strong class="signedin_badge"></strong>
+    <strong class="signedin_badge">
+    <%= image_tag "cloud-icon.png"%>
+    </strong>
     <ul class="home-nav">
       <li><a href="#">Collections</a></li>
       <li><a class="nav-selected" href="#">Home</a></li>
     </ul>
     <ul class="signedin-nav">
-      <li class="searchdiv"><input type="text" placeholder="Search" class="searchbar"></input></li>
+      <li class="searchdiv">
+        <input type="text" placeholder="Search" class="searchbar">
+          <%= image_tag "search-icon.png" %>
+        </input>
+      </li>
       <li class="upload"><a href="#">Upload</a></li>
       <strong class="signedin_badge circle"></strong>
       <li class="username"><%= current_user.username %></li>
@@ -25,9 +31,9 @@
   </header>
 <% else %>
   <header class="signin-header group">
-    <strong class="signin_badge"></strong>
     <div class="signin-header-logo">
-      SoundCrowd
+      <%= image_tag "cloud-icon.png"%>
+      <p>SoundCrowd</p>
     </div>
     <ul class="signin-nav">
       <li class="signin-nav-items"><%= link_to "Create Account", new_user_url %></li>
