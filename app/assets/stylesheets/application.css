@@ -47,6 +47,7 @@ body {
 .signin-header {
   background: #222222;
   font-weight: lighter;
+
 }
 
 .signedin-header {
@@ -306,4 +307,191 @@ body {
   color: #ddd;
   padding: 0;
   margin-left: -10px;
+}
+
+/***** HOME PAGE *******/
+html {
+  background-color: #eee;
+}
+.content {
+  background-color: white;
+  margin: -17px 20px;
+  padding: 25px;
+  height: 100%;
+}
+
+.body-nav {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: -1px;
+}
+
+.home-body h4 {
+  font-weight: normal;
+}
+
+.home-body section {
+  border-top: 1px solid #ccc;
+}
+
+.body-nav ul {
+  float: left;
+  padding: 0;
+  font-size:
+}
+
+.body-nav li {
+  float: right;
+}
+
+.body-nav a {
+  display: block;
+  padding: 10px 20px;
+}
+.form-content-header {
+  width: 600px;
+  margin: 0 auto;
+}
+.form-content {
+  background: white;
+  width: 600px;
+  margin: 0 auto;
+  padding: 40px 10px;
+  margin-top: -18px;
+
+}
+
+.body-nav-selected {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
+
+.playbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #ccc;
+}
+
+.track-image {
+  float: left;
+  height: 50px;
+  width: 50px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#FF9900, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#FF9900, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#FF9900, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#FF9900, yellow); /* Standard syntax */
+  margin-right: 10px;
+}
+
+.recording-index-item {
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+.detail-pic {
+  float: right;
+  width: 300px;
+  height: 300px;
+  background-color: gray;
+}
+.detail-info {
+  float: left;
+  margin-top: 65px;
+  margin-left: 70px;
+  width: 180px;
+}
+
+.detail-info ul {
+  float:right;
+  padding-left: 5px;
+}
+.detail-info li{
+  display: block;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+.big-play-button {
+  height: 65px;
+  width: 65px;
+  background-color: orange;
+  padding: 0;
+  margin-top: 5px;
+  float: left;
+  border-radius: 50%
+}
+
+.detailblock {
+  margin: -26px;
+  overflow: hidden;
+  background-color: #aaa;
+}
+
+.detailblock img{
+  width: 120%;
+  height: auto;
+}
+
+.show-side-bar {
+  margin-top: 35px;
+  float: right;
+  width: 185px;
+  height: 200px;
+  border-left: 1px solid #ccc;
+
+}
+
+.show-side-bar h4 {
+  display: block;
+  margin: 0 15px;
+}
+
+.show-side-bar a {
+  color: black;
+}
+
+.author-info {
+  float: left;
+  max-width: 225px;
+  margin-top: 25px;
+}
+
+.author-profile-pic {
+  margin-top: 45px;
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #ddd;
+  color: #aaa;
+}
+
+.author-profile-pic p{
+  padding-top: 20px
+}
+
+.author-name {
+  text-align: center;
+  margin-top: 10px;
+  color: #555;
+}
+
+.play-footer {
+  height: 40px;
+  background-color: #777;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.play-footer p {
+  text-align: center;
+  color: white;
 }

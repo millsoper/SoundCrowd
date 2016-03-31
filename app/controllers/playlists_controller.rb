@@ -14,6 +14,10 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+
+  end
+
+  def index
     
   end
 

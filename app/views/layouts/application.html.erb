@@ -9,6 +9,7 @@
 <body>
 
 <% if signed_in? %>
+
   <header class="signedin-header group">
     <strong class="signedin_badge">
     <%= image_tag "cloud-icon.png"%>
@@ -31,14 +32,16 @@
   </header>
 <% else %>
   <header class="signin-header group">
-    <div class="signin-header-logo">
-      <%= image_tag "cloud-icon.png"%>
-      <p>SoundCrowd</p>
+    <div class="form-content-header">
+      <div class="signin-header-logo">
+        <%= image_tag "cloud-icon.png"%>
+        <p>SoundCrowd</p>
+      </div>
+      <ul class="signin-nav">
+        <li class="signin-nav-items"><%= link_to "Create Account", new_user_url %></li>
+        <li class="signin-selected signin-nav-items"><%= link_to "Sign In", new_session_url %></li>
+      </ul>
     </div>
-    <ul class="signin-nav">
-      <li class="signin-nav-items"><%= link_to "Create Account", new_user_url %></li>
-      <li class="signin-selected signin-nav-items"><%= link_to "Sign In", new_session_url %></li>
-    </ul>
   </header>
 <% end %>
 

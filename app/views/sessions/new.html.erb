@@ -1,18 +1,19 @@
 
+<div class="form-content group">
+  <form action="<%= session_url %>" method="post" class="signin-form">
+    <%= auth_token_input %>
+    <ul class="signin-remote">
+    </ul>
+    <label>
+      Your email address
+      <input type="text" name="user[username]" value="">
+    </label>
 
-<form action="<%= session_url %>" method="post" class="signin-form">
-  <%= auth_token_input %>
-  <ul class="signin-remote"> 
-  </ul>
-  <label>
-    Your email address
-    <input type="text" name="user[username]" value="">
-  </label>
+    <label>
+      Your password
+      <input type="password" name="user[password]" value="">
+    </label>
 
-  <label>
-    Your password
-    <input type="password" name="user[password]" value="">
-  </label>
-
-  <input type="submit" value= "Sign in">
-</form>
+    <input type="submit" value= "Sign in">
+  </form>
+<div>
