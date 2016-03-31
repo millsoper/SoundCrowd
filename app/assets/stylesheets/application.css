@@ -205,6 +205,14 @@ body {
   width: 68%;
 }
 
+.nav-username {
+  color: #ddd;
+}
+
+.nav-username:hover {
+  color: white;
+}
+
 .signedin-nav li {
   display: block;
   padding: 12px 20px;
@@ -247,6 +255,8 @@ body {
   padding-left: 0;
   margin-right: -25px;
 }
+
+
 
 .home-nav li {
   float: right;
@@ -312,6 +322,7 @@ html {
   background-color: white;
   margin: -17px 20px;
   padding: 25px;
+  padding-bottom: 0;
   height: 100%;
 }
 
@@ -436,19 +447,68 @@ html {
   margin-top: 35px;
   float: right;
   width: 185px;
-  height: 200px;
   border-left: 1px solid #ccc;
+  background-color: white;
+  width: 275px;
+  height: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
 
 }
 
-.show-side-bar h4 {
+.side-bar-content {
+
+  min-height: 100px;
+}
+
+.sidebar-list-item {
+  padding: 20px 0;
+  margin: 10px;
+  margin-left: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidebar-list-item a {
+  display: block;
+  padding-top: 5px;
+  color: #444;
+  font-size: 14px;
+}
+.sidebar-list-item span {
+  margin-left: 5px;
+
+}
+
+.sidebar-pic {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  float: left;
+}
+.sidebar-pic img {
+  height: 100%;
+}
+.sidebar-list-item a:hover{
+  color: darkorange;
+}
+
+.sidebar-list-item a:active {
+  color: orange;
+}
+
+
+
+
+.show-side-bar > h4 {
   display: block;
   margin: 0 15px;
+  font-weight: normal;
+  border-bottom: 1px solid #ccc;
+  color: #444;
+  padding-bottom: 5px;
+  font-size: 16px;
 }
 
-.show-side-bar a {
-  color: black;
-}
 
 .author-info {
   float: left;
@@ -478,6 +538,7 @@ html {
   text-align: center;
   margin-top: 10px;
   color: #555;
+  margin-bottom: 15px;
 }
 
 .play-footer {
@@ -491,5 +552,69 @@ html {
 
 .play-footer p {
   text-align: center;
+  color: white;
+}
+
+.new-recording-form input{
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px;
+  width: 275px;
+}
+
+.new-recording-form h3 {
+  color: #555;
+  font-weight: normal;
+  padding-left: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.new-recording-form label {
+  color: #555;
+}
+
+.new-recording-form input[type=submit] {
+  width: 120px;
+  color: #555;
+}
+
+.new-recording-form ul {
+  margin-top: 25px;
+  float: left;
+}
+
+.new-recording-form ul li{
+  float: right;
+}
+
+.new-recording-form button {
+  margin-top: 10px;
+  border-radius: 0;
+}
+
+.upload-track-pic {
+  height: 300px;
+  width: 300px;
+  background: -webkit-linear-gradient(lightgray, orangered); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(lightgray, orangered); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(lightgray, orangered); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(lightgray, orangered); /* Standard syntax */
+  float: left;
+  margin-right: 30px;
+}
+
+.upload-track-pic p {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20%;
+  color: #555;
+  border: 1px solid #555;
+  width: 122px;
+  padding: 10px 20px;
+}
+
+.upload-track-pic p:hover {
+  border: 1px solid white;
   color: white;
 }

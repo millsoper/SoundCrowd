@@ -2,7 +2,6 @@ var React = require('react');
 var ReactRouter = require('react-router');
 
 var IndexItem = React.createClass({
-  mixins: [ReactRouter.history],
   render: function(){
     var recording = this.props.recording;
     return (

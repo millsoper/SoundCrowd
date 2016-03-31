@@ -8,6 +8,9 @@ var ApiUtil = {
       ApiActions.receiveAll(recordings);
     });
   },
+  fetchRecording: function(){
+
+  },
   createRecording: function(data){
     $.post('api/recordings', { recording: data }, function(recording) {
       ApiActions.receiveAll([recording]);

@@ -13,7 +13,10 @@ var React = require('react'),
 
 var RecordingShow = React.createClass({
   contextTypes: {
-    router: React.PropTypes.func
+    router: React.PropTypes.object.isRequired
+  },
+  componentWillReceiveProps: function (newProps) {
+   ApiUtil.fetchRecordings(parseInt(newProps.params.recordingId));
   },
   getInitialState: function () {
     var recordingId = this.props.params.recordingId;
@@ -21,25 +24,31 @@ var RecordingShow = React.createClass({
     return { recording: recording };
   },
   _findRecordingById: function (id) {
-    var res;
+    var foundTrack;
+    var otherTracks = [];
      RecordingStore.all().forEach(function (recording) {
       if (id == recording.id) {
-        res = recording;
+        foundTrack = recording;
+      } else {
+        otherTracks.push(recording);
       }
     }.bind(this));
-     return res;
+     return [foundTrack, otherTracks];
   },
   componentDidMount: function () {
     this.recordingListener = RecordingStore.addListener(this._recordingChanged);
-    ApiUtil.fetchRecording();
+    ApiUtil.fetchRecordings();
   },
   componentWillUnmount: function () {
     this.recordingListener.remove();
   },
   _recordingChanged: function () {
     var recordingId = this.props.params.recordingId;
-    var recording = this._findRecordingById(recordingId);
-    this.setState({ recording: recording });
+    var allRecordings = this._findRecordingById(recordingId);
+    var recording = allRecordings[0];
+    var otherRecordings = allRecordings[1];
+    this.setState({ recording: recording});
+    this.setState({otherRecordings: otherRecordings });
   },
   render: function () {
 
@@ -56,8 +65,8 @@ var RecordingShow = React.createClass({
             <div  className = "detail-pic" ><img src={this.state.recording.url}/></div>
           </div>
           <section className="show-side-bar">
-            <h4><a href="/" >Back to Track Index</a></h4>
-            <SideBar/>
+            <h4>More Tracks By This Artist</h4>
+            <SideBar author_id={this.state.recording.user_id} otherRecordings={this.state.otherRecordings}/>
           </section>
           <section className="author-info">
             <AuthorInfo author={this.state.recording.username}/>

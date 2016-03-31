@@ -24,9 +24,9 @@
           <%= image_tag "search-icon.png" %>
         </input>
       </li>
-      <li class="upload"><a href="#">Upload</a></li>
+      <li class="upload"><a href="#/recordings/new">Upload</a></li>
       <strong class="signedin_badge circle"></strong>
-      <li class="username"><%= current_user.username %></li>
+      <li class="username"><a href="#/users/<%= current_user.id%>" class="nav-username"><%= current_user.username %></a></li>
       <li><%= button_to "Sign Out", session_url, :method => :delete %></li>
     <ul>
   </header>

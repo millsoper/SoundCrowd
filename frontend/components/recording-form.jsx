@@ -5,13 +5,15 @@ var React = require('react'),
 var RecordingForm = React.createClass({
   mixins: [LinkedStateMixin],
   contextTypes: {
-    router: React.PropTypes.func
+    router: React.PropTypes.object.isRequired
   },
   getInitialState: function(){
     return {
       title: "",
-      description: "",
-
+      body: "",
+      user_id:"",
+      username:"",
+      url: ""
     };
   },
   handleSubmit: function(event){
@@ -29,24 +31,31 @@ var RecordingForm = React.createClass({
   },
   render: function(){
     return (
-        <div>
+        <div className="new-recording-form">
           <h3>Add a Recording</h3>
           <form onSubmit={this.handleSubmit}>
+            <div className="upload-track-pic"><p>Upload A Picture</p></div>
             <label>Title</label>
-            <input type="text" valueLink={this.linkState('title')}/>
+              <input type="text" valueLink={this.linkState('title')}/>
             <br/>
             <label>Image Url</label>
-            <input min='0' type="text" valueLink={this.linkState('image_url')}/>
+              <input min='0' type="text" valueLink={this.linkState('url')}/>
             <br/>
             <label>Body</label>
-            <input min='0' type="text" valueLink={this.linkState('body')}/>
+              <input min='0' type="text" valueLink={this.linkState('body')}/>
             <br/>
-            <label>Longitude</label>
-            <input type="text" disabled="true"/>
+            <label>UserID</label>
+              <input min='0' type="text" valueLink={this.linkState('user_id')}/>
             <br/>
-            <input type="submit" value="create recording"/>
+            <label>Username</label>
+              <input min='0' type="text" valueLink={this.linkState('username')}/>
+            <br/>
+            <ul>
+              <li><input type="submit" value="create recording"/></li>
+              <li><button onClick={this.handleCancel}>Cancel</button></li>
+            </ul>
           </form>
-          <button onClick={this.handleCancel}>Cancel</button>
+
         </div>
     );
   }

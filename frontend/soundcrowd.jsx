@@ -1,6 +1,7 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
     Router = require('react-router').Router,
+    HashHistory = require('react-router').hashHistory,
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
     RecordingForm = require('./components/recording-form.jsx'),
@@ -9,6 +10,7 @@ var React = require('react'),
     Index = require('./components/index.jsx'),
     RecordingShow = require('./components/recording-show.jsx'),
     Home = require('./components/home.jsx'),
+    UserShow = require('./components/user-show.jsx'),
     App = React.createClass({
       render: function(){
         return (
@@ -26,13 +28,14 @@ var React = require('react'),
           <Route path="recordings/new" component={RecordingForm}/>
           <Route path="recordings" component={RecordingIndex}/>
           <Route path="recordings/:recordingId" component={RecordingShow}/>
+          <Route path="users/:userId" component={UserShow}/>
       </Route>
     );
 
 
     document.addEventListener("DOMContentLoaded", function () {
       ReactDOM.render(
-        <Router>{routes}</Router>,
+        <Router history={ HashHistory }>{routes}</Router>,
         document.getElementById('root')
       );
     });

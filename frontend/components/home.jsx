@@ -10,7 +10,7 @@ function _getAllRecordings() {
 
 var Home = React.createClass({
   contextTypes: {
-    router: React.PropTypes.func
+    router: React.PropTypes.object.isRequired
   },
   _recordingsChanged: function(){
     this.setState({recordings: _getAllRecordings()});
@@ -28,14 +28,13 @@ var Home = React.createClass({
     this.recordingListener.remove();
   },
   handleRecordingClick: function (recording) {
-    this.props.history.pushState(null, "recordings/" + recording.id);
+    this.context.router.push("recordings/" + recording.id);
   },
   render: function(){
     return(
       <div>
-
         <div className="half">
-          <Index recordings={this.state.recordings} history={this.props.history} />
+          <Index recordings={this.state.recordings}/>
         </div>
       </div>
     );
