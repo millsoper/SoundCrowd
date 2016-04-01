@@ -8,6 +8,6 @@ var ApiActions = {
       recordings: recordings
     });
   }
-}
+};
 
 module.exports = ApiActions;

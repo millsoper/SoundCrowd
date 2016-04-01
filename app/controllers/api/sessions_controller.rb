@@ -13,7 +13,6 @@ class Api::SessionsController < ApplicationController
       params[:name],
       params[:password]
     )
-
     if user && user.valid_password?(params[:password])
       log_in!(user)
       render json: user

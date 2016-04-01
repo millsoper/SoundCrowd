@@ -30,29 +30,33 @@ var React = require('react'),
 
         componentDidMount: function() {
           this.sessionStoreToken = SessionStore.addListener(this.handleChange);
-          this.handleChange();
+          ApiUtil.fetchCurrentUser();
         },
 
         componentWillUnmount: function() {
           this.sessionStoreToken.remove();
         },
 
-      handleChange: function() {
+        handleChange: function() {
         if (SessionStore.isLoggedIn()) {
           this.setState({ currentUser: SessionStore.currentUser() });
         } else {
           this.context.router.push("/login");
-        }
-      },
-      render: function () {
+          }
+        },
+        componentWillReceiveProps: function (newProps) {
+         ApiUtil.fetchCurrentUser();
+        },
+
+        render: function () {
         var button, user;
 
-        if (this.state.currentUser) {
+        if (SessionStore.isLoggedIn()) {
           button = <button onClick={ApiUtil.logout}>Logout</button>;
           user = this.state.currentUser;
           }
         var content;
-        if (this.state.currentUser) {
+        if (SessionStore.isLoggedIn()) {
           return (
             <div>
               <header className="signedin-header group">
@@ -71,7 +75,7 @@ var React = require('react'),
                   </li>
                   <li className="upload"><a href="#/recordings/new">Upload</a></li>
                   <strong className="signedin_badge circle"></strong>
-                    <li className="username"><a href="#/users/" className="nav-username"></a></li>
+                    <li className="username"><a href="#/users/" className="nav-username">{user.username}</a></li>
                     <li>{button}</li>
                 </ul>
               </header>
@@ -92,12 +96,12 @@ var React = require('react'),
 
     var routes = (
       <Route path="/" component={App}>
+        <Route path="/login" component={LoginForm}/>
         <IndexRoute component={Home}/>
           <Route path="recordings/new" component={RecordingForm}/>
           <Route path="recordings" component={RecordingIndex} onEnter={_requireLoggedIn}/>
           <Route path="recordings/:recordingId" component={RecordingShow}/>
           <Route path="users/:userId" component={UserShow}/>
-          <Route path="/login" component={LoginForm}/>
           <Route path="/signup" component={SignupForm}/>
       </Route>
 

@@ -64,16 +64,18 @@ var RecordingShow = React.createClass({
             </div>
             <div  className = "detail-pic" ><img src={this.state.recording.url}/></div>
           </div>
-          <section className="show-side-bar">
-            <h4>More Tracks By This Artist</h4>
-            <SideBar author_id={this.state.recording.user_id} otherRecordings={this.state.otherRecordings}/>
-          </section>
-          <section className="author-info">
-            <AuthorInfo author={this.state.recording.username}/>
-          </section>
-          <section>
-            <PlayFooter current_song={this.state.recording.title}/>
-          </section>
+          <div className="home-body group">
+            <section className="show-side-bar">
+              <h4>More Tracks By This Artist</h4>
+              <SideBar author_id={this.state.recording.user_id} otherRecordings={this.state.otherRecordings}/>
+            </section>
+            <section className="author-info">
+              <AuthorInfo author={this.state.recording.username}/>
+            </section>
+            <section>
+              <PlayFooter current_song={this.state.recording.title}/>
+            </section>
+          </div>
         </div>
       );
   }
