@@ -1,4 +1,4 @@
-class PlaylistsController < ApplicationController
+class Api::PlaylistsController < ApplicationController
   def new
     @playlist = Playlist.new
   end
@@ -18,7 +18,7 @@ class PlaylistsController < ApplicationController
   end
 
   def index
-    
+
   end
 
   private

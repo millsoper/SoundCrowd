@@ -47,7 +47,6 @@ body {
 .signin-header {
   background: #222222;
   font-weight: lighter;
-
 }
 
 .signedin-header {
@@ -58,14 +57,14 @@ body {
 .signin-header-logo {
   color: white;
   font-size: 14px;
-  float: left;
   padding: 0 0px 0px 20px;
+  float: left;
 }
 
 .signin-header-logo p {
   display: block;
   float: right;
-  margin-top: 23px;
+  margin-top: 25px;
   margin-left: 10px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -74,26 +73,28 @@ body {
   height: 30px;
   width: auto;
   margin-top: 15px;
-}
-
-.signin-nav {
-  float: right;
-}
-
-.signin-nav li {
   float: left;
 }
 
-.signin-nav a {
+.signin-nav ul {
+  float: right;
+}
+
+.signin-nav ul li{
   display: block;
+  float: left;
   padding: 20px 20px 20px 20px;
   color: #ccc;
   font-weight: lighter;
 }
 
+.signin-nav li a {
+  color: #777;
+}
+
 .signin-selected a {
   background-color: white;
-  color: black;
+  color: #333;
   border-radius: 5px 5px 0px 0;
   padding: 10px 20px 20px 20px;
   margin-top: 10px;
@@ -104,6 +105,7 @@ body {
   max-width: 315px;
   margin: 0 auto;
 }
+
 
 .signin-remote li {
   display: block;
@@ -187,6 +189,7 @@ body {
   width: 300px;
   border: 1px solid #ccc;
   padding: 5px;
+
 }
 
 .signin-form input[type=submit] {
@@ -363,8 +366,6 @@ html {
   width: 600px;
   margin: 0 auto;
   padding: 40px 10px;
-  margin-top: -18px;
-
 }
 
 .body-nav-selected {
@@ -406,14 +407,15 @@ html {
   float: left;
   margin-top: 65px;
   margin-left: 70px;
-  width: 180px;
+  width: 300px;
 }
 
 .detail-info ul {
-  float:right;
+  float:left;
   padding-left: 5px;
 }
 .detail-info li{
+
   display: block;
   background-color: black;
   color: white;
@@ -435,6 +437,7 @@ html {
 .detailblock {
   margin: -26px;
   overflow: hidden;
+  width: 103%;
   background-color: #aaa;
 }
 
@@ -457,7 +460,6 @@ html {
 }
 
 .side-bar-content {
-
   min-height: 100px;
 }
 

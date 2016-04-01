@@ -8,44 +8,6 @@
 </head>
 <body>
 
-<% if signed_in? %>
-
-  <header class="signedin-header group">
-    <strong class="signedin_badge">
-    <%= image_tag "cloud-icon.png"%>
-    </strong>
-    <ul class="home-nav">
-      <li><a href="#">Collections</a></li>
-      <li><a class="nav-selected" href="#">Home</a></li>
-    </ul>
-    <ul class="signedin-nav">
-      <li class="searchdiv">
-        <input type="text" placeholder="Search" class="searchbar">
-          <%= image_tag "search-icon.png" %>
-        </input>
-      </li>
-      <li class="upload"><a href="#/recordings/new">Upload</a></li>
-      <strong class="signedin_badge circle"></strong>
-      <li class="username"><a href="#/users/<%= current_user.id%>" class="nav-username"><%= current_user.username %></a></li>
-      <li><%= button_to "Sign Out", session_url, :method => :delete %></li>
-    <ul>
-  </header>
-<% else %>
-  <header class="signin-header group">
-    <div class="form-content-header">
-      <div class="signin-header-logo">
-        <%= image_tag "cloud-icon.png"%>
-        <p>SoundCrowd</p>
-      </div>
-      <ul class="signin-nav">
-        <li class="signin-nav-items"><%= link_to "Create Account", new_user_url %></li>
-        <li class="signin-selected signin-nav-items"><%= link_to "Sign In", new_session_url %></li>
-      </ul>
-    </div>
-  </header>
-<% end %>
-
-<br>
 
 <%= render "layouts/errors" %>
 
