@@ -7,10 +7,24 @@ function _getAllRecordings() {
   return RecordingStore.all();
 }
 
-
 var Index = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
+  },
+  getInitialState: function(){
+    return {
+      recordings: _getAllRecordings(),
+    };
+  },
+  componentDidMount: function () {
+    this.recordingListener = RecordingStore.addListener(this._onChange);
+    ApiUtil.fetchRecordings();
+  },
+  componentWillUnmount: function () {
+    this.recordingListener.remove();
+  },
+  _onChange: function () {
+    this.setState({recordings: _getAllRecordings()});
   },
   handleItemClick: function (recording) {
     console.log("handleItemClick in index");
@@ -18,7 +32,7 @@ var Index = React.createClass({
   },
   render: function(){
     var handleItemClick = this.handleItemClick;
-    var index_data = this.props.recordings.map(function(recording){
+    var index_data = this.state.recordings.map(function(recording){
                       var boundClick = handleItemClick.bind(null, recording);
                       return (<IndexItem
                         onClick={boundClick}

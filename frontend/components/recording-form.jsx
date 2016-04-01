@@ -1,6 +1,7 @@
 var React = require('react'),
     ApiUtil = require('../util/api_util'),
-    LinkedStateMixin = require('react-addons-linked-state-mixin');
+    LinkedStateMixin = require('react-addons-linked-state-mixin'),
+    SessionStore = require('../stores/session_store.js');
 
 var RecordingForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -11,8 +12,8 @@ var RecordingForm = React.createClass({
     return {
       title: "",
       body: "",
-      user_id:"",
-      username:"",
+      user_id: SessionStore.currentUser().id,
+      username: SessionStore.currentUser().username,
       url: ""
     };
   },
@@ -23,7 +24,7 @@ var RecordingForm = React.createClass({
     this.navigateToHome();
   },
   navigateToHome: function(){
-    this.props.history.pushState(null, "/");
+    this.props.history.pushState(null, "");
   },
   handleCancel: function(event){
     event.preventDefault();
@@ -44,12 +45,6 @@ var RecordingForm = React.createClass({
             <br/>
             <label>Body</label>
               <input min='0' type="text" valueLink={this.linkState('body')}/>
-            <br/>
-            <label>UserID</label>
-              <input min='0' type="text" valueLink={this.linkState('user_id')}/>
-            <br/>
-            <label>Username</label>
-              <input min='0' type="text" valueLink={this.linkState('username')}/>
             <br/>
             <ul>
               <li><input type="submit" value="create recording"/></li>

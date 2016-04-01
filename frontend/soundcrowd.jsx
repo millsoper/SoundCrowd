@@ -18,97 +18,17 @@ var React = require('react'),
     UserShow = require('./components/user-show.jsx'),
     LoginForm = require('./components/login-form.jsx'),
     SignupForm = require('./components/signup_form.jsx'),
-    App = React.createClass({
-        contextTypes: {
-          router: React.PropTypes.object.isRequired
-        },
-        getInitialState: function() {
-          return {
-            currentUser: null
-          };
-        },
-
-        componentDidMount: function() {
-          this.sessionStoreToken = SessionStore.addListener(this.handleChange);
-          ApiUtil.fetchCurrentUser();
-        },
-
-        componentWillUnmount: function() {
-          this.sessionStoreToken.remove();
-        },
-
-        handleChange: function() {
-        if (SessionStore.isLoggedIn()) {
-          this.setState({ currentUser: SessionStore.currentUser() });
-        } else {
-          this.setState({ currentUser: null });
-          }
-        },
-        componentWillReceiveProps: function (newProps) {
-         ApiUtil.fetchCurrentUser();
-        },
-
-        render: function () {
-        var button, user;
-
-        if (SessionStore.isLoggedIn()) {
-          button = <button onClick={ApiUtil.logout}>Logout</button>;
-          user = this.state.currentUser;
-          }
-        var content;
-        if (SessionStore.isLoggedIn()) {
-          return (
-            <div>
-              <header className="signedin-header group">
-                <a href="#/"className="signedin_badge">
-                  <img src="cloud-icon.png"/>
-                </a>
-                <ul className="home-nav">
-                  <li><a href="#">Collections</a></li>
-                  <li><a className="nav-selected" href="#">Home</a></li>
-                </ul>
-                <ul className="signedin-nav">
-                  <li className="searchdiv">
-                    <input type="text" placeholder="Search" className="searchbar">
-                    </input>
-                    <img src="search-icon.png"/>
-                  </li>
-                  <li className="upload"><a href="#/recordings/new">Upload</a></li>
-                  <strong className="signedin_badge circle"></strong>
-                    <li className="username"><a href="#/users/" className="nav-username">{user.username}</a></li>
-                    <li>{button}</li>
-                </ul>
-              </header>
-              {this.props.children}
-            </div>
-          );
-        } else {
-          return (
-            <div className="content">
-              <nav>
-                <ul>
-                  <li><a href="#/login">Login</a></li>
-                  <li><a href="#/signup">Signup</a></li>
-                </ul>
-              </nav>
-              {this.props.children}
-            </div>
-          );
-        }
-
-      }
-    });
-
+    App = require('./components/app.jsx');
 
     var routes = (
       <Route path="/" component={App}>
-          <IndexRoute component={Home}/>
-          <Route path="/login" component={LoginForm}/>
-          <Route path="recordings/new" component={RecordingForm}/>
-          <Route path="recordings" component={RecordingIndex} onEnter={_requireLoggedIn}/>
-          <Route path="recordings/:recordingId" component={RecordingShow}/>
-          <Route path="users/:userId" component={UserShow}/>
-          <Route path="/signup" component={SignupForm}/>
+        <IndexRoute component={Home}/>
+        <Route path="/login" component={LoginForm}/>
+        <Route path="recordings/new" component={RecordingForm}/>
+        <Route path="recordings" component={RecordingIndex} onEnter={_requireLoggedIn}/>
+        <Route path="recordings/:recordingId" component={RecordingShow}/>
+        <Route path="users/:userId" component={UserShow}/>
+        <Route path="/signup" component={SignupForm}/>
       </Route>
 
     );
