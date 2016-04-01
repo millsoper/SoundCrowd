@@ -41,7 +41,7 @@ var React = require('react'),
         if (SessionStore.isLoggedIn()) {
           this.setState({ currentUser: SessionStore.currentUser() });
         } else {
-          this.context.router.push("/login");
+          this.setState({ currentUser: null });
           }
         },
         componentWillReceiveProps: function (newProps) {
@@ -60,9 +60,9 @@ var React = require('react'),
           return (
             <div>
               <header className="signedin-header group">
-                <strong className="signedin_badge">
+                <a href="#/"className="signedin_badge">
                   <img src="cloud-icon.png"/>
-                </strong>
+                </a>
                 <ul className="home-nav">
                   <li><a href="#">Collections</a></li>
                   <li><a className="nav-selected" href="#">Home</a></li>
@@ -70,8 +70,8 @@ var React = require('react'),
                 <ul className="signedin-nav">
                   <li className="searchdiv">
                     <input type="text" placeholder="Search" className="searchbar">
-                      <img src="search-icon.png"/>
                     </input>
+                    <img src="search-icon.png"/>
                   </li>
                   <li className="upload"><a href="#/recordings/new">Upload</a></li>
                   <strong className="signedin_badge circle"></strong>
@@ -85,6 +85,12 @@ var React = require('react'),
         } else {
           return (
             <div className="content">
+              <nav>
+                <ul>
+                  <li><a href="#/login">Login</a></li>
+                  <li><a href="#/signup">Signup</a></li>
+                </ul>
+              </nav>
               {this.props.children}
             </div>
           );
@@ -96,8 +102,8 @@ var React = require('react'),
 
     var routes = (
       <Route path="/" component={App}>
-        <Route path="/login" component={LoginForm}/>
-        <IndexRoute component={Home}/>
+          <IndexRoute component={Home}/>
+          <Route path="/login" component={LoginForm}/>
           <Route path="recordings/new" component={RecordingForm}/>
           <Route path="recordings" component={RecordingIndex} onEnter={_requireLoggedIn}/>
           <Route path="recordings/:recordingId" component={RecordingShow}/>

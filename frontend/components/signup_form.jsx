@@ -8,7 +8,7 @@ var SignupForm = React.createClass({
 
   getInitialState: function() {
     return {
-      name: "",
+      username: "",
       password: ""
     };
   },
@@ -32,8 +32,8 @@ var SignupForm = React.createClass({
       </div>
       <div className="form-content group">
           <form className="signin-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="name">What's your email?</label>
-            <input onChange={this.updateName} type="text" value={this.state.name}/>
+            <label htmlFor="username">What's your email?</label>
+            <input onChange={this.updateUsername} type="text" value={this.state.username}/>
             <label htmlFor="password">Choose a Password</label>
             <input onChange={this.updatePassword} type="password" value={this.state.password}/>
 
@@ -49,13 +49,13 @@ var SignupForm = React.createClass({
 
     var router = this.context.router;
 
-    ApiUtil.login(this.state, function() {
-      router.push("/");
+    ApiUtil.createUser(this.state, function() {
+      router.push("/#");
     });
   },
 
-  updateName: function(e) {
-    this.setState({ name: e.currentTarget.value });
+  updateUsername: function(e) {
+    this.setState({ username: e.currentTarget.value });
   },
 
   updatePassword: function(e) {

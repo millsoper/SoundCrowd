@@ -29,9 +29,10 @@ var RecordingForm = React.createClass({
     event.preventDefault();
     this.navigateToHome();
   },
+
   render: function(){
     return (
-        <div className="new-recording-form">
+        <div className="new-recording-form group">
           <h3>Add a Recording</h3>
           <form onSubmit={this.handleSubmit}>
             <div className="upload-track-pic"><p>Upload A Picture</p></div>

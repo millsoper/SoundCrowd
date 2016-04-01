@@ -445,10 +445,12 @@ html {
 
 .detailblock {
   margin: -26px;
+  margin-right: 0;
   margin-bottom: 0;
+  width: 100%;
   overflow: hidden;
-  width: 103%;
   background-color: #aaa;
+  overflow: hidden;
 }
 
 .detailblock img{
@@ -575,12 +577,20 @@ html {
   width: 275px;
 }
 
+
+
+.new-recording-form {
+  background: white;
+  margin: 0 20px 0 20px;
+}
+
 .new-recording-form h3 {
   color: #555;
   font-weight: normal;
-  padding-left: 10px;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+  padding: 10px 0px 10px 10px;
+  margin: 0 10px;
+  margin-bottom: 20px;
 }
 
 .new-recording-form label {
@@ -590,6 +600,13 @@ html {
 .new-recording-form input[type=submit] {
   width: 120px;
   color: #555;
+}
+
+.new-recording-form input[type=submit]{
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 5px 15px;
 }
 
 .new-recording-form ul {
@@ -602,9 +619,21 @@ html {
 }
 
 .new-recording-form button {
-  margin-top: 10px;
-  border-radius: 0;
+  margin-top: 5px;
+  color: #aaa;
+  border: none;
+  background-color: white;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-right: 15px;
 }
+
+.new-recording-form button:hover {
+  color: #555;
+}
+
 
 .upload-track-pic {
   height: 300px;
@@ -614,7 +643,8 @@ html {
   background: -moz-linear-gradient(lightgray, orangered); /* For Firefox 3.6 to 15 */
   background: linear-gradient(lightgray, orangered); /* Standard syntax */
   float: left;
-  margin-right: 30px;
+  margin: 0px 30px;
+
 }
 
 .upload-track-pic p {

@@ -37,12 +37,12 @@ var ApiUtil = {
       }
     });
   },
-  signup: function(credentials, callback){
+  createUser: function(credentials, callback){
     $.ajax({
       type: "POST",
-      url: "/users/new",
+      url: "/api/users",
       dataType: "json",
-      data: credentials,
+      data: {user: credentials},
       success: function(currentUser) {
         SessionActions.currentUserReceived(currentUser);
         callback && callback();
