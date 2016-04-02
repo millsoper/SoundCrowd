@@ -3,7 +3,7 @@ var React = require('react'),
     SignedInHeader = require('./signed_in_header.jsx'),
     ApiUtil = require('../util/api_util.js'),
     Modal = require('react-modal'),
-    SessionForm = require('./session_form.jsx'),
+    EntryPage = require('./entry_page.jsx'),
     SignupForm = require('./signup_form.jsx');
 
 App = React.createClass({
@@ -12,7 +12,7 @@ App = React.createClass({
     },
     getInitialState: function() {
       return {
-        currentUser: null, modalIsOpen: false
+        currentUser: null
       };
     },
     componentDidMount: function() {
@@ -34,12 +34,6 @@ App = React.createClass({
     componentWillReceiveProps: function (newProps) {
      ApiUtil.fetchCurrentUser();
     },
-    openModal: function () {
-      this.setState({modalIsOpen:true});
-    },
-    closeModal: function () {
-      this.setState({modalIsOpen: false});
-    },
     render: function () {
     var button, user;
       if (SessionStore.isLoggedIn()) {
@@ -56,42 +50,8 @@ App = React.createClass({
           <SignedInHeader user= {user} inheritedchildren = {this.props.children}/>
       );
     } else {
-      var customStyles = {
-          content : {
-            top                   : '50%',
-            left                  : '50%',
-            right                 : 'auto',
-            bottom                : 'auto',
-            marginRight          : '-50%',
-            transform             : 'translate(-50%, -50%)'
-          }
-        };
-        Modal.setAppElement('body');
       return (
-        <div className ="landing-page">
-          <section className="masthead">
-            <nav>
-              <div className="masthead-logo">
-                <img src="cloud-icon.png"></img>
-                <p>soundcrowd</p>
-              </div>
-              <ul>
-                <li><a onClick={this.openModal}>Login</a></li>
-                <li><a className="masthead-signup" onClick={this.openModal}>Create Account</a></li>
-              </ul>
-              <Modal
-                isOpen={this.state.modalIsOpen}
-                onRequestClose={this.closeModal}
-                shouldCloseOnOverlayClick={false}
-                style={customStyles} >
-
-                <SessionForm></SessionForm>
-
-              </Modal>
-            </nav>
-            <h3>Find the stories you love. Discover new things. Connect directly with storytellers.</h3>
-          </section>
-        </div>
+        <EntryPage/>
       );
     }
 

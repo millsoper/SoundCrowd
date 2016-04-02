@@ -55,6 +55,7 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
+  clear: both;
 }
 
 .masthead ul {
@@ -86,12 +87,14 @@ body {
 
 .masthead h3 {
   color: white;
-  font-size: 20px;
-  width: 500px;
+  font-size: 24px;
+  width: 60%;
+  min-width: 280px;
   text-align: center;
-  padding-top: 25%;
-  margin-left: 30%;
+  margin-left: 20%;
   font-weight: normal;
+  padding-top: 225px;
+
 }
 
 .masthead-logo img {
@@ -119,6 +122,100 @@ body {
   position: relative;
   margin: -20px;
   border-bottom: none;
+}
+
+.entry-search {
+  text-align: center;
+}
+
+.entry-search p {
+  display: inline-block;
+  padding: 0 30px;
+  color: white;
+}
+
+.entry-add {
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+}
+
+.entry-add:hover {
+  padding: 9px;
+  border: 2px solid white;
+}
+
+.entry-search-bar {
+  display: inline-block;
+  background-color: #ddd;
+  color: #aaa;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 3px;
+  width: 25%;
+  min-width: 220px;
+}
+.entry-search-bar:hover {
+  background-color: #eee;
+}
+
+.entry-search-bar:focus {
+  background-color: #eee;
+  color: #444;
+}
+
+.entry-track-index {
+  margin-top: 540px;
+}
+
+.entry-track-index ul {
+  padding: 13px;
+  padding-top: 0px;
+  margin-top: 0px;
+  height: 226px;
+  overflow: hidden;
+}
+
+.entry-track-index p {
+  margin: 5px;
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.entry-index-title {
+  color: #222;
+}
+
+.entry-index-user {
+  color: #444;
+}
+
+.entry-track-index li {
+  float: left;
+}
+
+.entry-track-index h4 {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 18px;
+  text-align: center;
+}
+
+.index-pic {
+  background-color: darkgray;
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  float: left;
+  overflow: hidden;
+}
+
+.index-pic img {
+  width: 100%;
+  height: auto;
 }
 
 .signedin-header {
@@ -177,7 +274,6 @@ body {
   width: 600px;
   margin: 0 auto;
   background: white;
-
 }
 
 
