@@ -272,7 +272,7 @@ body {
 .signin-form input[type=submit] {
   margin-top: 10px;
   background-color: #FF6000;
-  border: 0 none;
+  border: none;
   padding: 5px 10px;
   color: white;
   font-size: 14px;
@@ -421,9 +421,6 @@ html {
   font-weight: normal;
 }
 
-.home-body section {
-
-}
 
 .body-nav ul {
   float: left;
@@ -445,8 +442,7 @@ html {
 }
 .form-content {
   background: white;
-  width: 100%
-  margin: 0;
+  width: 100%;
   padding: 40px 10px;
   border-top: none;
 }
@@ -655,7 +651,7 @@ html {
 
 .new-recording-form {
   background: white;
-  margin: 0 20px 0 20px;
+  margin: 0px 20px 0px 20px;
 }
 
 .new-recording-form h3 {

@@ -59,11 +59,10 @@ App = React.createClass({
       var customStyles = {
           content : {
             top                   : '50%',
-            border                : 'none',
             left                  : '50%',
             right                 : 'auto',
             bottom                : 'auto',
-            marginRight           : '-50%',
+            marginRight          : '-50%',
             transform             : 'translate(-50%, -50%)'
           }
         };
