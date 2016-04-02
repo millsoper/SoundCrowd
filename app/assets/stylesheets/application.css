@@ -92,7 +92,6 @@ body {
   padding-top: 25%;
   margin-left: 30%;
   font-weight: normal;
-
 }
 
 .masthead-logo img {
@@ -116,9 +115,10 @@ body {
 .signin-header {
   background: #222222;
   font-weight: lighter;
-  width: 620px;
+  padding: 0px 10px;
   position: relative;
-  margin: 0 auto;
+  margin: -20px;
+  border-bottom: none;
 }
 
 .signedin-header {
@@ -176,7 +176,8 @@ body {
 .signin-form {
   width: 600px;
   margin: 0 auto;
-    background: white;
+  background: white;
+
 }
 
 
@@ -209,6 +210,7 @@ body {
   display: block;
   border-radius: 3px;
   margin: 0 auto;
+  border-bottom: none;
 }
 
 .signin-form label {
@@ -438,14 +440,15 @@ html {
   padding: 10px 20px;
 }
 .form-content-header {
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
 }
 .form-content {
   background: white;
-  width: 600px;
-  margin: 0 auto;
+  width: 100%
+  margin: 0;
   padding: 40px 10px;
+  border-top: none;
 }
 
 .body-nav-selected {

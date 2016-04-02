@@ -15,22 +15,7 @@ var SignupForm = React.createClass({
 
   render: function() {
     return (
-    <div>
-      <div className="signin-header group">
-        <div className="form-content-header">
-          <div className="signin-header-logo">
-            <img src="cloud-icon.png"/>
-            <p>SoundCrowd</p>
-          </div>
-          <nav className="signin-nav">
-            <ul>
-              <li><a href="#/login">Log in</a></li>
-              <li className="signin-selected"><a href="#/signup">Sign up</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div className="form-content group">
+          <div className="form-content group">
           <form className="signin-form" onSubmit={this.handleSubmit}>
             <label htmlFor="username">What's your email?</label>
             <input onChange={this.updateUsername} type="text" value={this.state.username}/>
@@ -40,7 +25,6 @@ var SignupForm = React.createClass({
             <button>Create Account</button>
           </form>
       </div>
-    </div>
     );
   },
 

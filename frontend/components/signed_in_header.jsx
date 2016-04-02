@@ -8,7 +8,7 @@ var React = require('react'),
       },
       clickHandler: function(){
         ApiUtil.logout();
-        this.context.push("/");
+        this.context.router.push("/");
       },
       render: function () {
         return (

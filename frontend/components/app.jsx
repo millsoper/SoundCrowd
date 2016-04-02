@@ -2,7 +2,9 @@ var React = require('react'),
     SessionStore = require('../stores/session_store.js'),
     SignedInHeader = require('./signed_in_header.jsx'),
     ApiUtil = require('../util/api_util.js'),
-    Modal = require('react-modal');
+    Modal = require('react-modal'),
+    SessionForm = require('./session_form.jsx'),
+    SignupForm = require('./signup_form.jsx');
 
 App = React.createClass({
     contextTypes: {
@@ -57,6 +59,7 @@ App = React.createClass({
       var customStyles = {
           content : {
             top                   : '50%',
+            border                : 'none',
             left                  : '50%',
             right                 : 'auto',
             bottom                : 'auto',
@@ -83,15 +86,8 @@ App = React.createClass({
                 shouldCloseOnOverlayClick={false}
                 style={customStyles} >
 
-                <h2>Sign In</h2>
-                <button onClick={this.closeModal}>close</button>
-                <div>I am a modal</div>
-                <form>
-                  <input type="text"></input>
-                  <button>Sign In</button>
-                  <button>Sign Up</button>
+                <SessionForm></SessionForm>
 
-                </form>
               </Modal>
             </nav>
             <h3>Find the stories you love. Discover new things. Connect directly with storytellers.</h3>

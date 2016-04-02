@@ -15,21 +15,6 @@ var LoginForm = React.createClass({
 
   render: function() {
     return (
-    <div>
-      <div className="signin-header group">
-        <div className="form-content-header">
-          <div className="signin-header-logo">
-            <img src="cloud-icon.png"/>
-            <p>SoundCrowd</p>
-          </div>
-          <nav className="signin-nav">
-            <ul>
-              <li className="signin-selected"><a href="#/login">Log in</a></li>
-              <li><a href="#/signup">Sign up</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
       <div className="form-content group">
           <form className="signin-form" onSubmit={this.handleSubmit}>
             <label htmlFor="name">Name</label>
@@ -41,7 +26,7 @@ var LoginForm = React.createClass({
             <button>Sign in</button>
           </form>
       </div>
-    </div>
+
     );
   },
 
