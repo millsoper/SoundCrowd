@@ -41,10 +41,10 @@ var Index = React.createClass({
       });
 
     return (
-      <div>
+      <section className="content">
         <h1>All Tracks Index</h1>
         {index_data}
-      </div>
+      </section>
     );
   }
 });

@@ -34,8 +34,8 @@ var UserShow = React.createClass({
   // },
   render: function() {
     return (
-      <div>
-        User Profile Page
+      <div className="content">
+        User Profile Page -- set to form for viewing and editing own profile.
       </div>
     );
   }

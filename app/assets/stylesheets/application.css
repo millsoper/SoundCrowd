@@ -225,6 +225,10 @@ body {
 .signedin-header {
   background: #333333;
   font-weight: lighter;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .signin-header-logo {
@@ -500,10 +504,12 @@ html {
 }
 .content {
   background-color: white;
-  margin: -17px 20px;
+  margin: 20px;
   padding: 25px;
+  padding-top: 30px;
   padding-bottom: 0;
   height: 100%;
+
 }
 
 .body-nav {

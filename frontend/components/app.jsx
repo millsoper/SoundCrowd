@@ -37,17 +37,15 @@ App = React.createClass({
     render: function () {
     var button, user;
       if (SessionStore.isLoggedIn()) {
-
-        //X  require ApiUtil in header component
-        //X  create button with clickHandler
-        //in clickHandler, call ApiUtil.logout
-        //and pass in a callback that redirects using push
       user = this.state.currentUser;
       }
     var content;
     if (SessionStore.isLoggedIn()) {
       return (
-          <SignedInHeader user= {user} inheritedchildren = {this.props.children}/>
+        <div>
+          <SignedInHeader user= {user}/>
+          {this.props.children}
+        </div>
       );
     } else {
       return (

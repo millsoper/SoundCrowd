@@ -2,6 +2,8 @@ class Recording < ActiveRecord::Base
   validates :user_id, :title, :body, :url, :username, presence: true
   validates :url, uniqueness: true
 
+  belongs_to :user
+
   def self.most_recent
     Recording.order(created_at: :desc)
   end

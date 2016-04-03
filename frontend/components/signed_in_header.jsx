@@ -6,6 +6,35 @@ var React = require('react'),
       contextTypes: {
         router: React.PropTypes.object.isRequired
       },
+      getInitialState: function(){
+        return ( {content: "home"});
+      },
+      generateHomeButton: function() {
+        var button;
+        if (this.state.content == "home"){
+          button =  <li onClick={this.homeClick}><a className="nav-selected" href="#">Home</a></li>;
+        } else {
+          button =  <li onClick={this.homeClick}><a href="#">Home</a></li>;
+        }
+        return button;
+      },
+      generateCollectionsButton: function(){
+        var button;
+        if (this.state.content == "collections"){
+          button = <li className="nav-selected" onClick={this.collectionsClick}><a href="#">Collections</a></li>;
+        } else {
+          button = <li onClick={this.collectionsClick}><a href="#">Collections</a></li>;
+        }
+        return button;
+      },
+      collectionsClick: function() {
+        this.setState({content: "collections"});
+        // this.context.router.push();
+      },
+      homeClick: function() {
+        this.setState({content: "home"});
+        // this.context.router.push();
+      },
       clickHandler: function(){
         ApiUtil.logout();
         this.context.router.push("/");
@@ -18,8 +47,8 @@ var React = require('react'),
                 <img src="cloud-icon.png"/>
               </a>
               <ul className="home-nav">
-                <li><a href="#">Collections</a></li>
-                <li><a className="nav-selected" href="#">Home</a></li>
+                {this.generateCollectionsButton()}
+                {this.generateHomeButton()}
               </ul>
               <ul className="signedin-nav">
                 <li className="searchdiv">
@@ -29,11 +58,11 @@ var React = require('react'),
                 </li>
                 <li className="upload"><a href="#/recordings/new">Upload</a></li>
                 <strong className="signedin_badge circle"></strong>
-                  <li className="username"><a href="#/users/" className="nav-username">{this.props.user.username}</a></li>
+                  <li className="username"><a href="#/users/{SessionStore.currentUser().id}" className="nav-username">{this.props.user.username}</a></li>
                   <li><button onClick={this.clickHandler}>Logout</button></li>
               </ul>
             </header>
-            {this.props.inheritedchildren}
+
           </div>);
       }
     });
