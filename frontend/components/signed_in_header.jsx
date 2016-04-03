@@ -40,6 +40,7 @@ var React = require('react'),
         this.context.router.push("/");
       },
       render: function () {
+        var url = "#/users/" + SessionStore.currentUser().id;
         return (
           <div>
             <header className="signedin-header group">
@@ -58,7 +59,7 @@ var React = require('react'),
                 </li>
                 <li className="upload"><a href="#/recordings/new">Upload</a></li>
                 <strong className="signedin_badge circle"></strong>
-                  <li className="username"><a href="#/users/{SessionStore.currentUser().id}" className="nav-username">{this.props.user.username}</a></li>
+                  <li className="username"><a href= {url} className="nav-username">{this.props.user.username}</a></li>
                   <li><button onClick={this.clickHandler}>Logout</button></li>
               </ul>
             </header>

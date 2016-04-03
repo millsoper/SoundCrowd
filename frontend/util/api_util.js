@@ -10,6 +10,20 @@ var ApiUtil = {
       ApiActions.receiveAll(recordings);
     });
   },
+  fetchUsers: function() {
+    $.get('api/users', function(users){
+      ApiActions.receiveAllUsers(users);
+    });
+  },
+  fetchUser: function(id) {
+    $.ajax({
+      method: "GET",
+      url: "api/users/" + id,
+      success: function(user){
+        ApiActions.receiveSingleUser(user);
+      }
+    });
+  },
   getRecentRecordings: function() {
     $.get('api/recent', function(recordings){
       ApiActions.receiveRecent(recordings);

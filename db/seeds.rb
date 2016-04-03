@@ -9,6 +9,8 @@
   beru = User.create(username: 'Aunt Beru', password: 'password')
   dak = User.create(username: 'Dak', password: 'password')
   greedo = User.create(username: 'Greedo', password: 'password')
+  guest = User.create(username: 'guest', password: 'password')
+
 
   Recording.create(title:"The Tosche Station" , body: "Ben Kenobi", url: "http://i.imgur.com/XHVbKxf.png" , username: owen.username, user_id: owen.id)
   Recording.create(title:"You Can Waste Time" , body: "Power converters", url: "http://i.imgur.com/WoSua78.png", username: owen.username, user_id: owen.id)

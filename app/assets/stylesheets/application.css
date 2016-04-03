@@ -914,3 +914,12 @@ html {
   color: orange;
   border-bottom: orange solid 2px;
 }
+
+.empty-index {
+  margin: 15px;
+  height: 180px;
+  width: 180px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  float: left;
+}

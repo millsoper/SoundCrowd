@@ -2,6 +2,7 @@ var React = require('react');
 var IndexItem = require('./index_item');
 var RecordingStore = require('../stores/recordings.js');
 var SessionStore = require('../stores/session_store');
+var UserStore = require('../stores/user_store');
 var ApiUtil = require('../util/api_util.js');
 
 function _getAllRecordings() {
@@ -14,18 +15,26 @@ var Index = React.createClass({
   },
   getInitialState: function(){
     return {
-      recordings: _getAllRecordings(), selected: "overview"
+      recordings: _getAllRecordings(), selected: "overview", user: SessionStore.currentUser()
     };
   },
   componentDidMount: function () {
     this.recordingListener = RecordingStore.addListener(this._onChange);
+    this.sessionListener = RecordingStore.addListener(this._onChange);
+    ApiUtil.fetchCurrentUser();
+    ApiUtil.fetchUsers();
     ApiUtil.fetchRecordings();
   },
   componentWillUnmount: function () {
     this.recordingListener.remove();
+
   },
   _onChange: function () {
+    var current_user = SessionStore.currentUser().id;
+    var own_recordings = UserStore.find(current_user).recordings;
     this.setState({recordings: _getAllRecordings()});
+    this.setState({user: SessionStore.currentUser()});
+    this.setState({own_recordings: own_recordings});
   },
   handleItemClick: function (recording) {
     console.log("handleItemClick in index");
@@ -82,14 +91,24 @@ var Index = React.createClass({
   render: function(){
     var handleItemClick = this.handleItemClick;
     var index_data = this.state.recordings.map(function(recording){
-            
+
                       var boundClick = handleItemClick.bind(null, recording);
                       return (<IndexItem
                         onClick={boundClick}
                         recording={recording}
                         key={recording.id} />);
       });
+    var ownRecordings;
+    if (this.state.own_recordings){
+      ownRecordings = this.state.own_recordings.map(function(recording){
 
+                        var boundClick = handleItemClick.bind(null, recording);
+                        return (<IndexItem
+                          onClick={boundClick}
+                          recording={recording}
+                          key={recording.id} />);
+        });
+    }
     return (
       <section className="content collection-nav" id="collections-overview">
         <ul className = "collection-nav-list">
@@ -100,11 +119,16 @@ var Index = React.createClass({
         </ul>
         <section className="group collection-rows collections-recordings">
           <h5>Recordings</h5>
-          {index_data}
+          {ownRecordings}
         </section>
         <section className="group collection-rows collections-playlists">
           <h5>Playlists</h5>
-          {index_data}
+          <p> You don't have any playlists yet.</p>
+          <div className="empty-index"></div>
+          <div className="empty-index"></div>
+          <div className="empty-index"></div>
+          <div className="empty-index"></div>
+          <div className="empty-index"></div>
         </section>
         <section className="group collection-rows collections-following">
           <h5>Following</h5>
