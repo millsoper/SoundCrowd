@@ -3,8 +3,8 @@ var React = require('react'),
     ApiUtil = require('../util/api_util'),
     RecordingStore = require('../stores/recordings');
 
-function _getAllRecordings() {
-      return RecordingStore.all();
+function _getRecentRecordings() {
+      return RecordingStore.recent();
     }
 
 var EntryIndex = React.createClass({
@@ -13,18 +13,18 @@ var EntryIndex = React.createClass({
   },
   getInitialState: function(){
     return {
-      recordings: _getAllRecordings(),
+      recordings: _getRecentRecordings(),
     };
   },
   componentDidMount: function () {
     this.recordingListener = RecordingStore.addListener(this._onChange);
-    ApiUtil.fetchRecordings();
+    ApiUtil.getRecentRecordings();
   },
   componentWillUnmount: function () {
     this.recordingListener.remove();
   },
   _onChange: function () {
-    this.setState({recordings: _getAllRecordings()});
+    this.setState({recordings: _getRecentRecordings()});
   },
 
   render: function() {

@@ -5,7 +5,7 @@ var React = require('react'),
 
 var SessionForm = React.createClass({
   getInitialState: function(){
-    return ( {content: "login"});
+    return ( {content: this.props.opento});
   },
   signInClick: function() {
     this.setState({content: "login"});

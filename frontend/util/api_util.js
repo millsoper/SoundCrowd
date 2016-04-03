@@ -10,6 +10,11 @@ var ApiUtil = {
       ApiActions.receiveAll(recordings);
     });
   },
+  getRecentRecordings: function() {
+    $.get('api/recent', function(recordings){
+      ApiActions.receiveRecent(recordings);
+    });
+  },
   createRecording: function(data){
     $.post('api/recordings', { recording: data }, function(recording) {
       ApiActions.receiveAll([recording]);

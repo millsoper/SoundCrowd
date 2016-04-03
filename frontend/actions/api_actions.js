@@ -7,6 +7,12 @@ var ApiActions = {
       actionType: RecordingConstants.RECORDINGS_RECEIVED,
       recordings: recordings
     });
+  },
+  receiveRecent: function(recordings){
+    AppDispatcher.dispatch({
+      actionType: RecordingConstants.RECENT_RECEIVED,
+      recordings: recordings
+    });
   }
 };
 

@@ -13,6 +13,10 @@ class Api::RecordingsController < ApplicationController
     end
   end
 
+  def recent
+    @recordings = Recording.most_recent
+  end
+
   def show
     @recording = Recording.find(params[:id])
   end

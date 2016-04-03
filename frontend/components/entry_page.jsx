@@ -6,10 +6,15 @@ var React = require('react'),
 
 var EntryPage = React.createClass({
   getInitialState: function () {
-    return { modalIsOpen: false };
+    return { modalIsOpen: false, formtype: "login" };
   },
-  openModal: function () {
+  openSignUpModal: function () {
     this.setState({modalIsOpen:true});
+    this.setState({formtype: "signup"});
+  },
+  openLogInModal: function () {
+    this.setState({modalIsOpen:true});
+    this.setState({formtype: "login"});
   },
   closeModal: function () {
     this.setState({modalIsOpen: false});
@@ -17,7 +22,7 @@ var EntryPage = React.createClass({
   render: function() {
     var customStyles = {
         content : {
-          top                   : '50%',
+          top                   : '30%',
           left                  : '50%',
           right                 : 'auto',
           bottom                : 'auto',
@@ -35,8 +40,8 @@ var EntryPage = React.createClass({
               <p>soundcrowd</p>
             </div>
             <ul>
-              <li><a onClick={this.openModal}>Login</a></li>
-              <li><a className="masthead-signup" onClick={this.openModal}>Create Account</a></li>
+              <li><a onClick={this.openLogInModal}>Login</a></li>
+              <li><a className="masthead-signup" onClick={this.openSignUpModal}>Create Account</a></li>
             </ul>
             <Modal
               isOpen={this.state.modalIsOpen}
@@ -44,7 +49,7 @@ var EntryPage = React.createClass({
               shouldCloseOnOverlayClick={false}
               style={customStyles} >
 
-              <SessionForm></SessionForm>
+              <SessionForm opento= {this.state.formtype}></SessionForm>
 
             </Modal>
           </nav>
@@ -52,10 +57,10 @@ var EntryPage = React.createClass({
             <h3>Find the stories you love. Discover new worlds. Connect directly with storytellers.</h3>
             <input type="text" placeholder="Search for stories, storytellers, tags" className="entry-search-bar"></input>
             <p>or</p>
-            <a onClick={this.openModal} className="entry-add">Add Your Own</a>
+            <a onClick={this.openLogInModal} className="entry-add">Add Your Own</a>
           </div>
         </section>
-        <EntryIndex clickaction={this.openModal}/>
+        <EntryIndex clickaction={this.openLogInModal}/>
       </div>
     );
 

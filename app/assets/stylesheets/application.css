@@ -205,7 +205,11 @@ body {
 }
 
 .index-pic {
-  background-color: darkgray;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(red, darkorange); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(red, darkorange); /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(red, darkorange); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(red, darkorange); /* Standard syntax */
   width: 180px;
   height: 180px;
   margin: 10px;
@@ -214,8 +218,8 @@ body {
 }
 
 .index-pic img {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
 }
 
 .signedin-header {
@@ -265,7 +269,7 @@ body {
   background-color: white;
   color: #333;
   border-radius: 5px 5px 0px 0;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 21px 20px;
   margin-top: 10px;
   margin-right: 2px;
 }
