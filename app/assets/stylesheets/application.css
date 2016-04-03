@@ -215,6 +215,7 @@ body {
   margin: 10px;
   float: left;
   overflow: hidden;
+  display: block;
 }
 
 .index-pic img {
@@ -567,20 +568,29 @@ html {
 }
 
 .track-image {
-  float: left;
-  height: 50px;
-  width: 50px;
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#FF9900, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#FF9900, yellow); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#FF9900, yellow); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#FF9900, yellow); /* Standard syntax */
-  margin-right: 10px;
+  width: 100%;
 }
 
 .recording-index-item {
-  margin-bottom: 30px;
-  margin-left: 30px;
+  float: left;
+  margin: 15px;
+  height: 210px;
+}
+
+.recording-index-item ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.recording-index-pic {
+  height: 180px;
+  width: 180px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#FF9900, #bbb); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#FF9900, #bbb); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#FF9900, #bbb); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#FF9900, #bbb); /* Standard syntax */
+  overflow: hidden;
 }
 .detail-pic {
   float: right;
@@ -620,9 +630,9 @@ html {
 }
 
 .detailblock {
-  margin: -26px;
-  margin-right: 0;
-  margin-bottom: 0;
+  margin: 0;
+  margin-left: -26px;
+  padding-top: 50px;
   width: 100%;
   overflow: hidden;
   background-color: #bbb;
@@ -820,7 +830,7 @@ html {
   background: linear-gradient(lightgray, orangered); /* Standard syntax */
   float: left;
   margin: 0px 30px;
-
+  margin-bottom: 30px;
 }
 
 .upload-track-pic p {
@@ -858,4 +868,49 @@ html {
   border: none;
   background-color: #333;
   cursor: pointer;
+}
+
+.collection-nav {
+  width: 100%;
+  display: block;
+  clear:right;
+}
+
+.collection-nav-list{
+  float: left;
+  margin: 10px 15px;
+  padding-left: 0;
+  color: #455;
+}
+
+.collection-nav-list li {
+  float: right;
+  font-size: 22px;
+}
+
+.collection-nav-list a {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 12px;
+  font-weight: lighter;
+}
+
+.collection-rows {
+  padding-top: 5px;
+  width: 100%;
+  display: block;
+}
+
+.collection-rows h5 {
+  padding: 50px 15px 15px 15px;
+  font-size: 18px;
+  color: #444;
+  width: 100%;
+  display: block;
+}
+
+.collections-selected a{
+  color: orange;
+  border-bottom: orange solid 2px;
 }

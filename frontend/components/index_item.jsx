@@ -5,13 +5,15 @@ var IndexItem = React.createClass({
   render: function(){
     var recording = this.props.recording;
     return (
-        <div className="recording-index-item" onClick={this.props.onClick}>
+      <div className="recording-index-item" onClick={this.props.onClick}>
+        <div className="recording-index-pic">
           <img src={recording.url} className="track-image"/>
-          {recording.title}
-          <br/>
-          Text: {recording.body || "No reviews yet"}
-          <br/>
         </div>
+        <ul>
+          <li>{recording.title}</li>
+          <li>{recording.username}</li>
+        </ul>
+      </div>
     );
   }
 });
