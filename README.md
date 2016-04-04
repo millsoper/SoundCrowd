@@ -11,8 +11,8 @@ SoundCrowd is a web application for recording, searching and listening to oral h
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
+- [X] Create an account
+- [X] Log in / Log out
 - [ ] Upload and delete audio clips
 - [ ] Listen to audio clips
 - [ ] Tag one's own recordings
@@ -50,9 +50,9 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **Objective:** Recordings can be created, listened to, tagged and destroyed through
 the API.
 
-- [ ] create `Recording` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`RecordingsController`)
+- [X] create `Recording` model
+- [X] seed the database with a small amount of test data
+- [ ] CRUD API for recordings (`RecordingsController`)
 - [ ] jBuilder views for recordings
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
