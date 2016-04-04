@@ -6,6 +6,7 @@ var React = require('react'),
     AuthorInfo = require('./author_info'),
     PlayButton = require('./play-button'),
     PlayFooter = require('./play-footer'),
+    SessionStore = require('../stores/session_store'),
     SideBar = require('./show-side-bar');
 
 
@@ -22,6 +23,9 @@ var RecordingShow = React.createClass({
     var recordingId = this.props.params.recordingId;
     var recording = this._findRecordingById(recordingId) || {} ;
     return { recording: recording };
+  },
+  editClickHandler: function (trackId) {
+    this.context.router.push("recordings/" + trackId + "/edit");
   },
   _findRecordingById: function (id) {
     var foundTrack;
@@ -51,10 +55,14 @@ var RecordingShow = React.createClass({
     this.setState({otherRecordings: otherRecordings });
   },
   render: function () {
-
+    var button;
+    if (this.state.recording.user_id === SessionStore.currentUser().id){
+      button = <button onClick={this.editClickHandler.bind(null, this.state.recording.id )}
+                       className="show-edit-track">Edit Track</button>;
+    }
     return (
         <div className = "group">
-          <div className="detailblock group">
+          <section className="detailblock group">
             <div className="detail-info">
               <div><PlayButton/></div>
               <ul>
@@ -62,20 +70,23 @@ var RecordingShow = React.createClass({
                 <li>{this.state.recording.username}</li>
               </ul>
             </div>
-            <div  className = "detail-pic" ><img src={this.state.recording.url}/></div>
-          </div>
-          <div className="home-body group">
-            <section className="show-side-bar">
+            <div  className = "detail-pic" >
+              <img src={this.state.recording.url}/>
+              {button}
+            </div>
+          </section>
+          <section className="home-body group">
+            <aside className="show-side-bar">
               <h4>More Tracks By This Artist</h4>
               <SideBar author_id={this.state.recording.user_id} otherRecordings={this.state.otherRecordings}/>
-            </section>
-            <section className="author-info">
+            </aside>
+            <aside className="author-info">
               <AuthorInfo author={this.state.recording.username}/>
-            </section>
-            <section>
+            </aside>
+            <footer>
               <PlayFooter current_song={this.state.recording.title}/>
-            </section>
-          </div>
+            </footer>
+          </section>
         </div>
       );
   }

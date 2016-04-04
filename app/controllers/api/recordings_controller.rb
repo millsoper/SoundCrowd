@@ -17,6 +17,13 @@ class Api::RecordingsController < ApplicationController
     @recordings = Recording.most_recent
   end
 
+  def update
+    @recording = Recording.find(params[:id])
+    @recording.update_attributes(recording_params)
+
+
+  end
+
   def show
     @recording = Recording.find(params[:id])
   end

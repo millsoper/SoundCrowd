@@ -10,6 +10,26 @@ var ApiUtil = {
       ApiActions.receiveAll(recordings);
     });
   },
+  fetchRecording: function(id){
+    $.ajax({
+      method: "GET",
+      url: "api/recordings/" + id,
+      success: function(recording){
+        ApiActions.receiveSingleRecording(recording);
+      }
+    });
+  },
+  updateRecording: function(recording, id){
+    debugger;
+    $.ajax({
+      method: "PATCH",
+      url: "api/recordings/" + id,
+      data: {recording: recording},
+      success: function(recording){
+        ApiActions.receiveSingleRecording(recording);
+      }
+    });
+  },
   fetchUsers: function() {
     $.get('api/users', function(users){
       ApiActions.receiveAllUsers(users);

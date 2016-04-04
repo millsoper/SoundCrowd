@@ -5,7 +5,7 @@ var IndexItem = React.createClass({
   render: function(){
     var recording = this.props.recording;
     return (
-      <div className="recording-index-item" onClick={this.props.onClick}>
+      <section className="recording-index-item" onClick={this.props.onClick}>
         <div className="recording-index-pic">
           <img src={recording.url} className="track-image"/>
         </div>
@@ -13,7 +13,7 @@ var IndexItem = React.createClass({
           <li className="index-title">{recording.title}</li>
           <li className="index-user">{recording.username}</li>
         </ul>
-      </div>
+      </section>
     );
   }
 });

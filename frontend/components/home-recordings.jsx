@@ -5,17 +5,21 @@ var IndexItem = require('./index_item');
 var HomeRecordings = React.createClass({
 
   render: function() {
-    var ownRecordings = "You don't have any recordings yet.";
+    var ownRecordings;
     var handleItemClick = this.props.clickfunction;
     if (this.props.ownRecordings){
-      ownRecordings = this.props.ownRecordings.map(function(recording){
+      if (this.props.ownRecordings.length === 0){
+        ownRecordings = "You don't have any recordings yet.";
+      } else {
+        ownRecordings = this.props.ownRecordings.map(function(recording){
 
-                        var boundClick = handleItemClick.bind(null, recording);
-                        return (<IndexItem
-                          onClick={boundClick}
-                          recording={recording}
-                          key={recording.id} />);
-        });
+                          var boundClick = handleItemClick.bind(null, recording);
+                          return (<IndexItem
+                            onClick={boundClick}
+                            recording={recording}
+                            key={recording.id} />);
+          });
+      }
     }
     return (
       <section className="group collection-rows collections-recordings">

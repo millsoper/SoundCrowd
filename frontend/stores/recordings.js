@@ -1,36 +1,61 @@
 var Store = require('flux/utils').Store,
-    _recordings = [],
-    _recent = [],
+    _recordings = {},
+    _recent = {},
     RecordingConstants = require('../constants/recording_constants'),
     AppDispatcher = require('../dispatcher/dispatcher'),
     RecordingStore = new Store(AppDispatcher);
 
 var resetRecordings = function(recordings){
-  _recordings = recordings.slice(0);
+  _recordings = {};
+  recordings.forEach(function (recording){
+    _recordings[recording.id] = recording;
+  });
+};
+
+var resetRecording = function(recording){
+  _recordings[recording.id] = recording;
 };
 
 var resetRecent = function(recordings){
-  _recent = recordings.slice(0);
+  _recent = {};
+  recordings.forEach(function (recording){
+    _recent[recording.id] = recording;
+  });
 };
 
 RecordingStore.all = function () {
-  return _recordings.slice(0);
+  var recordings = [];
+  for (var id in _recordings) {
+    recordings.push(_recordings[id]);
+  }
+  return recordings;
 };
 
 RecordingStore.recent = function () {
-  return _recent.slice(0);
+  var recent = [];
+  for (var id in _recent) {
+    recent.push(_recent[id]);
+  }
+  return recent;
+};
+
+RecordingStore.find = function (id) {
+  return _recordings[id];
 };
 
 RecordingStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case RecordingConstants.RECORDINGS_RECEIVED:
-      var result = resetRecordings(payload.recordings);
+      resetRecordings(payload.recordings);
       RecordingStore.__emitChange();
       break;
     case RecordingConstants.RECENT_RECEIVED:
-      var return_result = resetRecent(payload.recordings);
+      resetRecent(payload.recordings);
       RecordingStore.__emitChange();
       break;
+    case RecordingConstants.RECORDING_RECEIVED:
+      resetRecording(payload.recording);
+      RecordingStore.__emitChange();
   }
 };
 
