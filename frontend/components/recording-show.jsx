@@ -24,6 +24,10 @@ var RecordingShow = React.createClass({
     var recording = this._findRecordingById(recordingId) || {} ;
     return { recording: recording };
   },
+  deleteClickHandler: function (trackId) {
+    ApiUtil.deleteRecording(trackId);
+    this.context.router.push("recordings");
+  },
   editClickHandler: function (trackId) {
     this.context.router.push("recordings/" + trackId + "/edit");
   },
@@ -55,10 +59,15 @@ var RecordingShow = React.createClass({
     this.setState({otherRecordings: otherRecordings });
   },
   render: function () {
-    var button;
-    if (this.state.recording.user_id === SessionStore.currentUser().id){
-      button = <button onClick={this.editClickHandler.bind(null, this.state.recording.id )}
-                       className="show-edit-track">Edit Track</button>;
+    var buttons;
+    var url = this.state.recording.user_id;
+    if (url === SessionStore.currentUser().id){
+      buttons = <div className="track-buttons">
+                  <button onClick={this.editClickHandler.bind(null, this.state.recording.id )}
+                          className="show-edit-track">Edit Track</button>
+                  <button onClick={this.deleteClickHandler.bind(null, this.state.recording.id )}
+                          className="show-delete-track">Delete Track</button>
+                </div>;
     }
     return (
         <div className = "group">
@@ -72,7 +81,7 @@ var RecordingShow = React.createClass({
             </div>
             <div  className = "detail-pic" >
               <img src={this.state.recording.url}/>
-              {button}
+              {buttons}
             </div>
           </section>
           <section className="home-body group">
@@ -81,7 +90,7 @@ var RecordingShow = React.createClass({
               <SideBar author_id={this.state.recording.user_id} otherRecordings={this.state.otherRecordings}/>
             </aside>
             <aside className="author-info">
-              <AuthorInfo author={this.state.recording.username}/>
+              <AuthorInfo author={this.state.recording.username} authorid = {this.state.recording.user_id}/>
             </aside>
             <footer>
               <PlayFooter current_song={this.state.recording.title}/>

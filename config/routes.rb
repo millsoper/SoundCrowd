@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :recordings
 
   namespace :api, defaults: {format: 'json'} do
-    resources :users, only: [:create, :show, :index, :edit, :update]
+    resources :users, only: [:create, :show, :index, :edit, :update, :destroy]
     resources :recordings
     get "recent", to: "recordings#recent"
     resource :session, only: [:show, :create, :destroy]

@@ -56,6 +56,10 @@ RecordingStore.__onDispatch = function (payload) {
     case RecordingConstants.RECORDING_RECEIVED:
       resetRecording(payload.recording);
       RecordingStore.__emitChange();
+    case RecordingConstants.RECORDING_DELETED:
+      removeRecording(payload.recording);
+      RecordingStore.__emitChange();
+
   }
 };
 

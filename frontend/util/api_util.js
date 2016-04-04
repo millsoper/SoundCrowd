@@ -19,8 +19,15 @@ var ApiUtil = {
       }
     });
   },
+  deleteRecording: function (id) {
+    $.ajax({
+      method: "DELETE",
+      url: "api/recordings/" + id,
+      success: function(){
+      }
+    });
+  },
   updateRecording: function(recording, id){
-    debugger;
     $.ajax({
       method: "PATCH",
       url: "api/recordings/" + id,
@@ -35,12 +42,31 @@ var ApiUtil = {
       ApiActions.receiveAllUsers(users);
     });
   },
+  updateUser: function(user, id) {
+    $.ajax({
+      method: "PATCH",
+      url: "api/users/" + id,
+      data: {user: user},
+      success: function(user){
+        ApiActions.receiveSingleUser(user);
+      }
+    });
+  },
   fetchUser: function(id) {
     $.ajax({
       method: "GET",
       url: "api/users/" + id,
       success: function(user){
         ApiActions.receiveSingleUser(user);
+      }
+    });
+  },
+  deleteUser: function(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/users/" + id,
+      success: function() {
+
       }
     });
   },

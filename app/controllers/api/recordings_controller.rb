@@ -20,8 +20,12 @@ class Api::RecordingsController < ApplicationController
   def update
     @recording = Recording.find(params[:id])
     @recording.update_attributes(recording_params)
+  end
 
-
+  def destroy
+    @recording = Recording.find(params[:id])
+    @recording.destroy
+    render json:@recording
   end
 
   def show

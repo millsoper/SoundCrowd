@@ -13,7 +13,8 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [X] Create an account
 - [X] Log in / Log out
-- [ ] Upload and delete audio clips
+- [ ] Upload audio clips
+- [X] Delete audio clips
 - [ ] Listen to audio clips
 - [ ] Tag one's own recordings
 - [ ] Create playlists
@@ -52,7 +53,7 @@ the API.
 
 - [X] create `Recording` model
 - [X] seed the database with a small amount of test data
-- [ ] CRUD API for recordings (`RecordingsController`)
+- [X] CRUD API for recordings (`RecordingsController`)
 - [X] jBuilder views for recordings
 - [X] setup Webpack & Flux scaffold
 - [X] setup `APIUtil` to interact with the API
@@ -68,8 +69,6 @@ the API.
   - [X] `RecordingsIndex`
   - [X] `RecordingIndexItem`
   - [X] `RecordingForm`
-- [ ] save Recordings to the DB when the form loses focus or is left idle
-  after editing.
 
 ### Phase 4: Start Styling (0.5 days)
 

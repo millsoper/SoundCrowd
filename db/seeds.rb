@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  owen = User.create(username: 'Uncle Owen', password: 'password')
-  beru = User.create(username: 'Aunt Beru', password: 'password')
-  dak = User.create(username: 'Dak', password: 'password')
-  greedo = User.create(username: 'Greedo', password: 'password')
-  guest = User.create(username: 'guest', password: 'password')
+  owen = User.create(username: 'Uncle Owen', password: 'password', image_url: 'http://vignette1.wikia.nocookie.net/starwars/images/9/91/OwenLarsHS-SWE.jpg/revision/latest?cb=20120428164235')
+  beru = User.create(username: 'Aunt Beru', password: 'password', image_url: 'http://vignette2.wikia.nocookie.net/starwars/images/7/76/Beru_headshot2.jpg/revision/latest?cb=20111029215429' )
+  dak = User.create(username: 'Dak', password: 'password', image_url: 'http://vignette3.wikia.nocookie.net/starwars/images/8/82/Dackralter.jpg/revision/latest?cb=20051028005822')
+  greedo = User.create(username: 'Greedo', password: 'password', image_url: 'http://vignette4.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg/revision/latest?cb=20111104205225')
+  guest = User.create(username: 'guest', password: 'password', image_url: 'http://vignette4.wikia.nocookie.net/starwars/images/a/ad/Stormtrooper-CotF.jpg/revision/latest?cb=20141218150219')
 
 
   Recording.create(title:"The Tosche Station" , body: "Ben Kenobi", url: "http://i.imgur.com/XHVbKxf.png" , username: owen.username, user_id: owen.id)

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
 
-  has_many :recordings
+  has_many :recordings, dependent: :destroy
 
   after_initialize :ensure_session_token
 
