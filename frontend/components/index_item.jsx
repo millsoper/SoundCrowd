@@ -10,8 +10,8 @@ var IndexItem = React.createClass({
           <img src={recording.url} className="track-image"/>
         </div>
         <ul>
-          <li>{recording.title}</li>
-          <li>{recording.username}</li>
+          <li className="index-title">{recording.title}</li>
+          <li className="index-user">{recording.username}</li>
         </ul>
       </div>
     );

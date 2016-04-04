@@ -185,12 +185,12 @@ body {
   font-size: 14px;
 }
 
-.entry-index-title {
+.index-title {
   color: #222;
 }
 
-.entry-index-user {
-  color: #444;
+.index-user {
+  color: #999;
 }
 
 .entry-track-index li {
@@ -508,7 +508,7 @@ html {
   margin: 20px;
   padding: 25px;
   padding-top: 30px;
-  padding-bottom: 0;
+  padding-bottom: 20px;
   height: 100%;
 
 }
@@ -919,7 +919,7 @@ html {
   margin: 15px;
   height: 180px;
   width: 180px;
-  background-color: #ddd;
-  border: 1px solid #ccc;
+  border: 2px solid #ddd;
+  background-color: #eee;
   float: left;
 }

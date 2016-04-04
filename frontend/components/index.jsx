@@ -1,9 +1,13 @@
-var React = require('react');
-var IndexItem = require('./index_item');
-var RecordingStore = require('../stores/recordings.js');
-var SessionStore = require('../stores/session_store');
-var UserStore = require('../stores/user_store');
-var ApiUtil = require('../util/api_util.js');
+var React = require('react'),
+    IndexItem = require('./index_item'),
+    RecordingStore = require('../stores/recordings.js'),
+    SessionStore = require('../stores/session_store'),
+    UserStore = require('../stores/user_store'),
+    ApiUtil = require('../util/api_util.js'),
+    HomePlaylists = require('./home-playlists'),
+    HomeRecordings = require('./home-recordings'),
+    HomeFollowing = require('./home-following'),
+    HomeOverview = require('./home-overview');
 
 function _getAllRecordings() {
   return RecordingStore.all();
@@ -27,6 +31,7 @@ var Index = React.createClass({
   },
   componentWillUnmount: function () {
     this.recordingListener.remove();
+    this.sessionListener.remove();
 
   },
   _onChange: function () {
@@ -90,25 +95,36 @@ var Index = React.createClass({
   },
   render: function(){
     var handleItemClick = this.handleItemClick;
-    var index_data = this.state.recordings.map(function(recording){
-
-                      var boundClick = handleItemClick.bind(null, recording);
-                      return (<IndexItem
-                        onClick={boundClick}
-                        recording={recording}
-                        key={recording.id} />);
-      });
-    var ownRecordings;
-    if (this.state.own_recordings){
-      ownRecordings = this.state.own_recordings.map(function(recording){
-
-                        var boundClick = handleItemClick.bind(null, recording);
-                        return (<IndexItem
-                          onClick={boundClick}
-                          recording={recording}
-                          key={recording.id} />);
-        });
+    var content;
+    switch (this.state.selected) {
+      case "overview":
+        content = <HomeOverview
+                    clickfunction = {this.handleItemClick}
+                    ownRecordings = {this.state.own_recordings}
+                    recordings = {this.state.recordings}/>;
+        break;
+      case "recordings":
+        content = <HomeRecordings
+                    clickfunction = {this.handleItemClick}
+                    ownRecordings = {this.state.own_recordings}/>;
+        break;
+      case "playlists":
+        content = <HomePlaylists
+                    clickfunction = {this.handleItemClick}/>;
+        break;
+      case "following":
+        content = <HomeFollowing
+                    clickfunction = {this.handleItemClick}
+                    recordings = {this.state.recordings}/>;
+        break;
+      default:
+        content = <HomeOverview
+                    clickfunction = {this.handleItemClick}
+                    ownRecordings = {this.state.own_recordings}
+                    recordings = {this.state.recordings}/>;
+        break;
     }
+
     return (
       <section className="content collection-nav" id="collections-overview">
         <ul className = "collection-nav-list">
@@ -117,23 +133,7 @@ var Index = React.createClass({
           {this.generateRecordingsButton()}
           {this.generateOverviewButton()}
         </ul>
-        <section className="group collection-rows collections-recordings">
-          <h5>Recordings</h5>
-          {ownRecordings}
-        </section>
-        <section className="group collection-rows collections-playlists">
-          <h5>Playlists</h5>
-          <p> You don't have any playlists yet.</p>
-          <div className="empty-index"></div>
-          <div className="empty-index"></div>
-          <div className="empty-index"></div>
-          <div className="empty-index"></div>
-          <div className="empty-index"></div>
-        </section>
-        <section className="group collection-rows collections-following">
-          <h5>Following</h5>
-          {index_data}
-        </section>
+        {content}
       </section>
     );
   }
