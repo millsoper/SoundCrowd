@@ -53,21 +53,21 @@ the API.
 - [X] create `Recording` model
 - [X] seed the database with a small amount of test data
 - [ ] CRUD API for recordings (`RecordingsController`)
-- [ ] jBuilder views for recordings
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [X] jBuilder views for recordings
+- [X] setup Webpack & Flux scaffold
+- [X] setup `APIUtil` to interact with the API
+- [X] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days)
 
 **Objective:** Recordings can be created, listened to, tagged and destroyed with the user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [X] setup the flux loop with skeleton files
+- [X] setup React Router
 - implement each recording component, building out the flux loop as needed.
-  - [ ] `RecordingsIndex`
-  - [ ] `RecordingIndexItem`
-  - [ ] `RecordingForm`
+  - [X] `RecordingsIndex`
+  - [X] `RecordingIndexItem`
+  - [X] `RecordingForm`
 - [ ] save Recordings to the DB when the form loses focus or is left idle
   after editing.
 
@@ -75,9 +75,9 @@ the API.
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
+- [X] create a basic style guide
+- [X] position elements on the page
+- [X] add basic colors & styles
 
 ### Phase 5: Recording Playlists (1 day)
 
