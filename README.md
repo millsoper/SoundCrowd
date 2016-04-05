@@ -20,6 +20,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] Create playlists
 - [ ] Search recordings by tags
 - [ ] Annotate any recording with comments
+- [X] Follow other users
 
 ## Design Docs
 * [View Wireframes][views]
