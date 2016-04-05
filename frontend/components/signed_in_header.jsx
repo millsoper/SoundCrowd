@@ -33,7 +33,7 @@ var React = require('react'),
       },
       homeClick: function() {
         this.setState({content: "home"});
-        // this.context.router.push();
+        this.context.router.push("/stream/");
       },
       clickHandler: function(){
         ApiUtil.logout();

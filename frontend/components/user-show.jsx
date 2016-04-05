@@ -45,7 +45,11 @@ var UserShow = React.createClass({
     var user = this._findUserById(userId);
     this.setState({ user: user});
   },
+  handleFollowedClick: function (id) {
+    this.context.router.push("users/" + id);
+  },
   render: function() {
+    var followed_users;
     var current_user = SessionStore.currentUser();
     var user_profile = this.state.user.id;
     var url;
@@ -53,6 +57,7 @@ var UserShow = React.createClass({
     var recordings;
     var start_date;
     var buttons;
+    var that = this;
     if (this.state.user) {
       content = <h3>{this.state.user.username}</h3>;
       url = this.state.user.image_url;
@@ -65,6 +70,12 @@ var UserShow = React.createClass({
                             className="show-delete-user">Delete Account</button>
                   </div>;
       }
+    }
+    if (this.state.user.followed_users){
+      followed_users = this.state.user.followed_users.map( function(user){
+        var id = user.id;
+        return <li key={user.username}><a onClick={that.handleFollowedClick.bind(null, id)}>{user.username}</a></li>;
+      });
     }
     if (this.state.user.recordings) {
     recordings = this.state.user.recordings.map( function(recording){
@@ -91,7 +102,7 @@ var UserShow = React.createClass({
           <section>
             <h4>Following</h4>
             <ul>
-
+              {followed_users}
             </ul>
           </section>
           <section>

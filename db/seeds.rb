@@ -11,6 +11,16 @@
   greedo = User.create(username: 'Greedo', password: 'password', image_url: 'http://vignette4.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg/revision/latest?cb=20111104205225')
   guest = User.create(username: 'guest', password: 'password', image_url: 'http://vignette4.wikia.nocookie.net/starwars/images/a/ad/Stormtrooper-CotF.jpg/revision/latest?cb=20141218150219')
 
+  Follow.create(follower_id: owen.id, followed_id: greedo.id)
+  Follow.create(follower_id: owen.id, followed_id: beru.id)
+  Follow.create(follower_id: owen.id, followed_id: dak.id)
+  Follow.create(follower_id: dak.id, followed_id: beru.id)
+  Follow.create(follower_id: beru.id, followed_id: owen.id)
+  Follow.create(follower_id: beru.id, followed_id: dak.id)
+  Follow.create(follower_id: beru.id, followed_id: guest.id)
+  Follow.create(follower_id: dak.id, followed_id: greedo.id)
+  Follow.create(follower_id: guest.id, followed_id: greedo.id)
+  Follow.create(follower_id: owen.id, followed_id: guest.id)
 
   Recording.create(title:"The Tosche Station" , body: "Ben Kenobi", url: "http://i.imgur.com/XHVbKxf.png" , username: owen.username, user_id: owen.id)
   Recording.create(title:"You Can Waste Time" , body: "Power converters", url: "http://i.imgur.com/WoSua78.png", username: owen.username, user_id: owen.id)

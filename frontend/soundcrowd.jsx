@@ -11,6 +11,7 @@ var React = require('react'),
     RecordingShow = require('./components/recording-show.jsx'),
     RecordingEdit = require('./components/recording_edit.jsx'),
     UserEdit = require('./components/user_edit.jsx'),
+    Stream = require('./components/stream'),
 
     ApiUtil = require("./util/api_util.js"),
     SessionStore = require("./stores/session_store"),
@@ -33,6 +34,7 @@ var React = require('react'),
         <Route path="/signup" component={SignupForm}/>
         <Route path="recordings/:recordingId/edit" component={RecordingEdit}/>
         <Route path="users/:userId/edit" component={UserEdit}/>
+        <Route path="/stream" component={Stream}/>
       </Route>
 
     );

@@ -5,6 +5,23 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many(
+  :follows,
+  class_name: 'Follow',
+  primary_key: :id,
+  foreign_key: :user_id
+  )
+
+  has_many(
+  :follows,
+  class_name: 'Follow',
+  primary_key: :id,
+  foreign_key: :follower_id
+  )
+
+  has_many :followed_users, through: :follows, source: :followed
+
+  has_many :followers, through: :follows, source: :followers
 
   has_many :recordings, dependent: :destroy
 
