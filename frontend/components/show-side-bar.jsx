@@ -10,7 +10,7 @@ var React = require('react');
             if (recording.user_id == user_id){
                 url = "#/recordings/" + recording.id;
                 return (<li className="sidebar-list-item" key={recording.title}>
-                          <div className="sidebar-pic"><img src={recording.url}/></div>
+                          <div className="sidebar-pic"><img src={recording.image}/></div>
                           <a href={url}>
                             {recording.title} - <span className="sidebar-username">{recording.username}</span>
                           </a>

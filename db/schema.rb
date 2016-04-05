@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404235459) do
+ActiveRecord::Schema.define(version: 20160405190341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,25 +27,31 @@ ActiveRecord::Schema.define(version: 20160404235459) do
   add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "recordings", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.string   "title",      null: false
-    t.text     "body",       null: false
-    t.string   "url",        null: false
+    t.integer  "user_id",            null: false
+    t.string   "title",              null: false
+    t.text     "body",               null: false
+    t.string   "url",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.string   "image_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "recordings", ["user_id"], name: "index_recordings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
+    t.string   "username",           null: false
+    t.string   "password_digest",    null: false
+    t.string   "session_token",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree

@@ -575,6 +575,7 @@ html {
   float: left;
   margin: 15px;
   height: 210px;
+
 }
 
 .recording-index-item ul {
@@ -591,6 +592,13 @@ html {
   background: -moz-linear-gradient(#FF9900, #bbb); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#FF9900, #bbb); /* Standard syntax */
   overflow: hidden;
+  border: 5px solid white;
+}
+
+
+
+.recording-index-pic:hover {
+  border: 5px solid #ddd;
 }
 .detail-pic {
   float: right;
@@ -647,8 +655,6 @@ html {
   width: 120%;
   height: auto;
 }
-
-
 
 .show-side-bar {
   margin-top: 35px;
@@ -738,6 +744,17 @@ html {
 .profile-info ul {
   padding: 0;
 }
+
+.profile-info li {
+  padding: 2px;
+  margin: 1px;
+}
+
+.profile-info li:hover {
+  cursor: pointer;
+  background-color: #eee;
+
+}
 .user-profile article {
   float: left;
 }
@@ -782,6 +799,12 @@ html {
   background: -o-linear-gradient(#f08080, darkorange); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#f08080, darkorange); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#f08080, darkorange); /* Standard syntax */
+  cursor: pointer;
+  border: 8px solid white;
+}
+
+.author-profile-pic:hover {
+  border: 8px solid #ddd;
 }
 
 .author-profile-pic img {
@@ -792,6 +815,7 @@ html {
 .author-profile-pic p{
   padding-top: 20px;
   color: white;
+  cursor: pointer;
 }
 
 .author-name {
@@ -799,6 +823,7 @@ html {
   margin-top: 10px;
   color: #555;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .play-footer {

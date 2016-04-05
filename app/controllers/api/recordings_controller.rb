@@ -5,6 +5,7 @@ class Api::RecordingsController < ApplicationController
 
   def create
     @recording = Recording.new(recording_params)
+    debugger
     if @recording.save
       redirect_to root_url
     else
@@ -38,6 +39,6 @@ class Api::RecordingsController < ApplicationController
 
   private
   def recording_params
-    params.require(:recording).permit(:user_id, :username, :title, :body, :url)
+    params.require(:recording).permit(:user_id, :username, :title, :body, :url, :image)
   end
 end

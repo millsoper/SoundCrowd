@@ -13,7 +13,7 @@ var IndexItem = React.createClass({
     return (
       <section className="recording-index-item">
         <div className="recording-index-pic"  onClick={this.props.onClick}>
-          <img src={recording.url} className="track-image"/>
+          <img src={recording.image} className="track-image"/>
         </div>
         <ul>
           <li className="index-title">{recording.title}</li>

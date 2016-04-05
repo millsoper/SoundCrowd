@@ -3,6 +3,9 @@ var React = require('react'),
     ApiUtil = require('../util/api_util');
 
     var AuthorInfo = React.createClass({
+      contextTypes: {
+        router: React.PropTypes.object.isRequired
+      },
       getInitialState: function(){
         var userId = this.props.authorid;
         var user = UserStore.find(userId) || {};
@@ -25,17 +28,24 @@ var React = require('react'),
         author = UserStore.find(this.props.authorid);
         this.setState({ author: author});
       },
+      handleClick: function (id) {
+        this.context.router.push("/users/" + id);
+      },
       render: function(){
-        var url;
-        if (this.state.author.image_url){
-          url = this.state.author.image_url;
+        var image;
+        var id;
+        if (this.state.author.image){
+          image = this.state.author.image;
+          id = this.state.author.id;
         }
         return (
           <div>
-            <div className="author-profile-pic">
-            <img src={url}/>
-            </div>
-            <div className="author-name">{this.props.author}</div>
+            <a onClick={this.handleClick.bind(null, id)}>
+              <div className="author-profile-pic">
+              <img src={image}/>
+              </div>
+              <div className="author-name">{this.props.author}</div>
+            </a>
           </div>
         );
       }

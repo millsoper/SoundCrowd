@@ -48,11 +48,14 @@ var UserShow = React.createClass({
   handleFollowedClick: function (id) {
     this.context.router.push("users/" + id);
   },
+  handleRecordingClick: function (id) {
+    this.context.router.push("recordings/" + id);
+  },
   render: function() {
     var followed_users;
     var current_user = SessionStore.currentUser();
     var user_profile = this.state.user.id;
-    var url;
+    var image;
     var content = "not today Satan";
     var recordings;
     var start_date;
@@ -60,7 +63,7 @@ var UserShow = React.createClass({
     var that = this;
     if (this.state.user) {
       content = <h3>{this.state.user.username}</h3>;
-      url = this.state.user.image_url;
+      image = this.state.user.image;
       start_date = this.state.user.created_at;
       if (this.state.user.id === current_user.id){
         buttons = <div className="user-buttons">
@@ -79,7 +82,11 @@ var UserShow = React.createClass({
     }
     if (this.state.user.recordings) {
     recordings = this.state.user.recordings.map( function(recording){
-      return <li key={recording.id}>{recording.title}</li>;
+      return (<li key={recording.id}>
+                <a onClick={that.handleRecordingClick.bind(null, recording.id)}>
+                  {recording.title}
+                </a>
+              </li>);
       });
     } else {
       recordings = "it isn't working";
@@ -88,7 +95,7 @@ var UserShow = React.createClass({
     return (
       <div className="content group user-profile">
         <div className="profile-pic">
-          <img src={url}/>
+          <img src={image}/>
         </div>
         <article className = "profile-info">
           {content}

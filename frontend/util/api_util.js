@@ -75,9 +75,17 @@ var ApiUtil = {
       ApiActions.receiveRecent(recordings);
     });
   },
-  createRecording: function(data){
-    $.post('api/recordings', { recording: data }, function(recording) {
-      ApiActions.receiveAll([recording]);
+  createRecording: function(formData, callback){
+    $.ajax({
+      url: '/api/recordings',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function(recording) {
+        ApiActions.receiveAll([recording]);
+      }
     });
   },
   login: function(credentials, callback){

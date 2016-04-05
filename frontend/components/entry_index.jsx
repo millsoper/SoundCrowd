@@ -31,7 +31,7 @@ var EntryIndex = React.createClass({
     var content = this.state.recordings.map( function (recording, index){
       if (index < 7){
         return (
-          <li key={recording.title}><a onClick={this.props.clickaction}><div className="index-pic"><img src={recording.url}></img></div>
+          <li key={recording.title}><a onClick={this.props.clickaction}><div className="index-pic"><img src={recording.image}></img></div>
               <p className="index-title">{recording.title}</p>
               <p className="index-user">{recording.username}</p></a>
           </li>

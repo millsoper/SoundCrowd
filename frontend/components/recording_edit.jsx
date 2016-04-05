@@ -19,7 +19,7 @@ var RecordingEditForm = React.createClass({
       body: track.body,
       user_id: SessionStore.currentUser().id,
       username: SessionStore.currentUser().username,
-      url: track.url,
+      image: track.image,
     });
   },
   componentWillReceiveProps: function (newProps) {
@@ -37,7 +37,7 @@ var RecordingEditForm = React.createClass({
   _onChange: function() {
     var trackId = this.props.params.recordingId;
     var track = RecordingStore.find(trackId);
-    this.setState({title: track.title, body: track.body, url: track.url});
+    this.setState({title: track.title, body: track.body, image: track.image});
     this.trackId = track.id;
   },
   handleSubmit: function (event) {
@@ -55,17 +55,17 @@ var RecordingEditForm = React.createClass({
   },
 
   render: function(){
-    var url = this.state.url;
+    var image = this.state.image;
     return (
         <div className="new-recording-form group">
           <h3>Add a Recording</h3>
           <form onSubmit={this.handleSubmit}>
-            <div className="upload-track-pic"><p>Update Picture</p><img className = "form-pic" src={url}></img></div>
+            <div className="upload-track-pic"><p>Update Picture</p><img className = "form-pic" src={image}></img></div>
             <label>Title</label>
               <input type="text" valueLink={this.linkState('title')}/>
             <br/>
-            <label>Image Url</label>
-              <input min='0' type="text" valueLink={this.linkState('url')}/>
+            <label>Image</label>
+              <input min='0' type="file" valueLink={this.linkState('image')}/>
             <br/>
             <label>Body</label>
               <input min='0' type="text" valueLink={this.linkState('body')}/>

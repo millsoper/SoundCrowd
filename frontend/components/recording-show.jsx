@@ -80,7 +80,7 @@ var RecordingShow = React.createClass({
               </ul>
             </div>
             <div  className = "detail-pic" >
-              <img src={this.state.recording.url}/>
+              <img src={this.state.recording.image}/>
               {buttons}
             </div>
           </section>

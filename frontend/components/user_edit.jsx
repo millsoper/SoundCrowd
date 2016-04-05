@@ -17,7 +17,7 @@ var UserEditForm = React.createClass({
     this.userId = userId;
     return ({
       username: SessionStore.currentUser().username,
-      image_url: SessionStore.currentUser().image_url,
+      image: SessionStore.currentUser().image,
     });
   },
   componentWillReceiveProps: function (newProps) {
@@ -34,7 +34,7 @@ var UserEditForm = React.createClass({
   _onChange: function() {
     var userId = this.props.params.user_id;
     var user = UserStore.find(userId);
-    this.setState({username: user.username, image_url: user.image_url});
+    this.setState({username: user.username, image: user.image});
   },
   handleSubmit: function (event) {
     event.preventDefault();
@@ -51,17 +51,17 @@ var UserEditForm = React.createClass({
   },
 
   render: function(){
-    var url = this.state.image_url;
+    var image = this.state.image.url;
     return (
         <div className="new-recording-form group">
           <h3>Edit Profile</h3>
           <form onSubmit={this.handleSubmit}>
-            <div className="upload-track-pic"><p>Update Picture</p><img className = "form-pic" src={url}></img></div>
+            <div className="upload-track-pic"><p>Update Picture</p><img className = "form-pic" src={image}></img></div>
             <label>Username</label>
               <input type="text" valueLink={this.linkState('username')}/>
             <br/>
-            <label>Image Url</label>
-              <input min='0' type="text" valueLink={this.linkState('image_url')}/>
+            <label>Image</label>
+              <input min='0' type="file" valueLink={this.linkState('image')}/>
             <br/>
             <ul>
               <li><input type="submit" value="update profile"/></li>

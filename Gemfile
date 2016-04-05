@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'annotate'
 gem 'bcrypt'
+gem "paperclip", '5.0.0.beta1'
+gem 'aws-sdk', '>= 2.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

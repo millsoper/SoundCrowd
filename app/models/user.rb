@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   foreign_key: :follower_id
   )
 
+  has_attached_file :image, default_url: "missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   has_many :followed_users, through: :follows, source: :followed
 
   has_many :followers, through: :follows, source: :followers
