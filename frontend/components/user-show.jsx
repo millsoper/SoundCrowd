@@ -64,7 +64,9 @@ var UserShow = React.createClass({
     if (this.state.user) {
       content = <h3>{this.state.user.username}</h3>;
       image = this.state.user.image;
-      start_date = this.state.user.created_at;
+      if (this.state.user.created_at){
+      start_date = this.state.user.created_at.substring(0,10);
+      }
       if (this.state.user.id === current_user.id){
         buttons = <div className="user-buttons">
                     <button onClick={this.editClickHandler.bind(null, user_profile )}
@@ -77,7 +79,11 @@ var UserShow = React.createClass({
     if (this.state.user.followed_users){
       followed_users = this.state.user.followed_users.map( function(user){
         var id = user.id;
-        return <li key={user.username}><a onClick={that.handleFollowedClick.bind(null, id)}>{user.username}</a></li>;
+        return (<li key={user.username}>
+                  <a onClick={that.handleFollowedClick.bind(null, id)}>
+                    {user.username}
+                  </a>
+                </li>);
       });
     }
     if (this.state.user.recordings) {
@@ -96,10 +102,11 @@ var UserShow = React.createClass({
       <div className="content group user-profile">
         <div className="profile-pic">
           <img src={image}/>
+          {buttons}
         </div>
         <article className = "profile-info">
           {content}
-          {buttons}
+
           <section>
             <h4>Recordings</h4>
             <ul>

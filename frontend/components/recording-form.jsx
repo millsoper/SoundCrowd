@@ -1,7 +1,7 @@
 var React = require('react'),
     ApiUtil = require('../util/api_util'),
-    LinkedStateMixin = require('react-addons-linked-state-mixin'),
-    SessionStore = require('../stores/session_store.js');
+    SessionStore = require('../stores/session_store.js'),
+    ReactRouter = require('react-router');
 
 var RecordingForm = React.createClass({
   contextTypes: {
@@ -28,10 +28,13 @@ var RecordingForm = React.createClass({
     formData.append("recording[url]", this.state.sound);
     formData.append("recording[username]", this.state.username);
     formData.append("recording[user_id]", this.state.user_id);
-    ApiUtil.createRecording(formData);
+    var router = this.context.router;
+    ApiUtil.createRecording(formData, function (){
+      router.push("/");
+    });
   },
   navigateToHome: function(){
-    this.props.history.pushState(null, "");
+    this.context.router.push("");
   },
   handleCancel: function(event){
     event.preventDefault();

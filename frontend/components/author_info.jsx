@@ -12,14 +12,17 @@ var React = require('react'),
         return { author: user };
       },
       componentWillReceiveProps: function(newProps) {
+        var user;
+        if (newProps.authorid){
         ApiUtil.fetchUser(newProps.authorid);
         user = UserStore.find(newProps.authorid);
+        }
         this.setState({author: user});
       },
       componentDidMount: function() {
         this.userListener = UserStore.addListener(this._onChange);
         ApiUtil.fetchUsers();
-        this.setState({ user: UserStore.find(this.props.authorid)});
+        // this.setState({ user: UserStore.find(this.props.authorid)});
       },
       componentWillUnmount: function() {
         this.userListener.remove();
@@ -34,7 +37,7 @@ var React = require('react'),
       render: function(){
         var image;
         var id;
-        if (this.state.author.image){
+        if (this.state.author){
           image = this.state.author.image;
           id = this.state.author.id;
         }

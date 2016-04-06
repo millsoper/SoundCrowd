@@ -1,13 +1,10 @@
 var React = require('react'),
     PropTypes = React.PropTypes,
     ApiUtil = require('../util/api_util'),
-    LinkedStateMixin = require('react-addons-linked-state-mixin'),
     SessionStore = require('../stores/session_store.js'),
     UserStore = require('../stores/user_store');
 
 var UserEditForm = React.createClass({
-
-  mixins: [LinkedStateMixin],
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -17,7 +14,8 @@ var UserEditForm = React.createClass({
     this.userId = userId;
     return ({
       username: SessionStore.currentUser().username,
-      image: SessionStore.currentUser().image,
+      imageFile: null,
+      imageUrl: SessionStore.currentUser().image,
     });
   },
   componentWillReceiveProps: function (newProps) {
@@ -25,43 +23,73 @@ var UserEditForm = React.createClass({
   },
   componentDidMount: function () {
     this.usersListener = UserStore.addListener(this._onChange);
-    var userId = this.props.params.user_id;
+    var userId = this.props.params.userId;
     ApiUtil.fetchUser(userId);
   },
   componentWillUnmount: function () {
     this.usersListener.remove();
   },
   _onChange: function() {
-    var userId = this.props.params.user_id;
+    var userId = this.props.params.userId;
     var user = UserStore.find(userId);
-    this.setState({username: user.username, image: user.image});
+    if (user){
+    this.setState({username: user.username, imageUrl: user.image});
+    }
   },
   handleSubmit: function (event) {
     event.preventDefault();
-    var user = Object.assign({}, this.state);
-    ApiUtil.updateUser(user, this.props.params.userId);
+    var formData = new FormData();
+    formData.append("user[username]", this.state.username);
+    if (this.state.imageFile){
+    formData.append("user[image]", this.state.imageFile);
+    }
+    ApiUtil.updateUser(formData, this.props.params.userId);
     this.navigateToHome();
   },
   navigateToHome: function(){
-    this.props.history.pushState(null, "");
+    this.context.router.push("/users/" + this.props.params.userId);
   },
   handleCancel: function(event){
     event.preventDefault();
     this.navigateToHome();
   },
+  handleUsernameChange: function (e) {
+    this.setState({ username: e.currentTarget.value });
+  },
+  handleFileChange: function (e) {
+    var file = e.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+      var result = reader.result;
+      this.setState({ imageFile: file, imageUrl: result });
+    }.bind(this);
+    reader.readAsDataURL(file);
+  },
 
   render: function(){
-    var image = this.state.image.url;
+    var image;
+    var username;
+    if (this.state.imageUrl){
+      image = this.state.imageUrl;
+    }
+    if (this.state.username){
+      username = this.state.username;
+    }
     return (
         <div className="new-recording-form group">
           <h3>Edit Profile</h3>
           <form onSubmit={this.handleSubmit}>
             <div className="upload-track-pic"><p>Update Picture</p><img className = "form-pic" src={image}></img></div>
             <label>Username</label>
-              <input type="text" valueLink={this.linkState('username')}/>
+              <input type="text"
+                     onChange={this.handleUsernameChange}
+                     value={username}/>
             <br/>
             <label>Image</label>
-              <input min='0' type="file" valueLink={this.linkState('image')}/>
+              <input min='0'
+                     type="file"
+                     onChange={this.handleFileChange}/>
             <br/>
             <ul>
               <li><input type="submit" value="update profile"/></li>

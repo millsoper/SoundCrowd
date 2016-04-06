@@ -23,6 +23,10 @@ var resetRecent = function(recordings){
   });
 };
 
+var removeRecording = function(recording){
+  _recordings.splice(recording.id, 1);
+};
+
 RecordingStore.all = function () {
   var recordings = [];
   for (var id in _recordings) {
@@ -56,6 +60,7 @@ RecordingStore.__onDispatch = function (payload) {
     case RecordingConstants.RECORDING_RECEIVED:
       resetRecording(payload.recording);
       RecordingStore.__emitChange();
+      break;
     case RecordingConstants.RECORDING_DELETED:
       removeRecording(payload.recording);
       RecordingStore.__emitChange();

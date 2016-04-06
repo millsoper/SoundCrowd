@@ -44,24 +44,26 @@ var React = require('react'),
         return (
           <div>
             <header className="signedin-header group">
-              <a href="#/"className="signedin_badge">
-                <img src="cloud-icon.png"/>
-              </a>
-              <ul className="home-nav">
-                {this.generateCollectionsButton()}
-                {this.generateHomeButton()}
-              </ul>
-              <ul className="signedin-nav">
-                <li className="searchdiv">
-                  <input type="text" placeholder="Search" className="searchbar">
-                  </input>
-                  <img src="search-icon.png"/>
-                </li>
-                <li className="upload"><a href="#/recordings/new">Upload</a></li>
-                <strong className="signedin_badge circle"></strong>
-                  <li className="username"><a href= {url} className="nav-username">{this.props.user.username}</a></li>
-                  <li><button onClick={this.clickHandler}>Logout</button></li>
-              </ul>
+              <nav className="group">
+                <a href="#/"className="signedin_badge">
+                  <img src="cloud-icon.png"/>
+                </a>
+                <ul className="home-nav">
+                  {this.generateCollectionsButton()}
+                  {this.generateHomeButton()}
+                </ul>
+                <ul className="signedin-nav">
+                  <li className="searchdiv">
+                    <input type="text" placeholder="Search" className="searchbar">
+                    </input>
+                    <img src="search-icon.png"/>
+                  </li>
+                  <li className="upload"><a href="#/recordings/new">Upload</a></li>
+                  <strong className="signedin_badge circle"></strong>
+                    <li className="username"><a href= {url} className="nav-username">{this.props.user.username}</a></li>
+                    <li><button onClick={this.clickHandler}>Logout</button></li>
+                </ul>
+              </nav>
             </header>
 
           </div>);

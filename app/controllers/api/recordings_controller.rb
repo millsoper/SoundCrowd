@@ -5,7 +5,6 @@ class Api::RecordingsController < ApplicationController
 
   def create
     @recording = Recording.new(recording_params)
-    debugger
     if @recording.save
       redirect_to root_url
     else

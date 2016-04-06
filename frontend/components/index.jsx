@@ -36,13 +36,15 @@ var Index = React.createClass({
   },
   _onChange: function () {
     var current_user = SessionStore.currentUser().id;
+    if (current_user){
     var own_recordings = UserStore.find(current_user).recordings;
+    this.setState({own_recordings: own_recordings});
+    }
     this.setState({recordings: _getAllRecordings()});
     this.setState({user: SessionStore.currentUser()});
-    this.setState({own_recordings: own_recordings});
+
   },
   handleItemClick: function (recording) {
-    console.log("handleItemClick in index");
     this.context.router.push("recordings/" + recording.id);
   },
   handleNavFollowingClick: function () {

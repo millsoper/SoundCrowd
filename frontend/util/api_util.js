@@ -27,31 +27,26 @@ var ApiUtil = {
       }
     });
   },
-  updateRecording: function(recording, id){
-    $.ajax({
-      method: "PATCH",
-      url: "api/recordings/" + id,
-      data: {recording: recording},
-      success: function(recording){
-        ApiActions.receiveSingleRecording(recording);
-      }
-    });
-  },
+
   fetchUsers: function() {
     $.get('api/users', function(users){
       ApiActions.receiveAllUsers(users);
     });
   },
-  updateUser: function(user, id) {
+  updateUser: function(formData, id) {
     $.ajax({
       method: "PATCH",
       url: "api/users/" + id,
-      data: {user: user},
+      processData: false,
+      contentType: false,
+      datatype: 'json',
+      data: formData,
       success: function(user){
         ApiActions.receiveSingleUser(user);
       }
     });
   },
+
   fetchUser: function(id) {
     $.ajax({
       method: "GET",
@@ -85,6 +80,21 @@ var ApiUtil = {
       data: formData,
       success: function(recording) {
         ApiActions.receiveAll([recording]);
+        callback && callback();
+      }
+    });
+  },
+
+  updateRecording: function(formData, id){
+    $.ajax({
+      method: "PATCH",
+      url: "api/recordings/" + id,
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function(recording){
+        ApiActions.receiveSingleRecording(recording);
       }
     });
   },
