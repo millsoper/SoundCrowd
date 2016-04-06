@@ -1,11 +1,13 @@
 class Recording < ActiveRecord::Base
-  validates :user_id, :title, :body, :image, :username, presence: true
-  validates :url, uniqueness: true
+  validates :user_id, :title, :body, :image, :username, :audio, presence: true
 
   belongs_to :user
 
-  has_attached_file :image, default_url: "missing.png"
+  has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :audio
+  validates_attachment_content_type :audio, content_type: /\Aaudio\/.*\Z/
 
   def self.most_recent
     Recording.order(created_at: :desc)

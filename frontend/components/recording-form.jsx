@@ -15,7 +15,7 @@ var RecordingForm = React.createClass({
       username: SessionStore.currentUser().username,
       imageFile: null,
       imageUrl: null,
-      sound: ""
+      audio: null,
     };
   },
 
@@ -25,13 +25,12 @@ var RecordingForm = React.createClass({
     formData.append("recording[title]", this.state.title);
     formData.append("recording[body]", this.state.body);
     formData.append("recording[image]", this.state.imageFile);
-    formData.append("recording[url]", this.state.sound);
+    formData.append("recording[audio]", this.state.audio);
     formData.append("recording[username]", this.state.username);
     formData.append("recording[user_id]", this.state.user_id);
     var router = this.context.router;
-    ApiUtil.createRecording(formData, function (){
-      router.push("/");
-    });
+    ApiUtil.createRecording(formData);
+    this.navigateToHome();
   },
   navigateToHome: function(){
     this.context.router.push("");
@@ -43,8 +42,14 @@ var RecordingForm = React.createClass({
   handleTitleChange: function (e) {
     this.setState({ title: e.currentTarget.value });
   },
-  handleSoundChange: function (e) {
-    this.setState({ sound: e.currentTarget.value });
+  handleAudioChange: function (e) {
+    var file = e.currentTarget.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      this.setState({ audio: file });
+    }.bind(this);
+
+    reader.readAsDataURL(file);
   },
   handleBodyChange: function (e) {
     this.setState({ body: e.currentTarget.value });
@@ -66,7 +71,7 @@ var RecordingForm = React.createClass({
     var imageUrl;
     var title;
     var body;
-    var sound;
+    var audio;
     if (this.state.imageUrl){
       imageUrl = this.state.imageUrl;
     }
@@ -76,8 +81,8 @@ var RecordingForm = React.createClass({
     if (this.state.title){
       title = this.state.title;
     }
-    if (this.state.sound){
-      sound = this.state.sound;
+    if (this.state.audio){
+      audio = this.state.audio;
     }
     return (
         <div className="new-recording-form group">
@@ -85,7 +90,7 @@ var RecordingForm = React.createClass({
           <form onSubmit={this.handleSubmit}>
             <div className="upload-track-pic">
               <img className="form-pic"src={imageUrl}/>
-              <p>Upload A Picture</p>
+
             </div>
             <label>Title</label>
               <input type="text"
@@ -102,10 +107,10 @@ var RecordingForm = React.createClass({
                      onChange={this.handleBodyChange}
                      value={body}/>
             <br/>
-              <label>Sound Url</label>
-                <input min='0' type="text"
-                       onChange={this.handleSoundChange}
-                       value={sound}/>
+              <label>Audio</label>
+                <input min='0'
+                       type="file"
+                       onChange={this.handleAudioChange}/>
               <br/>
             <ul>
               <li><input type="submit" value="create recording"/></li>

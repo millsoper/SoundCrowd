@@ -79,7 +79,7 @@ var ApiUtil = {
       dataType: 'json',
       data: formData,
       success: function(recording) {
-        ApiActions.receiveAll([recording]);
+        ApiActions.receiveSingleRecording(recording);
         callback && callback();
       }
     });

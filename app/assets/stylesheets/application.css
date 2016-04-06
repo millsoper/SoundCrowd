@@ -193,6 +193,10 @@ body {
   color: #999;
 }
 
+.index-user:hover {
+  color: darkorange;
+}
+
 .entry-track-index li {
   float: left;
 }
@@ -845,6 +849,9 @@ html {
   left: 0;
 }
 
+.button-playing {
+  background-color: darkorange;
+}
 
 .detailblock {
   margin: 0;

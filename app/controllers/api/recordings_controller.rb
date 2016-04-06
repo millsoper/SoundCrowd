@@ -38,6 +38,6 @@ class Api::RecordingsController < ApplicationController
 
   private
   def recording_params
-    params.require(:recording).permit(:user_id, :username, :title, :body, :url, :image)
+    params.require(:recording).permit(:user_id, :username, :title, :body, :image, :audio)
   end
 end

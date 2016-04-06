@@ -60,6 +60,7 @@ var RecordingShow = React.createClass({
   },
   render: function () {
     var buttons;
+    var audio = this.state.recording.audio;
     var url = this.state.recording.user_id;
     if (url === SessionStore.currentUser().id){
       buttons = <div className="track-buttons">
@@ -70,10 +71,11 @@ var RecordingShow = React.createClass({
                 </div>;
     }
     return (
+
         <div className = "group">
           <section className="detailblock group">
             <div className="detail-info">
-              <div><PlayButton/></div>
+              <div><PlayButton audio={audio}/></div>
               <ul>
                 <li>{this.state.recording.title}</li>
                 <li>{this.state.recording.username}</li>

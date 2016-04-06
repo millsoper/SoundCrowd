@@ -14,7 +14,7 @@ var RecordingEditForm = React.createClass({
     return ({
       title: track.title,
       body: track.body,
-      sound: track.url,
+      audio: null,
       user_id: SessionStore.currentUser().id,
       username: SessionStore.currentUser().username,
       imageFile: null,
@@ -25,7 +25,7 @@ var RecordingEditForm = React.createClass({
   componentWillReceiveProps: function (newProps) {
     ApiUtil.fetchRecording(newProps.params.recordingId);
     var track = RecordingStore.find(newProps.params.recordingId);
-    this.setState({title: track.title, body: track.body, sound: track.url, imageUrl: track.image});
+    this.setState({title: track.title, body: track.body, imageUrl: track.image});
 
   },
   componentDidMount: function () {
@@ -41,7 +41,7 @@ var RecordingEditForm = React.createClass({
     var trackId = this.props.params.recordingId;
     var track = RecordingStore.find(trackId);
     if (track){
-    this.setState({title: track.title, body: track.body, sound: track.url, imageUrl: track.image});
+    this.setState({title: track.title, body: track.body, imageUrl: track.image});
 
     this.trackId = track.id;}
   },
@@ -51,9 +51,11 @@ var RecordingEditForm = React.createClass({
     formData.append("recording[title]", this.state.title);
     formData.append("recording[body]", this.state.body);
     if (this.state.imageFile){
-    formData.append("recording[image]", this.state.imageFile);
+      formData.append("recording[image]", this.state.imageFile);
     }
-    formData.append("recording[url]", this.state.sound);
+    if (this.state.audio){
+      formData.append("recording[audio]", this.state.audio);
+    }
     formData.append("recording[username]", this.state.username);
     formData.append("recording[user_id]", this.state.user_id);
     ApiUtil.updateRecording(formData, this.trackId);
@@ -69,13 +71,9 @@ var RecordingEditForm = React.createClass({
   handleTitleChange: function (e) {
     this.setState({ title: e.currentTarget.value });
   },
-  handleSoundChange: function (e) {
-    this.setState({ sound: e.currentTarget.value });
-  },
   handleBodyChange: function (e) {
     this.setState({ body: e.currentTarget.value });
   },
-
   handleFileChange: function (e) {
     var file = e.currentTarget.files[0];
     var reader = new FileReader();
@@ -88,7 +86,18 @@ var RecordingEditForm = React.createClass({
 
     reader.readAsDataURL(file);
   },
+  handleAudioChange: function (e) {
+    var file = e.currentTarget.files[0];
+    var reader = new FileReader();
 
+
+    reader.onloadend = function () {
+      var result = reader.result;
+      this.setState({ audio: file});
+    }.bind(this);
+
+    reader.readAsDataURL(file);
+  },
   render: function(){
     var image;
     var title;
@@ -102,9 +111,6 @@ var RecordingEditForm = React.createClass({
     }
     if (this.state.body) {
       body = this.state.body;
-    }
-    if (this.state.sound) {
-      sound = this.state.sound;
     }
     return (
         <div className="new-recording-form group">
@@ -129,10 +135,9 @@ var RecordingEditForm = React.createClass({
                      onChange={this.handleBodyChange}
                      value={body}/>
             <br/>
-              <label>Sound Url</label>
-                <input min='0' type="text"
-                       onChange={this.handleSoundChange}
-                       value={sound}/>
+              <label>Audio</label>
+                <input min='0' type="file"
+                       onChange={this.handleAudioChange}/>
             <br/>
             <ul>
               <li><input type="submit" value="update recording"/></li>
