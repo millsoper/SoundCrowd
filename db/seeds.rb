@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  owen = User.create(username: 'Uncle Owen', password: 'password', image: File.open('/Users/appacademy/Desktop/soundcrowd/app/assets/images/uncle_owen.jpg'))
-  beru = User.create(username: 'Aunt Beru', password: 'password', image: File.open('/Users/appacademy/Desktop/soundcrowd/app/assets/images/aunt_beru.jpg'))
-  dak = User.create(username: 'Dak', password: 'password', image: File.open('/Users/appacademy/Desktop/soundcrowd/app/assets/images/dak_ralter.jpg'))
-  greedo = User.create(username: 'Greedo', password: 'password', image: File.open('/Users/appacademy/Desktop/soundcrowd/app/assets/images/greedo.jpg'))
-  guest = User.create(username: 'guest', password: 'password', image: File.open('/Users/appacademy/Desktop/soundcrowd/app/assets/images/kylo_ren.jpg'))
+  owen = User.create(username: 'Uncle Owen', password: 'password', image: File.open('app/assets/images/uncle_owen.jpg'))
+  beru = User.create(username: 'Aunt Beru', password: 'password', image: File.open('app/assets/images/aunt_beru.jpg'))
+  dak = User.create(username: 'Dak', password: 'password', image: File.open('app/assets/images/dak_ralter.jpg'))
+  greedo = User.create(username: 'Greedo', password: 'password', image: File.open('app/assets/images/greedo.jpg'))
+  guest = User.create(username: 'guest', password: 'password', image: File.open('app/assets/images/kylo_ren.jpg'))
 
   Follow.create(follower_id: owen.id, followed_id: greedo.id)
   Follow.create(follower_id: owen.id, followed_id: beru.id)
