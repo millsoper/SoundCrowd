@@ -41,7 +41,7 @@ var Index = React.createClass({
     this.setState({own_recordings: own_recordings});
     }
     this.setState({recordings: _getAllRecordings()});
-    this.setState({user: SessionStore.currentUser()});
+    this.setState({user: current_user});
 
   },
   handleItemClick: function (recording) {
@@ -103,7 +103,8 @@ var Index = React.createClass({
         content = <HomeOverview
                     clickfunction = {this.handleItemClick}
                     ownRecordings = {this.state.own_recordings}
-                    recordings = {this.state.recordings}/>;
+                    recordings = {this.state.recordings}
+                    user = {this.state.user}/>;
         break;
       case "recordings":
         content = <HomeRecordings
@@ -117,13 +118,14 @@ var Index = React.createClass({
       case "following":
         content = <HomeFollowing
                     clickfunction = {this.handleItemClick}
-                    recordings = {this.state.recordings}/>;
+                    following = {this.state.user.followed_users}/>;
         break;
       default:
         content = <HomeOverview
                     clickfunction = {this.handleItemClick}
                     ownRecordings = {this.state.own_recordings}
-                    recordings = {this.state.recordings}/>;
+                    recordings = {this.state.recordings}
+                    user = {this.state.user}/>;
         break;
     }
 

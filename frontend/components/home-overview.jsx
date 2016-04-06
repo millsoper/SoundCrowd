@@ -11,7 +11,7 @@ var HomeOverview = React.createClass({
       <section>
         <HomeRecordings clickfunction= {this.props.clickfunction} ownRecordings= {this.props.ownRecordings}/>
         <HomePlaylists clickfunction= {this.props.clickfunction}/>
-        <HomeFollowing clickfunction= {this.props.clickfunction} recordings= {this.props.recordings}/>
+        <HomeFollowing clickfunction= {this.props.clickfunction} following= {this.props.user.followed_users}/>
       </section>
     );
   }

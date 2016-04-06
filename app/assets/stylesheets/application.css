@@ -227,6 +227,9 @@ body {
   width: auto;
 }
 
+.index-pic img:hover {
+}
+
 .signedin-header {
   background: #333333;
   font-weight: lighter;
