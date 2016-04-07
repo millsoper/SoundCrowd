@@ -8,6 +8,6 @@ end
 
 json.followed_users do
   json.array!(user.followed_users) do |followed|
-    json.extract! followed, :id, :username, :created_at
+    json.extract! followed, :id, :username, :created_at, :image
   end
 end

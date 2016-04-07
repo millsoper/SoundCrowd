@@ -19,7 +19,7 @@ var Index = React.createClass({
   },
   getInitialState: function(){
     return {
-      recordings: _getAllRecordings(), selected: "overview", user: SessionStore.currentUser()
+      recordings: _getAllRecordings(), selected: "overview", user: {}
     };
   },
   componentDidMount: function () {
@@ -37,7 +37,8 @@ var Index = React.createClass({
   _onChange: function () {
     var current_user = SessionStore.currentUser().id;
     if (current_user){
-    var own_recordings = UserStore.find(current_user).recordings;
+        current_user = UserStore.find(current_user);
+    var own_recordings = current_user.recordings;
     this.setState({own_recordings: own_recordings});
     }
     this.setState({recordings: _getAllRecordings()});
