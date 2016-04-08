@@ -90,7 +90,6 @@ var RecordingForm = React.createClass({
           <form onSubmit={this.handleSubmit}>
             <div className="upload-track-pic">
               <img className="form-pic"src={imageUrl}/>
-
             </div>
             <label>Title</label>
               <input type="text"

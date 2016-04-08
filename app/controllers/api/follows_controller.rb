@@ -6,14 +6,22 @@ class Api::FollowsController < ApplicationController
 
   def create
     follow = Follow.create(follow_params)
+    redirect_to root_url
   end
 
   def destroy
     follow = Follow.find(params[:id])
-    follow.destroy
+    if follow
+      follow.destroy
+    end
+    render json:follow
+  end
+
+  def index
+    @follows = Follow.all
   end
 
   def follow_params
-    params.require(:follows).permit(:follower_id, :followed_id)
+    params.require(:follow).permit(:follower_id, :followed_id)
   end
 end

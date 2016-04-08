@@ -42,6 +42,10 @@ var React = require('react'),
       },
       render: function () {
         var username;
+        var image;
+        if (SessionStore.currentUser().image){
+          image = SessionStore.currentUser().image;
+        }
         var url = "#/users/" + SessionStore.currentUser().id;
         return (
           <div>
@@ -61,7 +65,7 @@ var React = require('react'),
                     <img src="search-icon.png"/>
                   </li>
                   <li className="upload"><a href="#new">Upload</a></li>
-                  <strong className="signedin_badge circle"></strong>
+                  <div className="signedin_badge circle"></div>
                     <li className="username"><a href= {url} className="nav-username">{this.props.user.username}</a></li>
                     <li><button onClick={this.clickHandler}>Logout</button></li>
                 </ul>

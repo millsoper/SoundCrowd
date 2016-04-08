@@ -15,5 +15,9 @@ class Follow < ActiveRecord::Base
     foreign_key: :followed_id
   )
 
+  def find_by_pair(follower_id, followed_id)
+    Follow.find_by(follower_id: follower_id, followed_id: followed_id)
+  end
+
 
 end

@@ -5,6 +5,31 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
 
 
 var ApiUtil = {
+  createFollow: function(userPair) {
+    $.ajax({
+      method: "POST",
+      url: "api/follows",
+      data: userPair,
+      success: function(follow) {
+        ApiActions.receiveSingleFollow(follow);
+      }
+    });
+  },
+  destroyFollow: function(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "api/follows/" + id,
+      success: function(follow){
+        ApiActions.receiveSingleFollow(follow);
+      }
+    });
+  },
+
+  fetchFollows: function(){
+    $.get('api/follows', function(follows){
+      ApiActions.receiveAllFollows(follows);
+    });
+  },
   fetchRecordings: function(){
     $.get('api/recordings', function(recordings){
       ApiActions.receiveAll(recordings);

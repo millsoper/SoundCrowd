@@ -91,10 +91,10 @@ var RecordingShow = React.createClass({
               <h4>More Tracks By This Artist</h4>
               <SideBar author_id={this.state.recording.user_id} otherRecordings={this.state.otherRecordings}/>
             </aside>
-            <aside className="author-info">
+            <aside className="author-info group">
               <AuthorInfo author={this.state.recording.username} authorid = {this.state.recording.user_id}/>
             </aside>
-            <section className="track-show-body">
+            <section className="track-show-body group">
               <p><span>Track Description:</span><br/> {this.state.recording.body}</p>
             </section>
             <footer>

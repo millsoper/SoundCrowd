@@ -1,8 +1,21 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var RecordingConstants = require('../constants/recording_constants');
 var UserConstants = require('../constants/user_constants');
+var FollowConstants = require('../constants/follow_constants');
 
 var ApiActions = {
+  receiveSingleFollow: function(follow){
+    AppDispatcher.dispatch({
+      actionType: FollowConstants.FOLLOW_RECEIVED,
+      follow: follow
+    });
+  },
+  receiveAllFollows: function(follows){
+    AppDispatcher.dispatch({
+      actionType: FollowConstants.FOLLOWS_RECEIVED,
+      follows: follows
+    });
+  },
   receiveAll: function(recordings){
     AppDispatcher.dispatch({
       actionType: RecordingConstants.RECORDINGS_RECEIVED,

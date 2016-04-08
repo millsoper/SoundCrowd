@@ -357,6 +357,11 @@ body {
   height: 28px;
 }
 
+
+.circle {
+  overflow: hidden;
+}
+
 .signin_badge {
   z-index: 1;
   display: block;
@@ -810,7 +815,9 @@ html {
   float: left;
   max-width: 225px;
   margin-top: 25px;
-  padding-right: 30px;
+  margin-right: 30px;
+  margin-bottom: 100px;
+  border-bottom: 1px solid #ccc;
 }
 
 .author-profile-pic {
@@ -954,10 +961,10 @@ html {
 .upload-track-pic {
   height: 300px;
   width: 300px;
-  background: -webkit-linear-gradient(lightgray, #238E68skyblue); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(lightgray, #238E68skyblue); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(lightgray, #238E68skyblue); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(lightgray, #238E68skyblue); /* Standard syntax */
+  background: -webkit-linear-gradient(lightgray, #238E68); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(lightgray, #238E68); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(lightgray, #238E68); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(lightgray, #238E68); /* Standard syntax */
   float: left;
   margin: 0px 30px;
   margin-bottom: 30px;

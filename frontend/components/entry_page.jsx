@@ -54,7 +54,7 @@ var EntryPage = React.createClass({
             </Modal>
           </nav>
           <div className="entry-search">
-            <h3>Find the stories you love. Discover new worlds. Connect directly with storytellers.</h3>
+            <h3>Find the sounds you love. Discover new worlds. Connect directly with other artists.</h3>
             <input type="text" placeholder="Search for stories, storytellers, tags" className="entry-search-bar"></input>
             <p>or</p>
             <a onClick={this.openLogInModal} className="entry-add">Add Your Own</a>

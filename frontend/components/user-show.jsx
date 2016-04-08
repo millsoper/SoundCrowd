@@ -3,6 +3,7 @@ var React = require('react'),
     User = require('./user.jsx'),
     UserStore = require('../stores/user_store'),
     SessionStore = require('../stores/session_store.js'),
+    FollowStore = require('../stores/follow_store.js'),
     ApiUtil = require('../util/api_util');
 
 
@@ -13,14 +14,15 @@ var UserShow = React.createClass({
   getInitialState: function(){
     var userId = this.props.params.userId;
     var user = this._findUserById(userId) || {};
-    return { user: user, currentUser: {}};
+    return { user: user, currentUser: {}, followedUsers: []};
   },
   componentWillReceiveProps: function(newProps) {
     ApiUtil.fetchUser(newProps.params.userId);
-    user = UserStore.find(newProps.params.userId);
-    currentUserId = SessionStore.currentUser().id;
-    currentUser = UserStore.find(currentUserId);
-    this.setState({user: user, currentUser: currentUser});
+    var user = UserStore.find(newProps.params.userId);
+    var currentUserId = SessionStore.currentUser().id;
+    var currentUser = UserStore.find(currentUserId);
+    var followed = currentUser.followed_users;
+    this.setState({user: user, currentUser: currentUser, followedUsers: followed});
   },
   _findUserById: function(id) {
     var res = UserStore.find(id);
@@ -28,12 +30,24 @@ var UserShow = React.createClass({
   },
   componentDidMount: function() {
     this.userListener = UserStore.addListener(this._userChanged);
+    this.followListener = FollowStore.addListener(this._userChanged);
     ApiUtil.fetchUsers();
+    ApiUtil.fetchFollows();
     ApiUtil.fetchCurrentUser();
     this.setState({ recordings: this.state.user.recordings});
   },
+  _userChanged: function () {
+    var userId = this.props.params.userId;
+    var user = this._findUserById(userId);
+    var current_user = SessionStore.currentUser().id;
+    var currentUser = UserStore.find(current_user);
+    var followed = currentUser.followed_users;
+    var follow = FollowStore.find([current_user, this.props.params.userId]);
+    this.setState({ user: user, currentUser: currentUser, followedUsers: followed, follow: follow});
+  },
   componentWillUnmount: function () {
     this.userListener.remove();
+    this.followListener.remove();
   },
   editClickHandler: function (id) {
     this.context.router.push("/users/" + id + "/edit");
@@ -43,15 +57,21 @@ var UserShow = React.createClass({
     ApiUtil.deleteUser(id);
     this.context.router.push("/");
   },
-  _userChanged: function () {
-    var userId = this.props.params.userId;
-    var user = this._findUserById(userId);
-    var current_user = SessionStore.currentUser().id;
-    var currentUser = UserStore.find(current_user);
-    this.setState({ user: user, currentUser: currentUser});
-  },
   handleFollowedClick: function (id) {
     this.context.router.push("users/" + id);
+  },
+  followClick: function(userPair) {
+    var follower = userPair[0];
+    var followed = userPair[1];
+    formData = {follow: {
+      follower_id: follower,
+      followed_id: followed
+      }
+    };
+    ApiUtil.createFollow(formData);
+  },
+  unfollowClick: function(id) {
+    ApiUtil.destroyFollow(id);
   },
   handleRecordingClick: function (id) {
     this.context.router.push("recordings/" + id);
@@ -67,6 +87,13 @@ var UserShow = React.createClass({
     var start_date;
     var buttons;
     var that = this;
+    var userPair;
+    var follow;
+
+    if (this.state.follow){
+      console.log(this.state.follow.id);
+      follow = this.state.follow.id;
+    }
 
     if (this.state.currentUser.followed_users){
       this.state.currentUser.followed_users.map( function(user){
@@ -84,6 +111,7 @@ var UserShow = React.createClass({
       });
     }
     if (this.state.user) {
+      userPair = [SessionStore.currentUser().id, this.state.user.id];
       content = <h3>{this.state.user.username}</h3>;
       image = this.state.user.image;
       if (this.state.user.created_at){
@@ -98,13 +126,11 @@ var UserShow = React.createClass({
                   </div>;
       } else if (followed_ids.includes(this.state.user.id)) {
         buttons = <div className="user-buttons">
-                    <button>Unfollow</button>
+                    <button onClick={this.unfollowClick.bind(null, follow)}>Unfollow</button>
                   </div>;
       } else {
-        console.log(followed_ids);
-        console.log(this.state.user.id);
         buttons = <div className="user-buttons">
-                    <button>Follow</button>
+                    <button onClick={this.followClick.bind(null, userPair)}>Follow</button>
                   </div>;
       }
     }
