@@ -1,6 +1,13 @@
 class Recording < ActiveRecord::Base
   validates :user_id, :title, :body, :image, :username, :audio, presence: true
 
+  has_many(
+  :comments,
+  class_name: 'Comment',
+  primary_key: :id,
+  foreign_key: :track_id
+  )
+
   belongs_to :user
 
   has_attached_file :image

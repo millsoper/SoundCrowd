@@ -638,6 +638,10 @@ html {
 
 .track-buttons button {
   float: right;
+  border: 1px solid white;
+  color: white;
+  padding: 2px 5px;
+  background: transparent;
 }
 
 .detail-info {
@@ -795,6 +799,10 @@ html {
 
 .user-buttons button {
   float: right;
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+  padding: 2px 5px;
 }
 .user-profile h3 {
   display: block;
@@ -1079,6 +1087,10 @@ html {
   margin-top: 50px;
 }
 
+.left ul {
+  padding-left; 0
+}
+
 .right {
   margin-top: 30px;
   float: right;
@@ -1096,7 +1108,7 @@ html {
   font-size: 24px;
   color: #238E68;
   font-weight: lighter;
-  padding: 0px 10px 5px 8px;
+  padding: 0px 10px 10px 8px;
   border-bottom: 1px solid #238E68;
   width: 75px;
   margin: 0;
@@ -1104,7 +1116,7 @@ html {
 }
 
 .stream h4 {
-  color: #888;
+  color: #333;
   padding-left: 20px;
   font-weight: lighter;
 }
@@ -1159,9 +1171,9 @@ html {
 }
 
 .stream-item {
-  height: 235px;
-  padding-bottom: 30px;
-  padding-top: 10px;
+  height: 225px;
+  margin-bottom: 45px;
+  padding-top: 20px;
   width: 100%;
   position: relative;
 }
@@ -1200,4 +1212,79 @@ html {
 
 .track-show-body span{
   color: #666;
+}
+
+.comment-block {
+  margin-left: 20%;
+
+}
+
+.comment-input {
+  margin-top: 10px;
+  padding: 4px;
+  background-color: #eee;
+  width: 58%;
+  height: 28px;
+}
+
+.comment-input input{
+  float: left;
+  display: block;
+  background-color: white;
+  font-weight: lighter;
+  padding: 4px 10px;
+  width: 350px;
+}
+
+.comment-button {
+  border: 1px solid white;
+  font-weight: lighter;
+  color: #aaa;
+  width: 70px;
+  float: right;
+  padding: 4px 10px;
+}
+
+.comment-button:hover {
+  color: #555;
+}
+
+.comment-author {
+  float: left;
+  width: 48px;
+  height: 48px;
+  background-color: white;
+  border-radius: 50%;
+  margin-left: -24px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.comment-author img {
+  width: 110%;
+  height: auto;
+}
+
+.comment-block ul {
+  margin-left: 0px;
+}
+
+.comment-text {
+  color: #555;
+  padding: 5px 5px 15px 15px;
+  margin-left: 5px;
+  background-color: #eee;
+  max-width: 450px;
+  margin: 10px 0;
+}
+.comment-text p {
+  color: #aaa;
+}
+
+.comment-text a {
+  color: #888;
+}
+
+.comment-text a:hover {
+  color: darkgreen;
 }

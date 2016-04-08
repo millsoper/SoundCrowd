@@ -7,6 +7,7 @@ var React = require('react'),
     PlayButton = require('./play-button'),
     PlayFooter = require('./play-footer'),
     SessionStore = require('../stores/session_store'),
+    CommentBlock = require('./comment_block'),
     SideBar = require('./show-side-bar');
 
 
@@ -97,6 +98,7 @@ var RecordingShow = React.createClass({
             <section className="track-show-body group">
               <p><span>Track Description:</span><br/> {this.state.recording.body}</p>
             </section>
+            <CommentBlock currentUser = {SessionStore.currentUser()} track={this.state.recording}/>
             <footer>
               <PlayFooter current_song={this.state.recording.title}/>
             </footer>
