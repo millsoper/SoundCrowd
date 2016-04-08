@@ -642,6 +642,7 @@ html {
   color: white;
   padding: 2px 5px;
   background: transparent;
+  cursor: pointer
 }
 
 .detail-info {
@@ -803,6 +804,7 @@ html {
   color: white;
   background: transparent;
   padding: 2px 5px;
+  cursor: button;
 }
 .user-profile h3 {
   display: block;
@@ -1247,6 +1249,7 @@ html {
 
 .comment-button:hover {
   color: #555;
+  cursor: pointer;
 }
 
 .comment-author {
