@@ -48,15 +48,16 @@ body {
 /********** landing page ***********/
 
 .masthead {
-  background-image: url('http://images1.phoenixnewtimes.com/imager/u/original/7802041/16197069411_5f5003bc13_k.jpg');
+  background-image: url('http://40.media.tumblr.com/3a14933863743dc81846ee76eb0348bd/tumblr_o4pt8oqB4c1ul5fpgo1_1280.jpg');
   height: 520px;
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   position: absolute;
   top: 0;
   width: 100%;
   clear: both;
 }
+
 
 .masthead ul {
   float: right;
@@ -194,7 +195,7 @@ body {
 }
 
 .index-user:hover {
-  color: darkorange;
+  color: #238E68;
 }
 
 .entry-track-index li {
@@ -209,11 +210,11 @@ body {
 }
 
 .index-pic {
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-radial-gradient(red, darkorange); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(red, darkorange); /* For Opera 11.1 to 12.0 */
-  background: -moz-radial-gradient(red, darkorange); /* For Firefox 3.6 to 15 */
-  background: radial-gradient(red, darkorange); /* Standard syntax */
+  background: skyblue; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(skyblue, #238E68); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(skyblue, #238E68); /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient(skyblue, #238E68); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(skyblue, #238E68); /* Standard syntax */
   width: 180px;
   height: 180px;
   margin: 10px;
@@ -223,7 +224,7 @@ body {
 }
 
 .index-pic img {
-  height: 100%;
+  height: 140%;
   width: auto;
 }
 
@@ -315,7 +316,7 @@ body {
 
 .google {
   padding: 5px 10px;
-  background-color: red;
+  background-color: skyblue;
   border-radius: 5px;
   color: white;
   max-width: 125px;
@@ -344,11 +345,11 @@ body {
   height: 38px;
   width: 60px;
   padding: 9px 3px 3px 10px;
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#f08080, darkorange); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#f08080, darkorange); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#f08080, darkorange); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#f08080, darkorange); /* Standard syntax */
+  background: skyblue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#238E68, #264F3D); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#238E68, #264F3D); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#238E68, #264F3D); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#238E68, #264F3D); /* Standard syntax */
 }
 
 .signedin_badge img {
@@ -362,7 +363,7 @@ body {
   float: left;
   height: 15px;
   width: 15px;
-  background-color: orange;
+  background-color: #238E68;
   padding: 10px;
   margin: 10px;
   margin-right: 0;
@@ -440,7 +441,7 @@ body {
 
 .circle {
   border-radius: 50%;
-  background-color: orangered;
+  background-color: #238E68skyblue;
   height: 25px;
   width: 25px;
   margin-top: 5px;
@@ -516,14 +517,13 @@ html {
 }
 .content {
   background-color: white;
-
   padding: 25px;
   padding-top: 45px;
   padding-bottom: 20px;
   height: 100%;
   max-width: 1070px;
   margin: 0 auto;
-
+  overflow:hidden;
 }
 
 .body-nav {
@@ -568,8 +568,8 @@ html {
 }
 
 .body-nav-selected {
-  color: orange;
-  border-bottom: 1px solid orange;
+  color: #238E68;
+  border-bottom: 1px solid #238E68;
 }
 
 .playbar {
@@ -581,7 +581,10 @@ html {
 }
 
 .track-image {
-  width: 100%;
+  width: 105%;
+  height: auto;
+  margin-top: -5px;
+  margin-left: -5px;
 }
 
 .recording-index-item {
@@ -599,7 +602,7 @@ html {
 .recording-index-pic {
   height: 180px;
   width: 180px;
-  background: red; /* For browsers that do not support gradients */
+  background: skyblue; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#FF9900, #bbb); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#FF9900, #bbb); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#FF9900, #bbb); /* For Firefox 3.6 to 15 */
@@ -615,7 +618,7 @@ html {
 }
 .detail-pic {
   float: right;
-  width: 300px;
+  width: 325px;
   height: 300px;
   background-color: #111;
   position: relative;
@@ -654,15 +657,19 @@ html {
 }
 
 .big-play-button {
-  height: 65px;
-  width: 65px;
-  background-color: orange;
+  height: 55px;
+  width: 55px;
+  background-color: #238E68;
   padding: 0;
   margin-top: 5px;
   float: left;
   border-radius: 50%;
+  border: 5px solid #238E68;
 }
 
+.big-play-button:hover {
+  border: #cdd solid 5px;
+}
 
 .detailblock img{
   width: 120%;
@@ -715,11 +722,11 @@ html {
   height: 100%;
 }
 .sidebar-list-item a:hover{
-  color: darkorange;
+  color: #238E68;
 }
 
 .sidebar-list-item a:active {
-  color: orange;
+  color: #238E68;
 }
 
 
@@ -803,6 +810,7 @@ html {
   float: left;
   max-width: 225px;
   margin-top: 25px;
+  padding-right: 30px;
 }
 
 .author-profile-pic {
@@ -812,10 +820,10 @@ html {
   border-radius: 50%;
   margin: 0 auto;
   overflow: hidden;
-  background: -webkit-linear-gradient(#f08080, darkorange); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#f08080, darkorange); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#f08080, darkorange); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#f08080, darkorange); /* Standard syntax */
+  background: -webkit-linear-gradient(#238E68, #264F3D); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#238E68, #264F3D); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#238E68, #264F3D); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#238E68, #264F3D); /* Standard syntax */
   cursor: pointer;
   border: 8px solid white;
 }
@@ -853,18 +861,17 @@ html {
 }
 
 .button-playing {
-  background-color: darkorange;
+  background-color: #238E68;
 }
 
 .detailblock {
-  margin: 0;
-
-  padding-top: 50px;
-  width: 100%;
+  padding-top:5px;
+  margin: 0 auto;
+  width: 105%;
   overflow: hidden;
   background-color: #bbb;
   overflow: hidden;
-  margin-right: 0;
+  margin-left: -25px;
   padding-right: 0;
 }
 
@@ -889,15 +896,16 @@ html {
 
 .new-recording-form {
   background: white;
-  margin: 0px 20px 0px 20px;
+  margin: 0 auto;
 }
 
 .new-recording-form h3 {
   color: #555;
   font-weight: normal;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0px 10px 10px;
-  margin: 0 10px;
+  padding: 15px 0px 10px 10px;
+  margin: 0 30px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
@@ -911,7 +919,7 @@ html {
 }
 
 .new-recording-form input[type=submit]{
-  background-color: darkorange;
+  background-color: #238E68;
   color: white;
   border: none;
   padding: 5px 15px;
@@ -946,10 +954,10 @@ html {
 .upload-track-pic {
   height: 300px;
   width: 300px;
-  background: -webkit-linear-gradient(lightgray, orangered); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(lightgray, orangered); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(lightgray, orangered); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(lightgray, orangered); /* Standard syntax */
+  background: -webkit-linear-gradient(lightgray, #238E68skyblue); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(lightgray, #238E68skyblue); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(lightgray, #238E68skyblue); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(lightgray, #238E68skyblue); /* Standard syntax */
   float: left;
   margin: 0px 30px;
   margin-bottom: 30px;
@@ -973,8 +981,8 @@ html {
 }
 
 .upload-track-pic p:hover {
-  border: 1px solid darkorange;
-  color: red;
+  border: 1px solid #238E68;
+  color: skyblue;
 }
 
 .signin-form button {
@@ -982,7 +990,7 @@ html {
   color: white;
   border: none;
   margin-top: 20px;
-  background-color: orange;
+  background-color: #238E68;
   float: right;
   cursor: pointer;
   margin-right: 155px;
@@ -1045,8 +1053,8 @@ html {
 }
 
 .collections-selected a{
-  color: orange;
-  border-bottom: orange solid 2px;
+  color: #238E68;
+  border-bottom: #238E68 solid 2px;
 }
 
 .empty-index {
@@ -1055,4 +1063,134 @@ html {
   width: 180px;
   border: 2px solid #ddd;
   float: left;
+}
+
+.left {
+  float: left;
+  width: 75%;
+  border-right: #ccc solid 1px;
+  margin-top: 50px;
+}
+
+.right {
+  margin-top: 30px;
+  float: right;
+  width: 20%;
+  height: 100%;
+}
+
+.stream-header {
+  margin-left: 15px;
+  border-bottom: 1px solid #ccc;
+  margin-right: 150px;
+
+}
+.stream-header h2 {
+  font-size: 24px;
+  color: #238E68;
+  font-weight: lighter;
+  padding: 0px 10px 5px 8px;
+  border-bottom: 1px solid #238E68;
+  width: 75px;
+  margin: 0;
+
+}
+
+.stream h4 {
+  color: #888;
+  padding-left: 20px;
+  font-weight: lighter;
+}
+
+.stream .index-pic {
+  position: absolute;
+  bottom: 20px;
+}
+
+.stream .index-pic img {
+  width: 120%;
+  height: auto;
+}
+
+.stream .index-title {
+  position: absolute;
+  left: 220px;
+  bottom: 65px;
+  z-index: 1;
+}
+
+.stream .index-release {
+  margin-left: 10px;
+}
+
+.stream .index-user {
+  position: absolute;
+  left: 220px;
+  bottom: 45px;
+  z-index: 1;
+}
+
+.stream-created {
+  position: absolute;
+  left: 200px;
+  bottom: 125px;
+  z-index: 1;
+}
+
+.stream a {
+  color: #222;
+}
+
+.music-bar {
+  height: 180px;
+  width: 400px;
+  background-color: #eee;
+  position: absolute;
+  left: 200px;
+  bottom: 30px;
+  z-index: 0;
+}
+
+.stream-item {
+  height: 235px;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.right h4 {
+  margin-left: 20px;
+}
+
+.stream-playing {
+  background: #ded;
+}
+
+.stream-user {
+  margin: 0 15px;
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+
+}
+
+.stream-user img {
+  width: 115%;
+  height: auto;
+}
+
+.track-show-body {
+  max-width: 140px;
+  position: absolute;
+  display: block;
+  left: 110px;
+  top: 550px;
+}
+
+.track-show-body span{
+  color: #666;
 }

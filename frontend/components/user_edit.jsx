@@ -77,7 +77,7 @@ var UserEditForm = React.createClass({
       username = this.state.username;
     }
     return (
-        <div className="new-recording-form group">
+        <div className="content new-recording-form group">
           <h3>Edit Profile</h3>
           <form onSubmit={this.handleSubmit}>
             <div className="upload-track-pic"><p>Update Picture</p><img className = "form-pic" src={image}></img></div>

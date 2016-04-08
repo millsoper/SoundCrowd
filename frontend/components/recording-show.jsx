@@ -26,10 +26,10 @@ var RecordingShow = React.createClass({
   },
   deleteClickHandler: function (trackId) {
     ApiUtil.deleteRecording(trackId);
-    this.context.router.push("recordings");
+    this.context.router.push("/collections");
   },
   editClickHandler: function (trackId) {
-    this.context.router.push("recordings/" + trackId + "/edit");
+    this.context.router.push("/recordings/" + trackId + "/edit");
   },
   _findRecordingById: function (id) {
     var foundTrack;
@@ -72,7 +72,7 @@ var RecordingShow = React.createClass({
     }
     return (
 
-        <div className = "group">
+        <div className = "content group">
           <section className="detailblock group">
             <div className="detail-info">
               <div><PlayButton audio={audio}/></div>
@@ -94,6 +94,9 @@ var RecordingShow = React.createClass({
             <aside className="author-info">
               <AuthorInfo author={this.state.recording.username} authorid = {this.state.recording.user_id}/>
             </aside>
+            <section className="track-show-body">
+              <p><span>Track Description:</span><br/> {this.state.recording.body}</p>
+            </section>
             <footer>
               <PlayFooter current_song={this.state.recording.title}/>
             </footer>

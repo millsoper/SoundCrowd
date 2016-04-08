@@ -4,16 +4,16 @@ var React = require('react'),
     SessionStore = require('../stores/session_store'),
     UserStore = require('../stores/user_store'),
     ApiUtil = require('../util/api_util.js'),
-    HomePlaylists = require('./home-playlists'),
-    HomeRecordings = require('./home-recordings'),
-    HomeFollowing = require('./home-following'),
-    HomeOverview = require('./home-overview');
+    CollectionsPlaylists = require('./collections-playlists'),
+    CollectionsRecordings = require('./collections-recordings'),
+    CollectionsFollowing = require('./collections-following'),
+    CollectionsOverview = require('./collections-overview');
 
 function _getAllRecordings() {
   return RecordingStore.all();
 }
 
-var Index = React.createClass({
+var CollectionsIndex = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -50,15 +50,19 @@ var Index = React.createClass({
   },
   handleNavFollowingClick: function () {
     this.setState({selected: "following"});
+    this.context.router.push("collections/following");
   },
   handleNavOverviewClick: function () {
     this.setState({selected: "overview"});
+    this.context.router.push("collections/");
   },
   handleNavRecordingsClick: function () {
     this.setState({selected: "recordings"});
+    this.context.router.push("collections/recordings");
   },
   handleNavPlaylistsClick: function () {
     this.setState({selected: "playlists"});
+    this.context.router.push("collections/playlists");
   },
   generateFollowingButton: function () {
     var button;
@@ -101,28 +105,28 @@ var Index = React.createClass({
     var content;
     switch (this.state.selected) {
       case "overview":
-        content = <HomeOverview
+        content = <CollectionsOverview
                     clickfunction = {this.handleItemClick}
                     ownRecordings = {this.state.own_recordings}
                     recordings = {this.state.recordings}
                     user = {this.state.user}/>;
         break;
       case "recordings":
-        content = <HomeRecordings
+        content = <CollectionsRecordings
                     clickfunction = {this.handleItemClick}
                     ownRecordings = {this.state.own_recordings}/>;
         break;
       case "playlists":
-        content = <HomePlaylists
+        content = <CollectionsPlaylists
                     clickfunction = {this.handleItemClick}/>;
         break;
       case "following":
-        content = <HomeFollowing
+        content = <CollectionsFollowing
                     clickfunction = {this.handleItemClick}
-                    following = {this.state.user.followed_users}/>;
+                    followedUsers = {this.state.user.followed_users}/>;
         break;
       default:
-        content = <HomeOverview
+        content = <CollectionsOverview
                     clickfunction = {this.handleItemClick}
                     ownRecordings = {this.state.own_recordings}
                     recordings = {this.state.recordings}
@@ -138,10 +142,10 @@ var Index = React.createClass({
           {this.generateRecordingsButton()}
           {this.generateOverviewButton()}
         </ul>
-        {content}
+        {this.props.children}
       </section>
     );
   }
 });
 
-module.exports = Index;
+module.exports = CollectionsIndex;

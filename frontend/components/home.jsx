@@ -1,7 +1,7 @@
 var React = require('react');
 var RecordingStore = require('../stores/recordings');
 var ApiUtil = require('../util/api_util');
-var Index = require('./index');
+var CollectionsIndex = require('./collections_index');
 
 
 function _getAllRecordings() {
@@ -34,7 +34,7 @@ var Home = React.createClass({
     return(
       <div>
         <div className="half">
-          <Index recordings={this.state.recordings}/>
+          {this.props.children}
         </div>
       </div>
     );

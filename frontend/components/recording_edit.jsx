@@ -113,8 +113,8 @@ var RecordingEditForm = React.createClass({
       body = this.state.body;
     }
     return (
-        <div className="new-recording-form group">
-          <h3>Add a Recording</h3>
+        <div className="content new-recording-form group">
+          <h3>Update Recording</h3>
           <form onSubmit={this.handleSubmit}>
             <div className="upload-track-pic">
               <p>Update Picture</p>

@@ -11,7 +11,7 @@ var IndexItem = React.createClass({
     );
   },
   clickHandler: function() {
-    this.context.router.push("users/" + this.props.recording.user_id );
+    this.context.router.push("/users/" + this.props.recording.user_id );
   },
   componentDidMount: function() {
     var klass;

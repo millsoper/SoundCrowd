@@ -19,6 +19,7 @@ var EntryIndex = React.createClass({
   componentDidMount: function () {
     this.recordingListener = RecordingStore.addListener(this._onChange);
     ApiUtil.getRecentRecordings();
+    
   },
   componentWillUnmount: function () {
     this.recordingListener.remove();

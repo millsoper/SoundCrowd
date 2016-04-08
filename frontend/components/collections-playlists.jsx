@@ -2,7 +2,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var IndexItem = require('./index_item');
 
-var HomePlaylists = React.createClass({
+var CollectionsPlaylists = React.createClass({
 
   render: function() {
     return (
@@ -22,4 +22,4 @@ var HomePlaylists = React.createClass({
 
 });
 
-module.exports = HomePlaylists;
+module.exports = CollectionsPlaylists;

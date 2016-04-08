@@ -1,1 +1,1 @@
-json.extract! recording, :id, :user_id, :username, :title, :body, :image, :audio
+json.extract! recording, :id, :user_id, :username, :title, :body, :image, :audio, :created_at

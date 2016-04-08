@@ -6,7 +6,6 @@ var React = require('react'),
     IndexRoute = require('react-router').IndexRoute,
 
     RecordingForm = require('./components/recording-form.jsx'),
-    RecordingIndex = require('./components/index'),
     Recording = require('./components/recording.jsx'),
     RecordingShow = require('./components/recording-show.jsx'),
     RecordingEdit = require('./components/recording_edit.jsx'),
@@ -16,7 +15,12 @@ var React = require('react'),
     ApiUtil = require("./util/api_util.js"),
     SessionStore = require("./stores/session_store"),
 
-    Index = require('./components/index.jsx'),
+    CollectionsIndex = require('./components/collections_index.jsx'),
+    CollectionsOverview = require('./components/collections-overview'),
+    CollectionsRecordings = require('./components/collections-recordings'),
+    CollectionsPlaylists = require('./components/collections-playlists'),
+    CollectionsFollowing = require('./components/collections-following'),
+
     Home = require('./components/home.jsx'),
     UserShow = require('./components/user-show.jsx'),
     LoginForm = require('./components/login-form.jsx'),
@@ -25,16 +29,21 @@ var React = require('react'),
 
     var routes = (
       <Route path="/" component={App}>
-        <IndexRoute component={Home}/>
+        <IndexRoute component={Stream} onEnter={_requireLoggedIn}/>
+        <Route path="/collections" component={CollectionsIndex} onEnter={_requireLoggedIn}>
+          <IndexRoute component={CollectionsOverview}/>
+          <Route path="recordings" component={CollectionsRecordings}/>
+          <Route path="playlists" component={CollectionsPlaylists}/>
+          <Route path="following" component={CollectionsFollowing}/>
+        </Route>
+        <Route path="/recordings/:recordingId" component={RecordingShow}/>
+        <Route path="/new" component={RecordingForm}/>
+        <Route path="/recordings/:recordingId/edit" component={RecordingEdit}/>
         <Route path="/login" component={LoginForm}/>
-        <Route path="recordings/new" component={RecordingForm}/>
-        <Route path="recordings" component={RecordingIndex} onEnter={_requireLoggedIn}/>
-        <Route path="recordings/:recordingId" component={RecordingShow}/>
-        <Route path="users/:userId" component={UserShow}/>
+        <Route path="/users/:userId/edit" component={UserEdit} onEnter={_requireLoggedIn}/>
         <Route path="/signup" component={SignupForm}/>
-        <Route path="recordings/:recordingId/edit" component={RecordingEdit}/>
-        <Route path="users/:userId/edit" component={UserEdit}/>
-        <Route path="/stream" component={Stream}/>
+        <Route path="users/:userId" component={UserShow}/>
+
       </Route>
 
     );

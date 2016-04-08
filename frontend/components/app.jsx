@@ -25,22 +25,19 @@ App = React.createClass({
     },
 
     handleChange: function() {
-    if (SessionStore.isLoggedIn()) {
+
       this.setState({ currentUser: SessionStore.currentUser() });
-    } else {
-      this.setState({ currentUser: null });
-      }
     },
     componentWillReceiveProps: function (newProps) {
      ApiUtil.fetchCurrentUser();
     },
     render: function () {
     var button, user;
-      if (SessionStore.isLoggedIn()) {
+      // if (SessionStore.isLoggedIn()) {
       user = this.state.currentUser;
-      }
+      // }
     var content;
-    if (SessionStore.isLoggedIn()) {
+    if (this.state.currentUser) {
       return (
         <div>
           <SignedInHeader user= {user}/>
