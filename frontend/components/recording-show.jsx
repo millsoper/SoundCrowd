@@ -10,9 +10,6 @@ var React = require('react'),
     CommentBlock = require('./comment_block'),
     SideBar = require('./show-side-bar');
 
-
-
-
 var RecordingShow = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
@@ -99,9 +96,6 @@ var RecordingShow = React.createClass({
               <p><span>Track Description:</span><br/> {this.state.recording.body}</p>
             </section>
             <CommentBlock currentUser = {SessionStore.currentUser()} track={this.state.recording}/>
-            <footer>
-              <PlayFooter current_song={this.state.recording.title}/>
-            </footer>
           </section>
         </div>
       );

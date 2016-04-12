@@ -13,13 +13,13 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [X] Create an account
 - [X] Log in / Log out
-- [ ] Upload audio clips
+- [X] Upload audio clips
 - [X] Delete audio clips
-- [ ] Listen to audio clips
+- [X] Listen to audio clips
 - [ ] Tag one's own recordings
 - [ ] Create playlists
 - [ ] Search recordings by tags
-- [ ] Annotate any recording with comments
+- [X] Annotate any recording with comments
 - [X] Follow other users
 
 ## Design Docs
@@ -110,22 +110,21 @@ which has its own `Index` view.
 
 **Objective:** Comments belong to Recordings and Users, and can be viewed by Recording or User.
 
-- [ ] create `Comment` model
+- [X] create `Comment` model
 - build out API, Flux loop, and components for:
   - [ ] Genre CRUD
-  - [ ] adding Comment requires a Recording
+  - [X] adding Comment requires a Recording
   - [ ] deleting Comments
-  - [ ] viewing Comments by User
-  - [ ] viewing Comments by Recording
+  - [X] viewing Comments by Recording
 - Use CSS to style new views
 
 ### Phase 8: Styling Cleanup and Seeding (1 day)
 
 **objective:** Make the site feel more cohesive and awesome.
 
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+- [X] Get feedback on my UI from others
+- [X] Refactor HTML classes & CSS rules
+- [X] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
 - [ ] Follow streams of favorite users or tags

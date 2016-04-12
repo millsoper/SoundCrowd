@@ -47,7 +47,7 @@ var Stream = React.createClass({
         var content = this.state.recordings.map( function (recording){
         {
 
-          return ( <StreamItem track = {recording}/>);
+          return ( <li key={recording.id}><StreamItem track = {recording}/></li>);
 
         }
       }.bind(this));
@@ -64,11 +64,7 @@ var Stream = React.createClass({
           </section>
           <section className="right group">
             <h4>Who to follow</h4>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+
           </section>
         </section>
     );

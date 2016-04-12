@@ -1261,12 +1261,18 @@ html {
   margin-left: -24px;
   overflow: hidden;
   margin-right: 15px;
+  border: 7px solid white;
+}
+
+.comment-author:hover {
+    border: 7px solid #d3d3d3;
 }
 
 .comment-author img {
   width: 110%;
   height: auto;
 }
+
 
 .comment-block ul {
   margin-left: 0px;
@@ -1279,6 +1285,7 @@ html {
   background-color: #eee;
   max-width: 450px;
   margin: 10px 0;
+  margin-right: 0;
 }
 .comment-text p {
   color: #aaa;
@@ -1290,4 +1297,28 @@ html {
 
 .comment-text a:hover {
   color: darkgreen;
+}
+
+.comment-item {
+  max-width: 450px;
+  position: relative;
+}
+
+
+.x {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  padding: 3px 6px;
+  color: darkgray;
+  font-weight: bolder;
+  border-radius: 50%;
+}
+
+.x:hover {
+  color: darkgreen;
+}
+
+.x:active {
+  color: limegreen;
 }

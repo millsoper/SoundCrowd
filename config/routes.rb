@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     get "recent", to: "recordings#recent"
     resource :session, only: [:show, :create, :destroy]
     resources :follows, only: [:destroy, :create, :show, :index]
+    resources :comments
   end
 end

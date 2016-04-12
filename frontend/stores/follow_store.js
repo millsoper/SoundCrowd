@@ -14,7 +14,7 @@ var Store = require('flux/utils').Store,
     });
   };
 
-  var resetUser = function(follow) {
+  var resetFollow = function(follow) {
     var key = follow.follower_id + '' + follow.followed_id;
     _follows[key] = follow;
   };
@@ -39,7 +39,7 @@ var Store = require('flux/utils').Store,
         FollowStore.__emitChange();
         break;
       case FollowConstants.FOLLOW_RECEIVED:
-        resetUser(payload.follow);
+        resetFollow(payload.follow);
         FollowStore.__emitChange();
         break;
     }

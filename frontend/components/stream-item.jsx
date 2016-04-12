@@ -68,7 +68,7 @@ var StreamItem = React.createClass({
     }
     return (
 
-      <li className="stream-item group" key={recording.title}>
+      <div className="stream-item group">
           <div className="index-pic" onClick={this.playTrack}>
             <img src={recording.image}></img>
           </div>
@@ -82,7 +82,7 @@ var StreamItem = React.createClass({
           <div className={boxKlass}>
             <svg id='svg'></svg>
           </div>
-      </li>
+      </div>
 
     );
   }

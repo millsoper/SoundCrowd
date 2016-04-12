@@ -47,12 +47,12 @@ var CollectionsFollowing = React.createClass({
       } else {
         index_data = this.state.currentUser.followed_users.map(function(user){
           return (
-              <section className="recording-index-item">
+              <section key={user.username} className="recording-index-item">
                 <div className="recording-index-pic"  onClick={this.clickUser.bind(null, user.id)}>
                   <img src={user.image} className="track-image"/>
                 </div>
                 <ul>
-                  <li className="index-user"><a onClick={this.clickUser.bind(null, user.id)}>{user.username}</a></li>
+                  <li key={user.username} className="index-user"><a onClick={this.clickUser.bind(null, user.id)}>{user.username}</a></li>
                 </ul>
               </section>
                             );

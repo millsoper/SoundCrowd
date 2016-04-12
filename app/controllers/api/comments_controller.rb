@@ -1,12 +1,8 @@
 class Api::CommentsController < ApplicationController
 
-  def show
-
-  end
-
   def create
-    comment = Comment.create(comment_params)
-    redirect_to root_url
+    @comment = Comment.create(comment_params)
+    render :show
   end
 
   def destroy
@@ -18,7 +14,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    comments = Comment.all
+    @comments = Comment.all
   end
 
   def comment_params

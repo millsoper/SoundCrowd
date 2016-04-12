@@ -1,1 +1,1 @@
-json.extract! comment, :text, :user_id, :track_id, :id
+json.extract! @comment, :text, :user_id, :track_id, :id

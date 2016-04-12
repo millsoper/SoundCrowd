@@ -30,6 +30,33 @@ var ApiUtil = {
       ApiActions.receiveAllFollows(follows);
     });
   },
+  createComment: function(formData) {
+    $.ajax({
+      method:"POST",
+      url: "api/comments",
+      data: formData,
+      success: function(comment) {
+        ApiActions.receiveSingleComment(comment);
+      }
+    });
+  },
+  fetchComments: function(){
+    $.ajax({
+      method: "GET",
+      url: "api/comments",
+      success: function(comments){
+        ApiActions.receiveComments(comments);
+      }
+    })
+  },
+  deleteComment: function (id) {
+    $.ajax({
+      method: "DELETE",
+      url: "api/comments/" + id,
+      success: function(){
+      }
+    });
+  },
   fetchRecordings: function(){
     $.get('api/recordings', function(recordings){
       ApiActions.receiveAll(recordings);
