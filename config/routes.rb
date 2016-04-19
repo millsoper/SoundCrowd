@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :follows, only: [:destroy, :create, :show, :index]
     resources :comments
+    resources :searches, only: [:index]
   end
 end

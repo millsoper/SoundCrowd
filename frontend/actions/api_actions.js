@@ -3,10 +3,16 @@ var RecordingConstants = require('../constants/recording_constants');
 var UserConstants = require('../constants/user_constants');
 var FollowConstants = require('../constants/follow_constants');
 var CommentConstants = require('../constants/comment_constants');
+var SearchConstants = require('../constants/search_constants');
 
 var ApiActions = {
+  receiveSearchResults: function(results){
+    AppDispatcher.dispatch({
+      actionType: SearchConstants.SEARCH_RESULTS_RECEIVED,
+      searchResults: results
+    });
+  },
   receiveSingleFollow: function(follow){
-    debugger;
     AppDispatcher.dispatch({
       actionType: FollowConstants.FOLLOW_RECEIVED,
       follow: follow

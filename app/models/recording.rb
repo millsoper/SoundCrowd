@@ -1,5 +1,7 @@
 class Recording < ActiveRecord::Base
   validates :user_id, :title, :body, :image, :username, :audio, presence: true
+  include PgSearch
+  multisearchable :against => [:username, :title, :body]
 
   has_many(
   :comments,

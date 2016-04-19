@@ -1,5 +1,7 @@
 var React = require('react'),
     SessionStore = require('../stores/session_store.js'),
+    SearchResultStore = require('../stores/search_result_store'),
+    SearchResults = require('./search_results'),
     ApiUtil = require('../util/api_util.js');
 
     var SignedInHeader = React.createClass({
@@ -7,7 +9,22 @@ var React = require('react'),
         router: React.PropTypes.object.isRequired
       },
       getInitialState: function(){
-        return ( {content: "stream"});
+        return ( {content: "stream", currentSearch: ""});
+      },
+      componentDidMount: function() {
+        this.resultListener = SearchResultStore.addListener(this.handleResultChange);
+        document.addEventListener("click", this.exitSearch);
+      },
+      exitSearch: function () {
+        this.setState({ currentSearch: "" });
+        this.setState({results: null});
+      },
+      handleResultChange: function () {
+        this.setState({ results: SearchResultStore.all()})
+      },
+      componentWillUnmount: function() {
+        this.resultListener.remove();
+        document.removeEventListener("click", this.exitSearch);
       },
       generateStreamButton: function() {
         var button;
@@ -36,13 +53,30 @@ var React = require('react'),
       streamClick: function() {
         this.setState({content: "stream"});
       },
+      search: function () {
+        ApiUtil.search(this.state.currentSearch);
+      },
       clickHandler: function(){
         ApiUtil.logout();
         this.context.router.push("/");
       },
+      handleInputChange: function(e){
+        var that = this;
+        var currentSearch = e.currentTarget.value;
+        this.setState({ currentSearch: currentSearch }, function () {
+          if (currentSearch.length > 1) {
+            that.search();
+          }
+        });
+      },
       render: function () {
         var username;
         var image;
+        var searchResults;
+
+        if (this.state.results) {
+          searchResults = this.state.results
+        }
         if (SessionStore.currentUser().image){
           image = SessionStore.currentUser().image;
         }
@@ -60,8 +94,14 @@ var React = require('react'),
                 </ul>
                 <ul className="signedin-nav">
                   <li className="searchdiv">
-                    <input type="text" placeholder="Search" className="searchbar">
+                    <input
+                      type="text"
+                      placeholder="Search tracks"
+                      value={this.state.currentSearch}
+                      onChange={ this.handleInputChange }
+                      className="searchbar">
                     </input>
+                    <SearchResults results={searchResults}/>
                     <img src="search-icon.png"/>
                   </li>
                   <li className="upload"><a href="#new">Upload</a></li>

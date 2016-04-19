@@ -5,6 +5,18 @@ var AppDispatcher = require('../dispatcher/dispatcher'),
 
 
 var ApiUtil = {
+
+  search: function(search){
+    $.ajax({
+      method: "GET",
+      url: "api/searches",
+      dataType: "json",
+      data: {search: search},
+      success: function(results){
+        ApiActions.receiveSearchResults(results);
+      }
+    });
+  },
   createFollow: function(userPair) {
     $.ajax({
       method: "POST",

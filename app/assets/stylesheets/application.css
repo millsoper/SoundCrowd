@@ -1322,3 +1322,37 @@ html {
 .x:active {
   color: limegreen;
 }
+
+.searchdiv input {
+  color: black;
+}
+
+.searchdiv input:hover {
+  color: black;
+}
+
+.result_dropdown {
+  position: absolute;
+  top: 50px;
+  left: 320px;
+  width: 310px;
+}
+
+.result_dropdown li{
+  padding: 10px;
+  width: 300px;
+  background-color: #ccc;
+  color: black;
+}
+
+.result_dropdown a {
+  color:black;
+}
+
+.result_dropdown a:hover {
+  color:darkgreen;
+}
+
+.result_dropdown li:hover {
+  background-color: #ddd;
+}
