@@ -5,16 +5,16 @@ class Api::FollowsController < ApplicationController
   end
 
   def create
-    follow = Follow.create(follow_params)
-    redirect_to root_url
+    @follow = Follow.create(follow_params)
+    render json: @follow
   end
 
   def destroy
-    follow = Follow.find(params[:id])
-    if follow
-      follow.destroy
+    @follow = Follow.find(params[:id])
+    if @follow
+      @follow.destroy
     end
-    render json:follow
+    render json: @follow
   end
 
   def index

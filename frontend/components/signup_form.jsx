@@ -9,13 +9,19 @@ var SignupForm = React.createClass({
   getInitialState: function() {
     return {
       username: "",
-      password: ""
+      password: "",
+      errors: []
     };
   },
 
   render: function() {
+    var errors;
+    if (this.state.errors){
+      errors = this.state.errors;
+    }
     return (
           <div className="form-content group">
+          <p>{errors}</p>
           <form className="signin-form" onSubmit={this.handleSubmit}>
             <label htmlFor="username">What's your email?</label>
             <input onChange={this.updateUsername} type="text" value={this.state.username}/>
@@ -32,10 +38,17 @@ var SignupForm = React.createClass({
     e.preventDefault();
 
     var router = this.context.router;
-
-    ApiUtil.createUser(this.state, function() {
+    if (this.state.password === ""){
+      this.setState({errors: "Password cannot be blank."});
+    }
+    if (this.state.username === ""){
+      this.setState({errors: "Username cannot be blank"});
+    }
+    if (this.state.username !== "" && this.state.password !== ""){
+      ApiUtil.createUser(this.state, function() {
       router.push("/#");
-    });
+      })
+    };
   },
 
   updateUsername: function(e) {

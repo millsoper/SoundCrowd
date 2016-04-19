@@ -15,8 +15,8 @@ class Api::UsersController < ApplicationController
       log_in!(@user)
       render json: @user
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render json: { message: "Invalid parameters" }, status: 401
+      session[:errors] = @user.errors.full_messages
+      render :new
     end
   end
 

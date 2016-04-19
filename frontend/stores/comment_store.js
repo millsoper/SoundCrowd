@@ -46,6 +46,10 @@ var Store = require('flux/utils').Store,
   CommentStore.findByTrack = function(trackId){
     return _tracks[trackId];
   }
+  var deleteComment = function(comment){
+    delete _comments[comment.id];
+    delete _tracks[comment.track_id][comment];
+  }
 
   CommentStore.__onDispatch = function (payload) {
     switch (payload.actionType) {
@@ -55,6 +59,10 @@ var Store = require('flux/utils').Store,
         break;
       case CommentConstants.COMMENT_RECEIVED:
         resetComment(payload.comment);
+        CommentStore.__emitChange();
+        break;
+      case CommentConstants.COMMENT_DELETED:
+        deleteComment(payload.comment);
         CommentStore.__emitChange();
         break;
     }

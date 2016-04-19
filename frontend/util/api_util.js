@@ -20,7 +20,7 @@ var ApiUtil = {
       method: "DELETE",
       url: "api/follows/" + id,
       success: function(follow){
-        ApiActions.receiveSingleFollow(follow);
+        ApiActions.deleteSingleFollow(follow);
       }
     });
   },
@@ -53,7 +53,8 @@ var ApiUtil = {
     $.ajax({
       method: "DELETE",
       url: "api/comments/" + id,
-      success: function(){
+      success: function(comment){
+        ApiActions.deleteComment(comment);
       }
     });
   },

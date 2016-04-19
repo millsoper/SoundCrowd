@@ -6,6 +6,7 @@ var CommentConstants = require('../constants/comment_constants');
 
 var ApiActions = {
   receiveSingleFollow: function(follow){
+    debugger;
     AppDispatcher.dispatch({
       actionType: FollowConstants.FOLLOW_RECEIVED,
       follow: follow
@@ -17,9 +18,21 @@ var ApiActions = {
       follows: follows
     });
   },
+  deleteSingleFollow: function(follow){
+    AppDispatcher.dispatch({
+      actionType: FollowConstants.FOLLOW_DELETED,
+      follow: follow
+    });
+  },
   receiveSingleComment: function(comment){
     AppDispatcher.dispatch({
       actionType: CommentConstants.COMMENT_RECEIVED,
+      comment: comment
+    })
+  },
+  deleteComment: function(comment){
+    AppDispatcher.dispatch({
+      actionType: CommentConstants.COMMENT_DELETED,
       comment: comment
     })
   },

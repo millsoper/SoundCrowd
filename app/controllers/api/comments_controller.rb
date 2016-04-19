@@ -6,11 +6,11 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    if comment
-      comment.destroy
+    @comment = Comment.find(params[:id])
+    if @comment
+      @comment.destroy
     end
-    render json:comment
+    render json: @comment
   end
 
   def index

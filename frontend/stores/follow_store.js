@@ -19,6 +19,11 @@ var Store = require('flux/utils').Store,
     _follows[key] = follow;
   };
 
+  var deleteFollow = function(follow) {
+    var key = follow.follower_id + '' + follow.followed_id;
+    delete _follows[key];
+  }
+
   FollowStore.all = function() {
     var follows = [];
     for (var key in _follows) {
@@ -40,6 +45,10 @@ var Store = require('flux/utils').Store,
         break;
       case FollowConstants.FOLLOW_RECEIVED:
         resetFollow(payload.follow);
+        FollowStore.__emitChange();
+        break;
+      case FollowConstants.FOLLOW_DELETED:
+        deleteFollow(payload.follow);
         FollowStore.__emitChange();
         break;
     }
