@@ -57,4 +57,4 @@ COMING SOON
 * [ ] Implement infinite scroll on stream
 
 [welcome]: ./docs/images/welcome.png
-[landingPage]: ./docs/images/landing_page.png
+[landingPage]: ./docs/images/landing.png
