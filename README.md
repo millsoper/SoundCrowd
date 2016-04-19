@@ -32,10 +32,10 @@ SoundCrowd allows users to:
 [schema]: ./docs/schema.md
 
 ###Welcome View
-![welcome][heroku]
+![welcome]
 
 ###Landing Page
-![landingPage][heroku]
+![landingPage]
 
 ###Technical Details
 COMING SOON
