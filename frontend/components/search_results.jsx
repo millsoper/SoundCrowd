@@ -2,7 +2,6 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 
 var SearchResults = React.createClass({
-
   render: function() {
     var results;
     var result_list = [];

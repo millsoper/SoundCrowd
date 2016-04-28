@@ -79,8 +79,8 @@ body {
 
 .masthead-signup {
   border: 1px solid white;
-
 }
+
 
 .masthead-logo {
   float: left;
@@ -234,10 +234,11 @@ body {
 .signedin-header {
   background: #333333;
   font-weight: lighter;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2000;
 }
 
 .signedin-header nav {
@@ -337,6 +338,10 @@ body {
   padding: 5px;
   margin-left: 23%;
 }
+.signedin_badge img {
+  width: 52px;
+  height: 28px;
+}
 
 .signedin_badge {
   z-index: 1;
@@ -352,10 +357,22 @@ body {
   background: linear-gradient(#238E68, #264F3D); /* Standard syntax */
 }
 
-.signedin_badge img {
-  width: 52px;
-  height: 28px;
+.nav-profile-pic {
+  z-index: 2;
+  display: block;
+  float:left;
+  height: 40px;
+  width: 40px;
+  margin-top: 3px;
+  border-radius: 100%;
+  overflow: hidden;
 }
+
+.nav-profile-pic img{
+  width: 100%;
+  z-index: 1;
+}
+
 
 
 .circle {
@@ -444,13 +461,6 @@ body {
   text-align: center;
 }
 
-.circle {
-  border-radius: 50%;
-  background-color: #238E68skyblue;
-  height: 25px;
-  width: 25px;
-  margin-top: 5px;
-}
 
 .home-nav {
   float: left;
@@ -491,7 +501,7 @@ body {
   border-radius: 3px;
   padding: 5px;
   float: left;
-  color: #222;
+  color: black;
   position: relative;
 }
 
@@ -540,6 +550,7 @@ html {
 .home-body {
   background: white;
   padding: 0 20px;
+  position: relative;
 }
 
 .home-body h4 {
@@ -1208,8 +1219,8 @@ html {
   max-width: 140px;
   position: absolute;
   display: block;
-  left: 110px;
-  top: 550px;
+  left: 20px;
+  top: 200px;
 }
 
 .track-show-body span{
@@ -1334,7 +1345,7 @@ html {
 .result_dropdown {
   position: absolute;
   top: 50px;
-  left: 320px;
+  left: 450px;
   width: 310px;
 }
 
@@ -1355,4 +1366,34 @@ html {
 
 .result_dropdown li:hover {
   background-color: #ddd;
+}
+
+.masthead-beru {
+  padding: 5px 15px;
+  margin-left: 15px;
+  border: 1px solid white;
+}
+
+a {
+cursor: pointer;
+}
+
+.signedin-nav .searchdiv input:hover {
+  color: black;
+}
+
+.track-image {
+  cursor: pointer;
+}
+
+.index-title {
+  cursor: pointer;
+}
+
+.stream-item img {
+  cursor: pointer;
+}
+
+.index-user {
+  cursor: pointer;
 }

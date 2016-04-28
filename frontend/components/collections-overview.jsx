@@ -10,7 +10,6 @@ var CollectionsOverview = React.createClass({
     return (
       <section>
         <CollectionsRecordings/>
-        <CollectionsPlaylists/>
         <CollectionsFollowing/>
       </section>
     );

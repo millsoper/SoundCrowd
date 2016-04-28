@@ -2,9 +2,13 @@ var React = require('react'),
     Modal = require('react-modal'),
     SessionForm = require('./session_form.jsx'),
     PropTypes = React.PropTypes,
+    ApiUtil = require('../util/api_util'),
     EntryIndex = require('./entry_index.jsx');
 
 var EntryPage = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
   getInitialState: function () {
     return { modalIsOpen: false, formtype: "login" };
   },
@@ -15,6 +19,15 @@ var EntryPage = React.createClass({
   openLogInModal: function () {
     this.setState({modalIsOpen:true});
     this.setState({formtype: "login"});
+  },
+  guestSignIn: function(){
+    debugger;
+      var router = this.context.router;
+      var loginInfo = { name: "Aunt Beru", password: "password"};
+
+      ApiUtil.login(loginInfo, function() {
+        router.push("/");
+      });
   },
   closeModal: function () {
     this.setState({modalIsOpen: false});
@@ -41,6 +54,7 @@ var EntryPage = React.createClass({
             </div>
             <ul>
               <li><a onClick={this.openLogInModal}>Login</a></li>
+              <li><a className="masthead-beru" onClick={this.guestSignIn}>Sign in as Aunt Beru</a></li>
               <li><a className="masthead-signup" onClick={this.openSignUpModal}>Create Account</a></li>
             </ul>
             <Modal

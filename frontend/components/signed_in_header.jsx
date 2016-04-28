@@ -1,6 +1,7 @@
 var React = require('react'),
     SessionStore = require('../stores/session_store.js'),
     SearchResultStore = require('../stores/search_result_store'),
+    UserStore = require('../stores/user_store'),
     SearchResults = require('./search_results'),
     ApiUtil = require('../util/api_util.js');
 
@@ -13,6 +14,7 @@ var React = require('react'),
       },
       componentDidMount: function() {
         this.resultListener = SearchResultStore.addListener(this.handleResultChange);
+        this.userListener = UserStore.addListener(this.handleUserChange);
         document.addEventListener("click", this.exitSearch);
       },
       exitSearch: function () {
@@ -22,8 +24,14 @@ var React = require('react'),
       handleResultChange: function () {
         this.setState({ results: SearchResultStore.all()})
       },
+      handleUserChange: function () {
+        var current_user = SessionStore.currentUser().id;
+        var user = UserStore.find(current_user);
+        this.setState({currentUser: user});
+      },
       componentWillUnmount: function() {
         this.resultListener.remove();
+        this.userListener.remove();
         document.removeEventListener("click", this.exitSearch);
       },
       generateStreamButton: function() {
@@ -77,8 +85,8 @@ var React = require('react'),
         if (this.state.results) {
           searchResults = this.state.results
         }
-        if (SessionStore.currentUser().image){
-          image = SessionStore.currentUser().image;
+        if (this.state.currentUser){
+          image = this.state.currentUser.image;
         }
         var url = "#/users/" + SessionStore.currentUser().id;
         return (
@@ -105,7 +113,7 @@ var React = require('react'),
                     <img src="search-icon.png"/>
                   </li>
                   <li className="upload"><a href="#new">Upload</a></li>
-                  <div className="signedin_badge circle"></div>
+                  <a href={url} className="nav-profile-pic circle"><img src={image}></img></a>
                     <li className="username"><a href= {url} className="nav-username">{this.props.user.username}</a></li>
                     <li><button onClick={this.clickHandler}>Logout</button></li>
                 </ul>

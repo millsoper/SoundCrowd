@@ -60,10 +60,6 @@ var CollectionsIndex = React.createClass({
     this.setState({selected: "recordings"});
     this.context.router.push("collections/recordings");
   },
-  handleNavPlaylistsClick: function () {
-    this.setState({selected: "playlists"});
-    this.context.router.push("collections/playlists");
-  },
   generateFollowingButton: function () {
     var button;
     if (this.state.selected == "following"){
@@ -91,15 +87,7 @@ var CollectionsIndex = React.createClass({
     }
     return button;
   },
-  generatePlaylistsButton: function () {
-    var button;
-    if (this.state.selected == "playlists"){
-      button = <li className="collections-selected"><a onClick ={this.handleNavPlaylistsClick}>Playlists</a></li>;
-    } else {
-      button = <li><a onClick ={this.handleNavPlaylistsClick}>Playlists</a></li>;
-    }
-    return button;
-  },
+
   render: function(){
     var handleItemClick = this.handleItemClick;
     var content;
@@ -115,10 +103,6 @@ var CollectionsIndex = React.createClass({
         content = <CollectionsRecordings
                     clickfunction = {this.handleItemClick}
                     ownRecordings = {this.state.own_recordings}/>;
-        break;
-      case "playlists":
-        content = <CollectionsPlaylists
-                    clickfunction = {this.handleItemClick}/>;
         break;
       case "following":
         content = <CollectionsFollowing
@@ -138,7 +122,6 @@ var CollectionsIndex = React.createClass({
       <section className="content collection-nav" id="collections-overview">
         <ul className = "collection-nav-list">
           {this.generateFollowingButton()}
-          {this.generatePlaylistsButton()}
           {this.generateRecordingsButton()}
           {this.generateOverviewButton()}
         </ul>
