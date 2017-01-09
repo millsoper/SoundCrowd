@@ -48,6 +48,7 @@ COMING SOON
 * Allow users to "like" recordings and keeps track of how many likes each recording has
 
 ###To-Do:
+* [ ] Update AWS/Paperclip code to reflect recent changes
 * [ ] Implement search
 * [ ] Fix the comment delete render (before refresh)
 * [ ] Fix the follow/unfollow render (before refresh)
