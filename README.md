@@ -31,10 +31,10 @@ SoundCrowd allows users to:
 [api-endpoints]: ./docs/api-endpoints.md
 [schema]: ./docs/schema.md
 
-###Welcome View
+### Welcome View
 ![welcome]
 
-###Landing Page
+### Landing Page
 ![landingPage]
 
 ###Technical Details
